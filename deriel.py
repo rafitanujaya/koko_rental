@@ -1,6 +1,5 @@
 #  deriel
 import os
-from abi import *
 def menu_login():
     print('<<<   login  >>>')
     print('----------------')
@@ -22,9 +21,12 @@ def menu_login():
         status = int(input('Pilihan anda: '))
     return status
 
-if __name__ == "__main__":
-    posisi = menu_login()
-    while(posisi != 0):
-        match posisi:
-            case '1':
-                seq_menu_utama()
+def menu_admin()
+
+posisi = menu_login()
+while(posisi != 0):
+    match posisi:
+        case '1':
+
+        case '2':
+
