@@ -1,9 +1,14 @@
 #PLACEHOLDER LIST NAME. USE FOR DEBUG ONLY!
 int_jumlah_maks = 30
-array_mobil =  ['/'] * int_jumlah_maks
-array_index =  ['/'] * int_jumlah_maks
+array_brand =  ['/'] * int_jumlah_maks
+array_model = ['/'] * int_jumlah_maks
 array_harga = [0] * int_jumlah_maks
-INDEX =  ['/'] * int_jumlah_maks
+array_platnomor =  ['/'] * int_jumlah_maks
+array_index =  [0] * int_jumlah_maks
+array_supir = ['/'] * int_jumlah_maks
+array_supir_nomor = [0] * int_jumlah_maks
+
+
 import os
 def fun_bersihkan_layar():
     #ini untuk bersihkan layar
