@@ -1,19 +1,16 @@
 #PLACEHOLDER LIST NAME. USE FOR DEBUG ONLY!
 int_jumlah_maks = 30
-
 array_mobil =  ['/'] * int_jumlah_maks
 array_index =  ['/'] * int_jumlah_maks
-NA = [0] * int_jumlah_maks
+array_harga = [0] * int_jumlah_maks
 INDEX =  ['/'] * int_jumlah_maks
-
-
 import os
 def fun_bersihkan_layar():
     #ini untuk bersihkan layar
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def seq_menu_utama():
-    while True:
+def seq_menu_utama(choice):
+    while choice > 0 and choice < 4:
         #placeholder untuk main menu
         fun_bersihkan_layar()
         print("Menu utama:")
@@ -73,4 +70,5 @@ def seq_cari_kendaraan():
 
 
 #DEBUG PANGGIL FUNGSI
-seq_menu_utama()
+if __name__ == "__main__":
+    seq_menu_utama(99)
