@@ -120,5 +120,7 @@ if is_login:
             procedure_tambah_supir(maks_supir, array_nama_supir, array_nomor_supir)
         case 2 :
             print('Hapus Elemen Array')
+            os.system('pause')
+            os.system('cls')
 else :
     print('Maaf, Login anda gagal')
