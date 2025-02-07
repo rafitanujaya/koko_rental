@@ -62,7 +62,31 @@ def prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir,
     else:
         print('data rental sudah pernuh')
         return banyak_data
-        
+    
+def prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_penyisipan):
+    posisi_penyisipan -= 1
+    if(banyak_data < MAKSBARIS):
+        if(posisi_penyisipan < banyak_data) and (posisi_penyisipan >= 0):
+            for i in range(banyak_data, 0, -1):
+                plat_nomor[i+1]  = plat_nomor[i]
+                model[i+1]       = model[i] 
+                brand[i+1]       = brand[i]
+                harga_sewa[i+1]  = harga_sewa[i]
+                supir[i+1]       = supir[i] 
+                nomor_supir[i+1] = nomor_supir[i]
+            
+            plat_nomor[posisi_penyisipan]  = input(f'nomor plat ke-{posisi_penyisipan + 1}        : ')
+            model[posisi_penyisipan]       = input(f'nomor model ke-{posisi_penyisipan + 1}       : ')
+            brand[posisi_penyisipan]       = input(f'nomor brand ke-{posisi_penyisipan + 1}       : ')
+            harga_sewa[posisi_penyisipan]  = int(input(f'nomor harga sewa ke-{posisi_penyisipan + 1}  : '))
+            supir[posisi_penyisipan]       = input(f'nomor supir ke-{posisi_penyisipan + 1}       : ')
+            nomor_supir[posisi_penyisipan] = int(input(f'nomor nomor supir ke-{posisi_penyisipan + 1} : '))
+            return banyak_data + 1
+        else:
+            print('posisi tidak valid')
+            return banyak_data
+    else:
+        print('data penuh')
         
         
 # FUNCTION
@@ -258,7 +282,8 @@ def main():
                                     case 3:
                                         banyak_data = prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
                                     case 4:
-                                        print(f'{plat_nomor}-{model}')
+                                        posisi_penyisipan = int(input('masukkan posisi data yang mau diisi : '))
+                                        banyak_data = prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_penyisipan)
                                     case 5:
                                         print(" menu crud 1")
                                     case 6:
