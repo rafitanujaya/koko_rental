@@ -10,6 +10,16 @@ import os
 
 # PROSEDURE
 
+def DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
+    brand = ['1Toyota', '2Honda', '3Suzuki', '4Daihatsu', '5Nissan', '6Mitsubishi', '7Mazda', '8Kia', '9Hyundai', '10Ford']
+    model = ['Avanza', 'Civic', 'Ertiga', 'Xenia', 'Livina', 'Pajero', 'CX-5', 'Seltos', 'Elantra', 'Focus']
+    harga_sewa = [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000]
+    plat_nomor = ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST']
+    supir = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow']
+    phone_supir = ['081234567890', '082345678901', '083456789012', '084567890123', '085678901234', '086789012345', '087890123456', '088901234567', '089012345678', '090123456789']
+    print(f'dummy success = {brand}-{model}-{harga_sewa}-{plat_nomor}-{supir}-{phone_supir}')
+    return 10
+
 def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
     for i in range(banyak_data):
         tumbal = input(f'nomor plat ke-{i+1}        : ')
@@ -87,6 +97,33 @@ def prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir,
             return banyak_data
     else:
         print('data penuh')
+        
+def prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus):
+    posisi_hapus -= 1
+    if(banyak_data > 0):
+        if(posisi_hapus >= 0) and (posisi_hapus <= banyak_data):
+            for i in range(posisi_hapus, banyak_data):
+                plat_nomor[i]  = plat_nomor[i+1]
+                model[i]       = model[i+1] 
+                brand[i]       = brand[i+1]
+                harga_sewa[i]  = harga_sewa[i+1]
+                supir[i]       = supir[i+1] 
+                nomor_supir[i] = nomor_supir[i+1]
+                
+            plat_nomor[banyak_data]  = ''
+            model[banyak_data]       = ''
+            brand[banyak_data]       = ''
+            harga_sewa[banyak_data]  = 0
+            supir[banyak_data]       = ''
+            nomor_supir[banyak_data] = 0
+            return banyak_data - 1
+        else:
+            print('posisi tidak valid')
+            return banyak_data
+    else:
+        print('data kosong')
+        return banyak_data
+
         
         
 # FUNCTION
@@ -285,11 +322,14 @@ def main():
                                         posisi_penyisipan = int(input('masukkan posisi data yang mau diisi : '))
                                         banyak_data = prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_penyisipan)
                                     case 5:
-                                        print(" menu crud 1")
+                                         posisi_hapus = int(input('masukkan posisi data yang mau dihapus : '))
+                                         banyak_data = prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus)
                                     case 6:
                                         print(" menu crud 1")
                                     case 7:
                                         print(" menu crud 1")
+                                    case 77:
+                                        banyak_data = DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
                                 input()
                                 menu_crud = fungsi_tampil_menu_crud_admin(menu_crud)
                         case 2:
