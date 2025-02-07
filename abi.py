@@ -149,7 +149,6 @@ def subrutin_menu_utama(menu_pilihan, int_jumlah_masuk):
                 print('|                            /_______\\ |')
                 print('#--------------------------------------#')
 
-
 def subrutin_menu_direksi(menu_pilihan,int_jumlah_masuk):
     while menu_pilihan != 0:
         fungsi_bersihkan_layar()
