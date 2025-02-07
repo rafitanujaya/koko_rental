@@ -28,15 +28,15 @@ def seq_menu_utama(choice):
         choice = int(input("Pilihan: "))
         #pilih menu
         match choice:
-            case '1':
+            case 1:
                 seq_tambah_kendaraan()
-            case '2':
+            case 2:
                 seq_hapus_kendaraan()
-            case '3':
+            case 3:
                 seq_urutkan_kendaraan()
-            case '4':
+            case 4:
                 seq_cari_kendaraan()
-            case '0':
+            case 0:
                 break
             case _:
                 #validasi
@@ -50,6 +50,7 @@ def seq_tambah_kendaraan(int_jumlah_maks=30,):
     int_jumlah_input = int(input("Masukkan jumlah kendaraan: "))
     if int_jumlah_input > int_jumlah_maks:
         print("Jumlah melebihi batas maksimum, Harap masukkan ulang!")
+
     else:
         print("Kendaraan berhasil ditambahkan.")
 
