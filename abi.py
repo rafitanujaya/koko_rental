@@ -1,3 +1,12 @@
+#PLACEHOLDER LIST NAME. USE FOR DEBUG ONLY!
+int_jumlah_maks = 30
+
+array_mobil =  ['/'] * int_jumlah_maks
+array_index =  ['/'] * int_jumlah_maks
+NA = [0] * int_jumlah_maks
+INDEX =  ['/'] * int_jumlah_maks
+
+
 import os
 def fun_bersihkan_layar():
     #ini untuk bersihkan layar
@@ -31,10 +40,16 @@ def seq_menu_utama():
                 #validasi
                 print("Pilihan tidak valid. Silakan coba lagi.")
 
-#placeholder tambah kendaraan
-def seq_tambah_kendaraan():
+#placeholder tambah kendaraan /CURRENT WORK
+def seq_tambah_kendaraan(int_jumlah_maks=30,):
     fun_bersihkan_layar()
     print("Tambah Kendaraan")
+    int_jumlah_input = int(input("Masukkan jumlah kendaraan: "))
+    if int_jumlah_input > int_jumlah_maks:
+        print("Jumlah melebihi batas maksimum, Harap masukkan ulang!")
+    else:
+        print("Kendaraan berhasil ditambahkan.")
+
     input("Press Enter to return to the main menu...")
 
 
