@@ -8,40 +8,45 @@ int_jumlah_maks = 10
 array_indeks = [0] * int_jumlah_maks
 array_brand = ['/'] * int_jumlah_maks
 array_model = ['/'] * int_jumlah_maks
-array_harga = [0] * int_jumlah_maks
-array_platnomor = ['/'] * int_jumlah_maks
+array_price_rental = [0] * int_jumlah_maks
+array_plat_nomor = ['/'] * int_jumlah_maks
 array_supir = ['/'] * int_jumlah_maks
-array_supir_nomor = [0] * int_jumlah_maks
+array_phone_supir = [0] * int_jumlah_maks
 
 #FOR DEBUGGING PURPOSE
 def DEBUG_DUMMY_DATA():
-    global array_indeks, array_brand, array_model, array_harga, array_platnomor, array_supir, array_supir_nomor
+    global array_indeks, array_brand, array_model, array_price_rental, array_plat_nomor, array_supir, array_phone_supir
 
     array_indeks = list(range(1, 11))  # Indeks dari 1 sampai 10
     array_brand = ['1Toyota', '2Honda', '3Suzuki', '4Daihatsu', '5Nissan', '6Mitsubishi', '7Mazda', '8Kia', '9Hyundai', '10Ford']
     array_model = ['Avanza', 'Civic', 'Ertiga', 'Xenia', 'Livina', 'Pajero', 'CX-5', 'Seltos', 'Elantra', 'Focus']
-    array_harga = [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000]
-    array_platnomor = ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST']
+    array_price_rental = [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000]
+    array_plat_nomor = ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST']
     array_supir = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow']
-    array_supir_nomor = ['081234567890', '082345678901', '083456789012', '084567890123', '085678901234', '086789012345', '087890123456', '088901234567', '089012345678', '090123456789']
+    array_phone_supir = ['081234567890', '082345678901', '083456789012', '084567890123', '085678901234', '086789012345', '087890123456', '088901234567', '089012345678', '090123456789']
     return 10
+
+
+
+
+
+
+
+
 # FUNGSI
-def fun_bersihkan_layar():
+def fungsi_bersihkan_layar():
     # ini untuk bersihkan layar
     os.system('cls' if os.name == 'nt' else 'clear')
 
-
-def fun_tambah_array(indeks, teks, array_nama):
+def fungsi_tambah_array(indeks, teks, array_nama):
     if teks == 'indeks':
         array_nama[indeks] = indeks + 1  # Menyimpan indeks yang benar (indeks + 1)
     else:
         massukkan_pengguna = str(input('Masukkan ' + teks + ' : '))
         array_nama[indeks] = massukkan_pengguna
 
-
-
-def fun_tampil_kendaraan(int_jumlah_masuk, array_indeks, array_brand, array_model, array_harga, array_platnomor, array_supir, array_supir_nomor):
-    fun_bersihkan_layar()
+def fungsi_tampil_kendaraan(int_jumlah_masuk, array_indeks, array_brand, array_model, array_price_rental, array_plat_nomor, array_supir, array_phone_supir):
+    fungsi_bersihkan_layar()
     print('Tampilan data kendaraan:')
     print('------------------------')
 
@@ -52,19 +57,50 @@ def fun_tampil_kendaraan(int_jumlah_masuk, array_indeks, array_brand, array_mode
             print(f'indeks: {array_indeks[i]}')
             print(f'Brand: {array_brand[i]}')
             print(f'Model: {array_model[i]}')
-            print(f'Harga: {array_harga[i]}')
-            print(f'Plat Nomor: {array_platnomor[i]}')
+            print(f'Harga: {array_price_rental[i]}')
+            print(f'Plat Nomor: {array_plat_nomor[i]}')
             print(f'Supir: {array_supir[i]}')
-            print(f'Supir Nomor: {array_supir_nomor[i]}')
+            print(f'Supir Nomor: {array_phone_supir[i]}')
             print('------------------------')
 
     input('Tekan Enter untuk Melanjutkan')
 
+
+
+
 # PROSEDURE
 
-def seq_menu_utama(choice, int_jumlah_masuk):
+def subrutin_menu_login():
+    print('=== Selamat Datang di Rental KOKO ===')
+    print('1. Login sebagai Admin')
+    print('2. Login sebagai User')
+
+    pilihan = input('Pilih jenis login (1/2): ')
+
+    if pilihan == '1':
+        password_admin = 'admin123'  # Password untuk admin
+        password_input = input('Masukkan password admin: ')
+
+        if password_input == password_admin:
+            print('Login sebagai Admin berhasil!')
+            # Tambahkan logika untuk admin di sini
+        else:
+            print('Password salah! Akses ditolak.')
+
+    elif pilihan == '2':
+        print('Login sebagai User berhasil!')
+        # Tambahkan logika untuk user di sini
+
+    else:
+        print('Pilihan tidak valid. Silakan coba lagi.')
+
+
+# Memanggil fungsi untuk menjalankan tampilan login
+subrutin_menu_login()
+
+def subrutin_menu_utama(choice, int_jumlah_masuk):
     while choice != 0:
-        fun_bersihkan_layar()
+        fungsi_bersihkan_layar()
         print('Menu utama:')
         print('1. Tambah Kendaraan')
         print('2. Hapus Kendaraan')
@@ -76,15 +112,15 @@ def seq_menu_utama(choice, int_jumlah_masuk):
         # pilih menu
         match choice:
             case 1:
-                int_jumlah_masuk = seq_tambah_kendaraan(int_jumlah_maks, int_jumlah_masuk)  # Update indeks terakhir
+                int_jumlah_masuk = subrutin_tambah_kendaraan(int_jumlah_maks, int_jumlah_masuk)  # Update indeks terakhir
             case 2:
-                seq_hapus_kendaraan()
+                subrutin_hapus_kendaraan()
             case 3:
-                seq_urutkan_kendaraan()
+                subrutin_urutkan_kendaraan()
             case 4:
-                seq_cari_kendaraan()
+                subrutin_cari_kendaraan()
             case 5:
-                fun_tampil_kendaraan(int_jumlah_masuk, array_indeks, array_brand, array_model, array_harga, array_platnomor, array_supir, array_supir_nomor)
+                fungsi_tampil_kendaraan(int_jumlah_masuk, array_indeks, array_brand, array_model, array_price_rental, array_plat_nomor, array_supir, array_phone_supir)
             case 99:
                 int_jumlah_masuk = DEBUG_DUMMY_DATA()  # THIS IS DEBUG!
             case 0:
@@ -94,8 +130,8 @@ def seq_menu_utama(choice, int_jumlah_masuk):
                 input('Tekan Enter untuk Melanjutkan')
 
 # sequential tambah kendaraan pada array
-def seq_tambah_kendaraan(int_jumlah_maks, int_jumlah_masuk):
-    fun_bersihkan_layar()
+def subrutin_tambah_kendaraan(int_jumlah_maks, int_jumlah_masuk):
+    fungsi_bersihkan_layar()
     print('Tambah Kendaraan')
 
     # Loop validasi
@@ -109,40 +145,40 @@ def seq_tambah_kendaraan(int_jumlah_maks, int_jumlah_masuk):
         jumlah_kendaraan = int(input('Masukkan jumlah kendaraan: '))
 
     for i in range(jumlah_kendaraan):  # Mulai dari 0
-        fun_bersihkan_layar()
+        fungsi_bersihkan_layar()
         print(f'Masukkan data kendaraan ke-{i+1}')  # Menampilkan nomor urut yang benar
         print('------------------------')
-        fun_tambah_array(int_jumlah_masuk + i, 'indeks', array_indeks)
-        fun_tambah_array(int_jumlah_masuk + i, 'brand', array_brand)
-        fun_tambah_array(int_jumlah_masuk + i, 'model', array_model)
-        fun_tambah_array(int_jumlah_masuk + i, 'harga', array_harga)
-        fun_tambah_array(int_jumlah_masuk + i, 'platnomor', array_platnomor)
-        fun_tambah_array(int_jumlah_masuk + i, 'supir', array_supir)
-        fun_tambah_array(int_jumlah_masuk + i, 'supir_nomor', array_supir_nomor)
+        fungsi_tambah_array(int_jumlah_masuk + i, 'indeks', array_indeks)
+        fungsi_tambah_array(int_jumlah_masuk + i, 'brand', array_brand)
+        fungsi_tambah_array(int_jumlah_masuk + i, 'model', array_model)
+        fungsi_tambah_array(int_jumlah_masuk + i, 'harga', array_price_rental)
+        fungsi_tambah_array(int_jumlah_masuk + i, 'platnomor', array_plat_nomor)
+        fungsi_tambah_array(int_jumlah_masuk + i, 'supir', array_supir)
+        fungsi_tambah_array(int_jumlah_masuk + i, 'supir_nomor', array_phone_supir)
 
     return int_jumlah_masuk + jumlah_kendaraan
 
 # sequential hapus kendaraan
-def seq_hapus_kendaraan():
-    fun_bersihkan_layar()
+def subrutin_hapus_kendaraan():
+    fungsi_bersihkan_layar()
     print('Hapus Kendaraan')
     input('Tekan Enter untuk Melanjutkan')
 
 
 # placeholder urutkan kendaraan
-def seq_urutkan_kendaraan():
-    fun_bersihkan_layar()
+def subrutin_urutkan_kendaraan():
+    fungsi_bersihkan_layar()
     print('Urutkan Kendaraan')
     input('Tekan Enter untuk Melanjutkan')
 
 
 # placeholder cari kendaraan
-def seq_cari_kendaraan():
-    fun_bersihkan_layar()
+def subrutin_cari_kendaraan():
+    fungsi_bersihkan_layar()
     print('Cari Kendaraan')
     input('Tekan Enter untuk Melanjutkan')
 
 
 # DEBUG PANGGIL FUNGSI
 if __name__ == '__main__':
-    seq_menu_utama(1, int_jumlah_masuk)
+    subrutin_menu_utama(1, int_jumlah_masuk)
