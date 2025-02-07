@@ -60,9 +60,8 @@ def function_validasi_menu_ascending(pilihan_menu_ascending) :
 
 #subrutin bubble sort secara ascending tergantung brand
 def procedure_pengurutan_brand_asceding(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    maks_array -= 1
-    for i in range(maks_array - 1) :
-        j = maks_array
+    for i in range((maks_array-1) - 1) :
+        j = maks_array - 1
         while j >= i + 1 :
             if array_brand_mobil[j] < array_brand_mobil[j-1] :
                 # model
@@ -89,18 +88,12 @@ def procedure_pengurutan_brand_asceding(maks_array, array_plat_mobil, array_bran
                 temp = array_nama_supir[j]
                 array_nama_supir[j] = array_nama_supir[j - 1]
                 array_nama_supir[j - 1] = temp
-                print(f'{array_brand_mobil}')
-                print(f'{array_model_mobil}')
-                print(f'{array_plat_mobil}')
-                print(f'{array_harga_mobil}')
-                print(f'{array_nama_supir}')
-                print(f'{array_nomor_supir}')
+            j -= 1
 
 #subrutin bubble sort secara ascending tergantung model
 def procedure_pengurutan_model_ascending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    maks_array -= 1
-    for i in range(maks_array - 1) :
-        j = maks_array
+    for i in range((maks_array - 1) - 1) :
+        j = maks_array - 1
         while j >= i + 1 :
             if array_model_mobil[j] < array_model_mobil[j-1] :
                 #model
@@ -127,18 +120,13 @@ def procedure_pengurutan_model_ascending(maks_array, array_plat_mobil, array_bra
                 temp = array_nama_supir[j]
                 array_nama_supir[j] = array_nama_supir[j-1]
                 array_nama_supir[j-1] = temp
-                print(f'{array_brand_mobil}')
-                print(f'{array_model_mobil}')
-                print(f'{array_plat_mobil}')
-                print(f'{array_harga_mobil}')
-                print(f'{array_nama_supir}')
-                print(f'{array_nomor_supir}')
+            j -= 1
+
 
 #subrutin bubble sort secara ascending tergantung plat
 def procedure_pengurutan_plat_ascending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    maks_array -= 1
-    for i in range(maks_array - 1) :
-        j = maks_array
+    for i in range((maks_array - 1) - 1) :
+        j = maks_array - 1
         while j >= i + 1 :
             if array_plat_mobil[j] < array_plat_mobil[j-1] :
                 #model
@@ -165,18 +153,13 @@ def procedure_pengurutan_plat_ascending(maks_array, array_plat_mobil, array_bran
                 temp = array_nama_supir[j]
                 array_nama_supir[j] = array_nama_supir[j-1]
                 array_nama_supir[j-1] = temp
-                print(f'{array_brand_mobil}')
-                print(f'{array_model_mobil}')
-                print(f'{array_plat_mobil}')
-                print(f'{array_harga_mobil}')
-                print(f'{array_nama_supir}')
-                print(f'{array_nomor_supir}')
+            j -= 1
+
 
 #subrutin bubble sort secara ascending tergantung harga
 def procedure_pengurutan_harga_ascending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    maks_array -= 1
-    for i in range(maks_array - 1) :
-        j = maks_array
+    for i in range((maks_array - 1) - 1) :
+        j = maks_array - 1
         while j >= i + 1 :
             if array_harga_mobil[j] < array_harga_mobil[j-1] :
                 #model
@@ -203,18 +186,12 @@ def procedure_pengurutan_harga_ascending(maks_array, array_plat_mobil, array_bra
                 temp = array_nama_supir[j]
                 array_nama_supir[j] = array_nama_supir[j-1]
                 array_nama_supir[j-1] = temp
-                print(f'{array_brand_mobil}')
-                print(f'{array_model_mobil}')
-                print(f'{array_plat_mobil}')
-                print(f'{array_harga_mobil}')
-                print(f'{array_nama_supir}')
-                print(f'{array_nomor_supir}')
+                j -= 1
 
 #subrutin bubble sort secara ascending tergantung nama supir
 def procedure_pengurutan_nama_supir_ascending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    maks_array -= 1
-    for i in range(maks_array - 1) :
-        j = maks_array
+    for i in range((maks_array - 1) - 1) :
+        j = maks_array - 1
         while j >= i + 1 :
             if array_nama_supir[j] < array_nama_supir[j-1] :
                 #model
@@ -241,18 +218,12 @@ def procedure_pengurutan_nama_supir_ascending(maks_array, array_plat_mobil, arra
                 temp = array_nama_supir[j]
                 array_nama_supir[j] = array_nama_supir[j-1]
                 array_nama_supir[j-1] = temp
-                print(f'{array_brand_mobil}')
-                print(f'{array_model_mobil}')
-                print(f'{array_plat_mobil}')
-                print(f'{array_harga_mobil}')
-                print(f'{array_nama_supir}')
-                print(f'{array_nomor_supir}')
+                j -= 1
 
 #subrutin bubble sort secara ascending tergantung nomor supir
 def procedure_pengurutan_nomor_supir_ascending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    maks_array -= 1
-    for i in range(maks_array - 1) :
-        j = maks_array
+    for i in range((maks_array - 1) - 1) :
+        j = maks_array - 1
         while j >= i + 1 :
             if array_nomor_supir[j] < array_nomor_supir[j-1] :
                 #model
@@ -279,12 +250,8 @@ def procedure_pengurutan_nomor_supir_ascending(maks_array, array_plat_mobil, arr
                 temp = array_nama_supir[j]
                 array_nama_supir[j] = array_nama_supir[j-1]
                 array_nama_supir[j-1] = temp
-                print(f'{array_brand_mobil}')
-                print(f'{array_model_mobil}')
-                print(f'{array_plat_mobil}')
-                print(f'{array_harga_mobil}')
-                print(f'{array_nama_supir}')
-                print(f'{array_nomor_supir}')
+            j -= 1
+
 #program utama
 os.system('cls')
 password = str(input('Password: '))
@@ -304,6 +271,7 @@ if login:
     print('3. Pengurutan Array')
     print('4. Pencarian Array')
     print('5. Penghancuran Array')
+    print('6. Tampilkan Array')
     print('0. Keluar Program')
     menu_pilihan = int(input('Masukkan Menu Pilihan : '))
     while menu_pilihan != 0:
@@ -355,6 +323,13 @@ if login:
                             case 6 :
                                 print('Pengurutan sesuai nomor supir')
                                 procedure_pengurutan_nomor_supir_ascending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
+            case 6 :
+                print(f'{array_brand_mobil}')
+                print(f'{array_model_mobil}')
+                print(f'{array_plat_mobil}')
+                print(f'{array_harga_mobil}')
+                print(f'{array_nama_supir}')
+                print(f'{array_nomor_supir}')
         print('Menu pilihan')
         print('1. Tambah Array')
         print('2. Hapus Elemen Array')
