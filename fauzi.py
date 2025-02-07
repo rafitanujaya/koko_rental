@@ -118,5 +118,7 @@ if is_login:
             array_nomor_supir = function_array_nomor_supir(maks_supir)
             procedure_tambah_mobil(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil)
             procedure_tambah_supir(maks_supir, array_nama_supir, array_nomor_supir)
+        case 2 :
+            print('Hapus Elemen Array')
 else :
     print('Maaf, Login anda gagal')
