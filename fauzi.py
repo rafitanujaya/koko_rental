@@ -22,30 +22,22 @@ def function_validasi_login(username, password) :
 
 #subrutin penciptaan array of list untuk plat mobil
 def function_penciptaan_array_plat_mobil(maks_array_mobil) :
-    array_plat_mobil = []
-    for i in range(maks_array_mobil) :
-        array_plat_mobil[i] = '/'
+    array_plat_mobil = ['/'] * maks_array_mobil
     return array_plat_mobil
 
 #subrutin penciptaan array of list untuk brand mobil
 def function_penciptaan_array_brand_mobil(maks_array_mobil) :
-    array_brand_mobil = []
-    for i in range(maks_array_mobil) :
-        array_brand_mobil[i] = '/'
+    array_brand_mobil = ['/'] * maks_array_mobil
     return array_brand_mobil
 
 #subrutin penciptaan array of list untuk model mobil
 def function_penciptaan_array_model_mobil(maks_array_mobil) :
-    array_model_mobil = []
-    for i in range(maks_array_mobil) :
-        array_model_mobil[i] = '/'
+    array_model_mobil = ['/'] * maks_array_mobil
     return array_model_mobil
 
 #subrutin penciptaan array of integer untuk harga mobil
 def function_penciptaan_array_harga_mobil(maks_array_mobil) :
-    array_harga_mobil = []
-    for i in range(maks_array_mobil) :
-        array_harga_mobil[i] = 0
+    array_harga_mobil = [0] * maks_array_mobil
     return array_harga_mobil
 
 #subrutin validasi jumlah mobil yang diinginkan
@@ -56,14 +48,14 @@ def function_maks_array(maks_array) :
     return maks_array
 
 #subrutin validasi tambah supir
-def function_validasi_supir(tambah_supir) :
-    while tambah_supir != 'yes' and tambah_supir != 'no' :
-        print('Jawab yes atau no saja')
-        tambah_supir = str(input('Tambah Supir? [yes/no] ')).lower()
-    if tambah_supir == 'yes' :
-        return True
-    else :
-        return False
+# def function_validasi_supir(tambah_supir) :
+#     while tambah_supir != 'yes' and tambah_supir != 'no' :
+#         print('Jawab yes atau no saja')
+#         tambah_supir = str(input('Tambah Supir? [yes/no] ')).lower()
+#     if tambah_supir == 'yes' :
+#         return True
+#     else :
+#         return False
     
 #subrutin validasi jumlah supir
 def function_maks_supir(maks_supir) :
@@ -74,16 +66,12 @@ def function_maks_supir(maks_supir) :
 
 #subrutin penciptaan array of list nama supir
 def function_array_nama_supir(maks_supir) :
-    array_nama_supir = []
-    for i in range(maks_supir) :
-        array_nama_supir[i] = '/'
+    array_nama_supir = ['/'] * maks_supir
     return array_nama_supir
 
 #subrutin penciptaan array of list nomor telepon supir
 def function_array_nomor_supir(maks_supir) :
-    array_nomor_supir = []
-    for i in range(maks_supir) :
-        array_nomor_supir[i] = '/'
+    array_nomor_supir = ['/'] * maks_supir
     return array_nomor_supir
 
 #subrutin tambah seluruh array mobil
@@ -98,7 +86,7 @@ def procedure_tambah_mobil(maks_array, array_plat_mobil, array_brand_mobil, arra
 def procedure_tambah_supir(maks_supir, array_nama_supir, array_nomor_supir) :
     for i in range(maks_supir) :
         array_nama_supir[i] = str(input('Masukkan Nama Supir : '))
-        array_nomor_supir[i] = str(input('Masukkan Nama Supir : '))
+        array_nomor_supir[i] = str(input('Masukkan Nomor Supir : '))
 #program utama
 username = str(input('Username: '))
 password = str(input('Password: '))
@@ -124,14 +112,10 @@ if is_login:
             array_brand_mobil = function_penciptaan_array_brand_mobil(maks_array_mobil)
             array_model_mobil = function_penciptaan_array_model_mobil(maks_array_mobil)
             array_harga_mobil = function_penciptaan_array_harga_mobil(maks_array_mobil)
-            print('Mau Tambah Supir?')
-            tambah_supir = str(input('Tambah Supir? [yes/no] ')).lower()
-            supir = function_validasi_supir(tambah_supir)
-            if supir :
-                maks_supir = int(input('Masukkan Jumlah Supir : '))
-                maks_supir = function_maks_supir(maks_supir)
-                array_nama_supir = function_array_nama_supir(maks_supir)
-                array_nomor_supir = function_array_nomor_supir(maks_supir)
+            maks_supir = int(input('Masukkan Jumlah Supir : '))
+            maks_supir = function_maks_supir(maks_supir)
+            array_nama_supir = function_array_nama_supir(maks_supir)
+            array_nomor_supir = function_array_nomor_supir(maks_supir)
             procedure_tambah_mobil(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil)
             procedure_tambah_supir(maks_supir, array_nama_supir, array_nomor_supir)
 else :
