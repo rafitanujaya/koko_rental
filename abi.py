@@ -15,7 +15,7 @@ def fun_bersihkan_layar():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def seq_menu_utama(choice):
-    while choice > 0 and choice < 4:
+    while choice != 0:
         #placeholder untuk main menu
         fun_bersihkan_layar()
         print("Menu utama:")
@@ -25,7 +25,7 @@ def seq_menu_utama(choice):
         print("4. Cari Kendaraan")
         print("0. Keluar")
 
-        choice = input("Pilihan: ")
+        choice = int(input("Pilihan: "))
         #pilih menu
         match choice:
             case '1':
@@ -41,6 +41,7 @@ def seq_menu_utama(choice):
             case _:
                 #validasi
                 print("Pilihan tidak valid. Silakan coba lagi.")
+                input("Press Enter to return to the main menu...")
 
 #placeholder tambah kendaraan /CURRENT WORK
 def seq_tambah_kendaraan(int_jumlah_maks=30,):
@@ -76,4 +77,4 @@ def seq_cari_kendaraan():
 
 #DEBUG PANGGIL FUNGSI
 if __name__ == "__main__":
-    seq_menu_utama(99)
+    seq_menu_utama(1)
