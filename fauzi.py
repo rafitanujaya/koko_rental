@@ -5,23 +5,23 @@ import os
 def function_validasi_login(password) :
     #variabel constant untuk login dan counter
     PASSWORD = 'admin123'
-    counter = 0
+    percobaan = 0
     login = False
-    while (password != PASSWORD) and counter < 2:
+    while (password != PASSWORD) and percobaan < 2:
         print('Password atau Username salah!')
         os.system('pause')
         os.system('cls')
-        counter += 1
+        percobaan += 1
         password = input('Password: ')
     if password == PASSWORD:
         login = True
         return login
 
-#subrutin validasi jumlah mobil yang diinginkan
+#subrutin validasi jumlah unit mobil dan supir yang diinginkan
 def function_maks_array(maks_array) :
     while maks_array < 0 :
-        print('Maks Mobil Tidak Boleh Negatif')
-        maks_array = int(input('Masukkan Jumlah Mobil : '))
+        print('Maks Unit Tidak Boleh Negatif')
+        maks_array = int(input('Masukkan Jumlah Unit : '))
     return maks_array
 
 #subrutin validasi jumlah supir
@@ -30,18 +30,19 @@ def function_maks_supir(maks_supir) :
         print('Maks Supir Tidak Boleh Negatif')
         maks_supir = int(input('Masukkan Jumlah Supir : '))
     return maks_supir
-
-#subrutin tambah seluruh array mobil
-def procedure_tambah_mobil(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil) :
-    for i in range(maks_array) :
+#subrutin validasi banyak data yang ingin ditraversal
+def function_validasi_banyak_data(banyak_data, maks_array) :
+    while banyak_data < 0 or banyak_data > maks_array :
+        print('Banyak Tidak Boleh Negatif atau Tidak Boleh Melebihi Maks Array')
+        banyak_data = int(input('Masukkan Banyak Data Yang Ingin Diinput : '))
+    return banyak_data
+#subrutin traversal tambah seluruh array mobil
+def procedure_traversal_mobil_supir(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir) :
+    for i in range(banyak_data) :
         array_brand_mobil[i] = str(input('Masukkan brand Mobil : '))
         array_model_mobil[i] = str(input('Masukkan model Mobil : '))
-        array_harga_mobil[i] = int(input('Masukkan harga Mobil : '))
         array_plat_mobil[i] = str(input('Masukkan Plat Mobil : '))
-
-#subrutin tambah seluruh array supir
-def procedure_tambah_supir(maks_array, array_nama_supir, array_nomor_supir) :
-    for i in range(maks_array) :
+        array_harga_mobil[i] = int(input('Masukkan harga Mobil : '))
         array_nama_supir[i] = str(input('Masukkan Nama Supir : '))
         array_nomor_supir[i] = str(input('Masukkan Nomor Supir : '))
 
@@ -53,7 +54,7 @@ def function_validasi_menu_pengurutan(pilihan_menu_pengurutan) :
 
 #subrutin validasi menu pilihan pengurutan ascending
 def function_validasi_menu_bubble_sort(pilihan_menu_ascending) :
-    while pilihan_menu_ascending > 6 or pilihan_menu_ascending < 1:
+    while pilihan_menu_ascending > 7 or pilihan_menu_ascending < 1:
         print('Menu ascending tidak tersedia, pilih ulang')
         pilihan_menu_ascending = int(input('Masukkan Pilihan Menu Sorting : '))
     return pilihan_menu_ascending
@@ -155,7 +156,6 @@ def procedure_pengurutan_plat_ascending(maks_array, array_plat_mobil, array_bran
                 array_nama_supir[j-1] = temp
             j -= 1
 
-
 #subrutin bubble sort secara ascending tergantung harga
 def procedure_pengurutan_harga_ascending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
     for i in range((maks_array - 1) - 1) :
@@ -253,8 +253,8 @@ def procedure_pengurutan_nomor_supir_ascending(maks_array, array_plat_mobil, arr
             j -= 1
 #subrutin bubble sort secara descending tergantung brand
 def procedure_pengurutan_brand_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    for i in range((maks_array - 1) - 1) :
-        for j in range((maks_array - 1) - (i + 1)) :
+    for i in range((maks_array) - 1) :
+        for j in range((maks_array) - (i + 1)) :
             if array_brand_mobil[j] < array_brand_mobil[j+1] :
                 #brand
                 temp = array_brand_mobil[j]
@@ -283,8 +283,8 @@ def procedure_pengurutan_brand_descending(maks_array, array_plat_mobil, array_br
 
 #subrutin bubble sort secara descending tergantung model
 def procedure_pengurutan_model_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    for i in range((maks_array - 1) - 1) :
-        for j in range((maks_array - 1) - (i + 1)) :
+    for i in range((maks_array) - 1) :
+        for j in range((maks_array) - (i + 1)) :
             if array_model_mobil[j] < array_model_mobil[j+1] :
                 #brand
                 temp = array_brand_mobil[j]
@@ -313,8 +313,8 @@ def procedure_pengurutan_model_descending(maks_array, array_plat_mobil, array_br
 
 #subrutin bubble sort secara descending tergantung plat
 def procedure_pengurutan_plat_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    for i in range((maks_array - 1) - 1) :
-        for j in range((maks_array - 1) - (i + 1)) :
+    for i in range((maks_array) - 1) :
+        for j in range((maks_array) - (i + 1)) :
             if array_plat_mobil[j] < array_plat_mobil[j+1] :
                 #brand
                 temp = array_brand_mobil[j]
@@ -343,8 +343,8 @@ def procedure_pengurutan_plat_descending(maks_array, array_plat_mobil, array_bra
 
 #subrutin bubble sort secara descending tergantung harga
 def procedure_pengurutan_harga_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    for i in range((maks_array - 1) - 1) :
-        for j in range((maks_array - 1) - (i + 1)) :
+    for i in range((maks_array) - 1) :
+        for j in range((maks_array) - (i + 1)) :
             if array_harga_mobil[j] < array_harga_mobil[j+1] :
                 #brand
                 temp = array_brand_mobil[j]
@@ -373,8 +373,8 @@ def procedure_pengurutan_harga_descending(maks_array, array_plat_mobil, array_br
 
 #subrutin bubble sort secara descending tergantung nama supir
 def procedure_pengurutan_nama_supir_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    for i in range((maks_array - 1) - 1) :
-        for j in range((maks_array - 1) - (i + 1)) :
+    for i in range((maks_array) - 1) :
+        for j in range((maks_array) - (i + 1)) :
             if array_nama_supir[j] < array_nama_supir[j+1] :
                 #brand
                 temp = array_brand_mobil[j]
@@ -403,8 +403,8 @@ def procedure_pengurutan_nama_supir_descending(maks_array, array_plat_mobil, arr
 
 #subrutin bubble sort secara descending tergantung nomor supir
 def procedure_pengurutan_nomor_supir_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir) :
-    for i in range((maks_array - 1) - 1) :
-        for j in range((maks_array - 1) - (i + 1)) :
+    for i in range((maks_array) - 1) :
+        for j in range((maks_array) - (i + 1)) :
             if array_nomor_supir[j] < array_nomor_supir[j+1] :
                 #brand
                 temp = array_brand_mobil[j]
@@ -430,13 +430,33 @@ def procedure_pengurutan_nomor_supir_descending(maks_array, array_plat_mobil, ar
                 temp = array_nomor_supir[j]
                 array_nomor_supir[j] = array_nomor_supir[j+1]
                 array_nomor_supir[j+1] = temp
-
+#subrutin penghapusan unit dalam array bergantung indeks dari plat nomor
+def procedure_penghapusan_elemen(banyak_data, indeks_dihapus, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir) :
+    if banyak_data > 0 :
+        if indeks_dihapus >= 0 and indeks_dihapus <= banyak_data :
+            for i in range(indeks_dihapus + 1, banyak_data) :
+                array_brand_mobil[i-1] = array_brand_mobil[i]
+                array_model_mobil[i-1] = array_model_mobil[i]
+                array_plat_mobil[i-1] = array_plat_mobil[i]
+                array_harga_mobil[i-1] = array_harga_mobil[i]
+                array_nama_supir[i-1] = array_nama_supir[i]
+                array_nomor_supir[i-1] = array_nomor_supir[i]
+            array_brand_mobil[banyak_data] = 0
+            array_model_mobil[banyak_data] = 0
+            array_plat_mobil[banyak_data] = 0
+            array_harga_mobil[banyak_data] = 0
+            array_nama_supir[banyak_data] = 0
+            array_nomor_supir[banyak_data] = 0
+        else :
+            print('Posisi tidak valid')
+    else :
+        print('Data Kosong')
 #program utama
 os.system('cls')
 password = str(input('Password: '))
 login = function_validasi_login(password)
 if login:
-    maks_array = int(input('Masukkan Jumlah Mobil : '))
+    maks_array = int(input('Masukkan Jumlah Unit : '))
     maks_array_mobil = function_maks_array(maks_array)
     array_plat_mobil = ['/'] * maks_array_mobil
     array_brand_mobil = ['/'] * maks_array_mobil
@@ -445,28 +465,32 @@ if login:
     array_nama_supir = ['/'] * maks_array_mobil
     array_nomor_supir = ['/'] * maks_array_mobil
     print('Menu pilihan')
-    print('1. Traversal Array')
+    print('1. Traversal tambah Array')
     print('2. Hapus Elemen Array')
-    print('3. Pengurutan Array')
-    print('4. Pencarian Array')
-    print('5. Penghancuran Array')
-    print('6. Tampilkan Array')
+    print('3. Tambah Array')
+    print('4. Pengurutan Array')
+    print('5. Pencarian Array')
+    print('6. Penghancuran Array')
+    print('7. Tampilkan Array')
     print('0. Keluar Program')
     menu_pilihan = int(input('Masukkan Menu Pilihan : '))
     while menu_pilihan != 0:
         match(menu_pilihan) :
             case 1 :
-                print('Menu Tambah Array')
+                print('Menu Traversal Array')
+                banyak_data = int(input('Masukkan Banyak Data Yang Ingin Diinput : '))
+                banyak_data = function_validasi_banyak_data(banyak_data, maks_array)
                 os.system('pause')
                 os.system('cls')
                 print('Silahkan Tambahkan Data Mobil Terbaru')
-                procedure_tambah_mobil(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil)
-                procedure_tambah_supir(maks_array, array_nama_supir, array_nomor_supir)
+                procedure_traversal_mobil_supir(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             case 2 :
                 print('Hapus Elemen Array')
                 os.system('pause')
                 os.system('cls')
             case 3 :
+                print('Tambah Array')
+            case 4 :
                 print('Pengurutan Array')
                 print('1. Pengurutan secara ascending')
                 print('2. Pengurutan secara descending')
@@ -531,19 +555,22 @@ if login:
                             case 6 :
                                 print('Pengurutan sesuai nomor supir')
                                 procedure_pengurutan_nomor_supir_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
-            case 6 :
+            case 7 :
                 print(f'{array_brand_mobil}')
                 print(f'{array_model_mobil}')
                 print(f'{array_plat_mobil}')
                 print(f'{array_harga_mobil}')
                 print(f'{array_nama_supir}')
                 print(f'{array_nomor_supir}')
+
         print('Menu pilihan')
         print('1. Traversal Array')
         print('2. Hapus Elemen Array')
-        print('3. Pengurutan Array')
-        print('4. Pencarian Array')
-        print('5. Penghancuran Array')
+        print('3. Tambah Array')
+        print('4. Pengurutan Array')
+        print('5. Pencarian Array')
+        print('6. Penghancuran Array')
+        print('7. Tampilkan Array')
         print('0. Keluar Program')
         menu_pilihan = int(input('Masukkan Menu Pilihan : '))
 else :
