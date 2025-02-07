@@ -71,46 +71,52 @@ def fungsi_tampil_kendaraan(int_jumlah_masuk, array_indeks, array_brand, array_m
 # PROSEDURE
 
 def subrutin_menu_login():
-    print('=== Selamat Datang di Rental KOKO ===')
-    print('1. Login sebagai Admin')
-    print('2. Login sebagai User')
-
-    pilihan = input('Pilih jenis login (1/2): ')
+    fungsi_bersihkan_layar()
+    print('#--selamat datang di koko rental--#')
+    print('|                                 |')
+    print('| 1. Masuk sebagai Admin          |')
+    print('| 2. Masuk sebagai User           |')
+    print('| 0. Keluar                       |')
+    print('|                                 |')
+    print('#---------------------------------#')
+    pilihan = input('Masukkan akun anda: ')
 
     if pilihan == '1':
-        password_admin = 'admin123'  # Password untuk admin
+        password_admin = 'admin123'
         password_input = input('Masukkan password admin: ')
-
         if password_input == password_admin:
-            print('Login sebagai Admin berhasil!')
-            # Tambahkan logika untuk admin di sini
+            subrutin_menu_utama(1, int_jumlah_masuk)
         else:
             print('Password salah! Akses ditolak.')
 
     elif pilihan == '2':
         print('Login sebagai User berhasil!')
-        # Tambahkan logika untuk user di sini
+        #PLACEHOLDER
+
 
     else:
         print('Pilihan tidak valid. Silakan coba lagi.')
 
 
 # Memanggil fungsi untuk menjalankan tampilan login
-subrutin_menu_login()
 
-def subrutin_menu_utama(choice, int_jumlah_masuk):
-    while choice != 0:
+
+def subrutin_menu_utama(menu_pilihan, int_jumlah_masuk):
+    while menu_pilihan != 0:
         fungsi_bersihkan_layar()
-        print('Menu utama:')
-        print('1. Tambah Kendaraan')
-        print('2. Hapus Kendaraan')
-        print('3. Urutkan Kendaraan')
-        print('4. Cari Kendaraan')
-        print('5. Tampil Kendaraan')
-        print('0. Keluar')
-        choice = int(input('Pilihan: '))
+        print('#--selamat datang di koko rental--#')
+        print('|                                 |')
+        print('| 1. Tambah Kendaraan             |')
+        print('| 2. Hapus Kendaraan              |')
+        print('| 3. Urutkan Kendaraan            |')
+        print('| 4. Cari Kendaraan               |')
+        print('| 5. Tampil Kendaraan             |')
+        print('| 0. Keluar                       |')
+        print('|                                 |')
+        print('#---------------------------------#')
+        menu_pilihan = int(input('Pilihan: '))
         # pilih menu
-        match choice:
+        match menu_pilihan:
             case 1:
                 int_jumlah_masuk = subrutin_tambah_kendaraan(int_jumlah_maks, int_jumlah_masuk)  # Update indeks terakhir
             case 2:
@@ -126,28 +132,44 @@ def subrutin_menu_utama(choice, int_jumlah_masuk):
             case 0:
                 break
             case _:
-                print('Pilihan tidak valid. Silakan coba lagi.')
-                input('Tekan Enter untuk Melanjutkan')
+                print('#-< PERHATIAN >------------------------#')
+                print('|                               / \\    |')
+                print('|  NOMOR MENU TIDAK ADA!       /   \\   |')
+                print('|  HARAP ULANGIN KEMBALI      /  !  \\  |')
+                print('|                            /_______\\ |')
+                print('#--------------------------------------#')
 
 # sequential tambah kendaraan pada array
 def subrutin_tambah_kendaraan(int_jumlah_maks, int_jumlah_masuk):
     fungsi_bersihkan_layar()
-    print('Tambah Kendaraan')
-
+    print('#------------------------------------------#')
+    print('|      Masukkan data kendaraan baru        |')
+    print('#------------------------------------------#')
     # Loop validasi
     jumlah_kendaraan = int(input('Masukkan jumlah kendaraan: '))
 
     while not (0 < jumlah_kendaraan <= int_jumlah_maks - int_jumlah_masuk):
         if jumlah_kendaraan <= 0:
-            print('Jumlah kendaraan harus lebih dari 0. Harap masukkan ulang!')
+            print('#-< PERHATIAN >-----------------------------------#')
+            print('|                                         / \\    |')
+            print('|  Jumlah kendaraan harus lebih dari 0   /   \\   |')
+            print('|  Harap masukkan ulang                 /  !  \\  |')
+            print('|                                      /_______\\ |')
+            print('#-------------------------------------------------#')
         else:
-            print('Jumlah melebihi batas maksimum. Harap masukkan ulang!')
+            print('#-< PERHATIAN >-----------------------------------#')
+            print('|                                         / \\    |')
+            print('|  Jumlah melebihi batas maksimum!       /   \\   |')
+            print('|  Harap masukkan ulang                 /  !  \\  |')
+            print('|                                      /_______\\ |')
+            print('#-------------------------------------------------#')
         jumlah_kendaraan = int(input('Masukkan jumlah kendaraan: '))
 
     for i in range(jumlah_kendaraan):  # Mulai dari 0
         fungsi_bersihkan_layar()
-        print(f'Masukkan data kendaraan ke-{i+1}')  # Menampilkan nomor urut yang benar
-        print('------------------------')
+        print(f'#------------------------------------------#')
+        print(f'|    Masukkan data kendaraan ke-{i+1}      |')
+        print(f'#------------------------------------------#')
         fungsi_tambah_array(int_jumlah_masuk + i, 'indeks', array_indeks)
         fungsi_tambah_array(int_jumlah_masuk + i, 'brand', array_brand)
         fungsi_tambah_array(int_jumlah_masuk + i, 'model', array_model)
@@ -181,4 +203,4 @@ def subrutin_cari_kendaraan():
 
 # DEBUG PANGGIL FUNGSI
 if __name__ == '__main__':
-    subrutin_menu_utama(1, int_jumlah_masuk)
+    subrutin_menu_login()
