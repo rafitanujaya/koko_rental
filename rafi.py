@@ -3,7 +3,7 @@
 # I.S :
 # F.S :
 
-MAKSBARIS   = 10
+MAKSBARIS   = 4
 
 # IMPORT STANDAR LIBRARY
 import os
@@ -39,6 +39,32 @@ def prosedur_sequential_search_sentinel(array, dicari):
     else:
         print(f'{dicari} tidak ditemukan')
         return False
+    
+def prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
+    for i in range(banyak_data):
+        print(f'Data ke-{i+1} : {plat_nomor[i]}')
+        print(f'Data ke-{i+1} : {model[i]}')
+        print(f'Data ke-{i+1} : {brand[i]}')
+        print(f'Data ke-{i+1} : {harga_sewa[i]}')
+        print(f'Data ke-{i+1} : {supir[i]}')
+        print(f'Data ke-{i+1} : {nomor_supir[i]}')
+        
+def prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
+    if (banyak_data < MAKSBARIS):
+        banyak_data += 1
+        plat_nomor[banyak_data-1]  = input(f'nomor plat ke-{banyak_data}        : ')
+        model[banyak_data-1]       = input(f'nomor model ke-{banyak_data}       : ')
+        brand[banyak_data-1]       = input(f'nomor brand ke-{banyak_data}       : ')
+        harga_sewa[banyak_data-1]  = int(input(f'nomor harga sewa ke-{banyak_data}  : '))
+        supir[banyak_data-1]       = input(f'nomor supir ke-{banyak_data}       : ')
+        nomor_supir[banyak_data-1] = int(input(f'nomor nomor supir ke-{banyak_data} : '))
+        return banyak_data
+    else:
+        print('data rental sudah pernuh')
+        return banyak_data
+        
+        
+        
 # FUNCTION
 
 # subrutin fungsi untuk menampilkan menu utama
@@ -219,24 +245,28 @@ def main():
                     match menu_admin:
                         case 1:
                             menu_crud = fungsi_tampil_menu_crud_admin(menu_crud)
-                            match menu_crud:
-                                case 1:
-                                    banyak_data = int(input('Banyak Data yang mau dimasukkan : '))
-                                    prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
-                                case 2:
-                                    print(" menu crud 1")
-                                case 3:
-                                    print(" menu crud 1")
-                                case 4:
-                                    print(" menu crud 1")
-                                case 5:
-                                    print(" menu crud 1")
-                                case 6:
-                                    print(" menu crud 1")
-                                case 7:
-                                    print(" menu crud 1")
-                                case 0:
-                                    print(" menu crud 1")
+                            while(menu_crud != 0):
+                                match menu_crud:
+                                    case 1:
+                                        banyak_data = int(input('Banyak Data yang mau dimasukkan : '))
+                                        prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+                                    case 2:
+                                        if (banyak_data > MAKSBARIS):
+                                            prosedur_tampil_data_rental(plat_nomor,model,brand,harga_sewa,supir,nomor_supir, MAKSBARIS)
+                                        else:
+                                            prosedur_tampil_data_rental(plat_nomor,model,brand,harga_sewa,supir,nomor_supir, banyak_data)
+                                    case 3:
+                                        banyak_data = prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+                                    case 4:
+                                        print(f'{plat_nomor}-{model}')
+                                    case 5:
+                                        print(" menu crud 1")
+                                    case 6:
+                                        print(" menu crud 1")
+                                    case 7:
+                                        print(" menu crud 1")
+                                input()
+                                menu_crud = fungsi_tampil_menu_crud_admin(menu_crud)
                         case 2:
                             print('menu admin 1')
                         case 0:
