@@ -86,7 +86,19 @@ def function_array_nomor_supir(maks_supir) :
         array_nomor_supir[i] = '/'
     return array_nomor_supir
 
+#subrutin tambah seluruh array mobil
+def procedure_tambah_mobil(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil) :
+    for i in range(maks_array) :
+        array_brand_mobil[i] = str(input('Masukkan brand Mobil : '))
+        array_model_mobil[i] = str(input('Masukkan model Mobil : '))
+        array_harga_mobil[i] = int(input('Masukkan harga Mobil : '))
+        array_plat_mobil[i] = str(input('Masukkan Plat Mobil : '))
 
+#subrutin tambah seluruh array supir
+def procedure_tambah_supir(maks_supir, array_nama_supir, array_nomor_supir) :
+    for i in range(maks_supir) :
+        array_nama_supir[i] = str(input('Masukkan Nama Supir : '))
+        array_nomor_supir[i] = str(input('Masukkan Nama Supir : '))
 #program utama
 username = str(input('Username: '))
 password = str(input('Password: '))
@@ -102,6 +114,9 @@ if is_login:
     menu_pilihan = int(input('Masukkan Menu Pilihan : '))
     match(menu_pilihan) :
         case 1 :
+            print('Menu Tambah Array')
+            os.system('pause')
+            os.system('cls')
             print('Silahkan Ciptakan Array Terlebih Dahulu')
             maks_array = int(input('Masukkan Jumlah Mobil : '))
             maks_array_mobil = function_maks_array(maks_array)
@@ -117,6 +132,7 @@ if is_login:
                 maks_supir = function_maks_supir(maks_supir)
                 array_nama_supir = function_array_nama_supir(maks_supir)
                 array_nomor_supir = function_array_nomor_supir(maks_supir)
-
+            procedure_tambah_mobil(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil)
+            procedure_tambah_supir(maks_supir, array_nama_supir, array_nomor_supir)
 else :
     print('Maaf, Login anda gagal')
