@@ -45,12 +45,7 @@ def fungsi_tambah_array(indeks, teks, array_nama):
         array_nama[indeks] = massukkan_pengguna
     return array_nama[indeks]
 
-def fungsi_urut_array1(mode,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
-    if mode == 1:
-        pass
-    else:
-        pass
-    pass
+
 
 def fungsi_urut_array(mode, array_temp1, array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
     if mode == 1:
