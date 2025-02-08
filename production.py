@@ -1,1 +1,0 @@
-# TEMPAT PRODUCTION hasil fix
