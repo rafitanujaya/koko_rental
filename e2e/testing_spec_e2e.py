@@ -17,7 +17,7 @@ click_list_default = [
     "testcar8","botcar8","BK7777BT","4567890123","papi","628574321",
     "testcar9","botcar9","BK8888BT","1234567890","yangmulia","628571234",
     "testcar10","botcar10","BK9999BT","2345678901","pakpol","628574444",
-    "7","","2","1","7","",
+    "7","","2","1","7",""
     ]
 
 click_list = ["4", "5", "6"]
