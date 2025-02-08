@@ -245,14 +245,10 @@ def procedure_binary(data_dicari, banyak_data, temp_array, array_plat_mobil, arr
         print('Maaf Data Tidak Ditemukan')
 
 #subrutin tambah array
-def procedure_tambah_array(maks_array, banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir) :
-    i = 0
-    for i in range(maks_array-1):
-        i += 1
-        if array_brand_mobil[i] == '/' :
-            banyak_data = i
+def function_tambah_array(maks_array, banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir) :
     if banyak_data >= maks_array:
         print('Array sudah penuh!')
+        return banyak_data
     else :
         array_brand_mobil[banyak_data] = str(input('Masukkan brand Mobil : '))
         array_model_mobil[banyak_data] = str(input('Masukkan model Mobil : '))
@@ -260,6 +256,7 @@ def procedure_tambah_array(maks_array, banyak_data, array_plat_mobil, array_bran
         array_harga_mobil[banyak_data] = int(input('Masukkan harga Mobil : '))
         array_nama_supir[banyak_data] = str(input('Masukkan Nama Supir : '))
         array_nomor_supir[banyak_data] = str(input('Masukkan Nomor Supir : '))
+        return banyak_data + 1
 
 # program utama
 os.system('cls')
@@ -298,7 +295,7 @@ if login:
             case 3:
                 print('Tambah Array')
                 print('Menambahkan array di elemen paling akhir')
-                procedure_tambah_array(maks_array, banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
+                banyak_data = function_tambah_array(maks_array, banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             case 4:
                 print('Pengurutan Array')
                 print('1. Pengurutan secara ascending')
