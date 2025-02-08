@@ -570,6 +570,8 @@ if login:
             case 5 :
                 print('Pencarian Array')
                 procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
+            case 6 :
+                print('Penghancuran Array')
             case 7 :
                 print(f'{array_brand_mobil}')
                 print(f'{array_model_mobil}')
