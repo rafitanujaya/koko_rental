@@ -434,19 +434,19 @@ def procedure_pengurutan_nomor_supir_descending(maks_array, array_plat_mobil, ar
 def procedure_penghapusan_elemen(banyak_data, indeks_dihapus, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir) :
     if banyak_data > 0 :
         if indeks_dihapus >= 0 and indeks_dihapus <= banyak_data :
-            for i in range(indeks_dihapus + 1, banyak_data) :
-                array_brand_mobil[i-1] = array_brand_mobil[i]
-                array_model_mobil[i-1] = array_model_mobil[i]
-                array_plat_mobil[i-1] = array_plat_mobil[i]
-                array_harga_mobil[i-1] = array_harga_mobil[i]
-                array_nama_supir[i-1] = array_nama_supir[i]
-                array_nomor_supir[i-1] = array_nomor_supir[i]
-            array_brand_mobil[banyak_data] = 0
-            array_model_mobil[banyak_data] = 0
-            array_plat_mobil[banyak_data] = 0
-            array_harga_mobil[banyak_data] = 0
-            array_nama_supir[banyak_data] = 0
-            array_nomor_supir[banyak_data] = 0
+            for i in range(indeks_dihapus, banyak_data - 1) :
+                array_brand_mobil[i - 1] = array_brand_mobil[i]
+                array_model_mobil[i - 1] = array_model_mobil[i]
+                array_plat_mobil[i - 1] = array_plat_mobil[i]
+                array_harga_mobil[i - 1] = array_harga_mobil[i]
+                array_nama_supir[i - 1] = array_nama_supir[i]
+                array_nomor_supir[i - 1] = array_nomor_supir[i]
+            array_brand_mobil[banyak_data - 1] = 0
+            array_model_mobil[banyak_data - 1] = 0
+            array_plat_mobil[banyak_data - 1] = 0
+            array_harga_mobil[banyak_data - 1] = 0
+            array_nama_supir[banyak_data - 1] = 0
+            array_nomor_supir[banyak_data - 1] = 0
         else :
             print('Posisi tidak valid')
     else :
@@ -475,6 +475,8 @@ if login:
     print('0. Keluar Program')
     menu_pilihan = int(input('Masukkan Menu Pilihan : '))
     while menu_pilihan != 0:
+        if menu_pilihan != 1:
+            print('Silahkan pilih menu no. 1 dulu')
         match(menu_pilihan) :
             case 1 :
                 print('Menu Traversal Array')
@@ -488,6 +490,8 @@ if login:
                 print('Hapus Elemen Array')
                 os.system('pause')
                 os.system('cls')
+                indeks_dihapus = int(input('Masukkan Indeks Yang Dihapus : '))
+                procedure_penghapusan_elemen(banyak_data, indeks_dihapus, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             case 3 :
                 print('Tambah Array')
             case 4 :
@@ -562,6 +566,8 @@ if login:
                 print(f'{array_harga_mobil}')
                 print(f'{array_nama_supir}')
                 print(f'{array_nomor_supir}')
+                os.system('pause')
+                os.system('cls')
 
         print('Menu pilihan')
         print('1. Traversal Array')
