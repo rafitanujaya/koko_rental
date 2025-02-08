@@ -5,7 +5,7 @@ print('║                           DAFTAR RENTAL KENDARAAN                    
 print('║                           ───────────────────────                        ║')
 print('║ Pengurutan    : Brand                                                    ║')
 print('║ Format        : Menaik                                                   ║')
-print('║ Total Product : 3                                                        ║')
+print('║ Jumlah data   : 3                                                        ║')
 print('╠════╦════════════╦════════╦════════╦══════════════╦═══════════════════════╣')
 print('║ No ║ Plat Nomor ║ Brand  ║  Model ║  Nama Supir  ║  Nomor Telepon Supir  ║')
 print('╠════╬════════════╬════════╬════════╬══════════════╬═══════════════════════╣')
