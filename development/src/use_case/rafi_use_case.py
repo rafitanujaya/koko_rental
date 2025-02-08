@@ -74,23 +74,23 @@ def prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir,
         return banyak_data
     
 def prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_penyisipan):
-    posisi_penyisipan -= 1
     if(banyak_data < MAKSBARIS):
         if(posisi_penyisipan < banyak_data) and (posisi_penyisipan >= 0):
             for i in range(banyak_data, 0, -1):
-                plat_nomor[i+1]  = plat_nomor[i]
-                model[i+1]       = model[i] 
-                brand[i+1]       = brand[i]
-                harga_sewa[i+1]  = harga_sewa[i]
-                supir[i+1]       = supir[i] 
-                nomor_supir[i+1] = nomor_supir[i]
+                print(i)
+                plat_nomor[i]  = plat_nomor[i - 1]
+                model[i]       = model[i - 1] 
+                brand[i]       = brand[i - 1]
+                harga_sewa[i]  = harga_sewa[i - 1]
+                supir[i]       = supir[i - 1] 
+                nomor_supir[i] = nomor_supir[i - 1]
             
-            plat_nomor[posisi_penyisipan]  = input(f'nomor plat ke-{posisi_penyisipan + 1}        : ')
-            model[posisi_penyisipan]       = input(f'nomor model ke-{posisi_penyisipan + 1}       : ')
-            brand[posisi_penyisipan]       = input(f'nomor brand ke-{posisi_penyisipan + 1}       : ')
-            harga_sewa[posisi_penyisipan]  = int(input(f'nomor harga sewa ke-{posisi_penyisipan + 1}  : '))
-            supir[posisi_penyisipan]       = input(f'nomor supir ke-{posisi_penyisipan + 1}       : ')
-            nomor_supir[posisi_penyisipan] = int(input(f'nomor nomor supir ke-{posisi_penyisipan + 1} : '))
+            plat_nomor[posisi_penyisipan - 1]  = input(f'nomor plat ke-{posisi_penyisipan}        : ')
+            model[posisi_penyisipan - 1]       = input(f'nomor model ke-{posisi_penyisipan}       : ')
+            brand[posisi_penyisipan - 1]       = input(f'nomor brand ke-{posisi_penyisipan}       : ')
+            harga_sewa[posisi_penyisipan - 1]  = int(input(f'nomor harga sewa ke-{posisi_penyisipan}  : '))
+            supir[posisi_penyisipan - 1]       = input(f'nomor supir ke-{posisi_penyisipan}       : ')
+            nomor_supir[posisi_penyisipan -1 ] = int(input(f'nomor nomor supir ke-{posisi_penyisipan} : '))
             return banyak_data + 1
         else:
             print('posisi tidak valid')
@@ -99,23 +99,22 @@ def prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir,
         print('data penuh')
         
 def prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus):
-    posisi_hapus -= 1
     if(banyak_data > 0):
         if(posisi_hapus >= 0) and (posisi_hapus <= banyak_data):
             for i in range(posisi_hapus, banyak_data):
-                plat_nomor[i]  = plat_nomor[i+1]
-                model[i]       = model[i+1] 
-                brand[i]       = brand[i+1]
-                harga_sewa[i]  = harga_sewa[i+1]
-                supir[i]       = supir[i+1] 
-                nomor_supir[i] = nomor_supir[i+1]
+                plat_nomor[i-1]  = plat_nomor[i]
+                model[i-1]       = model[i] 
+                brand[i-1]       = brand[i]
+                harga_sewa[i-1]  = harga_sewa[i]
+                supir[i-1]       = supir[i] 
+                nomor_supir[i-1] = nomor_supir[i]
                 
-            plat_nomor[banyak_data]  = ''
-            model[banyak_data]       = ''
-            brand[banyak_data]       = ''
-            harga_sewa[banyak_data]  = 0
-            supir[banyak_data]       = ''
-            nomor_supir[banyak_data] = 0
+            plat_nomor[banyak_data - 1]  = ''
+            model[banyak_data - 1]       = ''
+            brand[banyak_data - 1 ]       = ''
+            harga_sewa[banyak_data -1 ]  = 0
+            supir[banyak_data- 1]       = ''
+            nomor_supir[banyak_data - 1 ] = 0
             return banyak_data - 1
         else:
             print('posisi tidak valid')
@@ -124,6 +123,68 @@ def prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir
         print('data kosong')
         return banyak_data
 
+def prosedur_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
+    for i in range(MAKSBARIS):
+        plat_nomor[i] = ''
+        model[i] = ''
+        brand[i] = ''
+        harga_sewa[i] = 0
+        supir[i] = ''
+        nomor_supir[i] = 0      
+        
+def prosedur_menghitung_rata_rata_data_rental(harga_sewa): 
+    temp = 0
+    pembagi = 0
+    for i in range(MAKSBARIS):
+        if(harga_sewa[i] != 0):
+            temp += harga_sewa[i]
+            pembagi += 1
+    print(f'Rata-rata harga sewa = {temp / pembagi}')
+
+def prosedur_min_max_data_rental(plat_nomor, harga_sewa,):
+    min = harga_sewa[0]
+    min_index = 0
+    max = harga_sewa[0]
+    max_index = 0
+    for i in range(MAKSBARIS):
+        if(harga_sewa[i] < min):
+            min = harga_sewa[i]
+            min_index = i
+        if(harga_sewa[i] > max):
+            max = harga_sewa[i]
+            max_index = i
+    print(f'Harga sewa termahal jatuh kepada = {harga_sewa[max_index]}-{plat_nomor[max_index]}')
+    print(f'Harga sewa termurah jatuh kepada = {harga_sewa[min_index]}-{plat_nomor[min_index]}')
+    
+def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting):
+    for i in range(MAKSBARIS):
+        for j in range(MAKSBARIS -1, i, -1):
+            if array_sorting[j] < array_sorting[j-1]:
+                temp = plat_nomor[j-1]
+                plat_nomor[j-1] = plat_nomor[j]
+                plat_nomor[j] = temp
+                
+                temp = model[j-1]
+                model[j-1] = model[j]
+                model[j] = temp
+                
+                temp = brand[j-1]
+                brand[j-1] = brand[j]
+                brand[j] = temp
+                
+                temp = harga_sewa[j-1]
+                harga_sewa[j-1] = harga_sewa[j]
+                harga_sewa[j] = temp
+                
+                temp = supir[j-1]
+                supir[j-1] = supir[j]
+                supir[j] = temp
+                
+                temp = nomor_supir[j-1]
+                nomor_supir[j-1] = nomor_supir[j]
+                nomor_supir[j] = temp
+    print('done')
+    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
         
         
 # FUNCTION
@@ -242,14 +303,14 @@ def fungsi_tampil_menu_crud_admin(menu_crud):
     print('||  3. Penambahan Data Rental                ||')
     print('||  4. Penyisipan Data Rental                ||')
     print('||  5. Penghapusan Data Rental               ||')
-    print('||  6. Penghapusan Data Rental               ||')
+    print('||  6. Reset Data Rental                     ||')
     print('||  7. Penghitungan Rata-Rata Biaya Rental   ||')
-    print('||  7. Mencari min-max Biaya Rental          ||')
+    print('||  8. Mencari min-max Biaya Rental          ||')
     print('||  0. Kembali ke menu admin                 ||')
     print('++===========================================++')
     menu_crud = int(input('Masukkan pilihan Anda : '))
     
-    while (menu_crud != 1) and (menu_crud != 2) and (menu_crud != 3) and (menu_crud != 4) and (menu_crud != 5) and (menu_crud != 6) and (menu_crud != 7) and (menu_crud != 0) and (menu_crud != 77):
+    while (menu_crud != 1) and (menu_crud != 2) and (menu_crud != 3) and (menu_crud != 4) and (menu_crud != 5) and (menu_crud != 6) and (menu_crud != 7) and (menu_crud != 8) and (menu_crud != 0) and (menu_crud != 77):
         os.system('clear')
         print('++===========================================++')
         print('||                 KOKO RENTAL               ||')
@@ -261,14 +322,75 @@ def fungsi_tampil_menu_crud_admin(menu_crud):
         print('||  3. Penambahan Data Rental                ||')
         print('||  4. Penyisipan Data Rental                ||')
         print('||  5. Penghapusan Data Rental               ||')
-        print('||  6. Penghapusan Data Rental               ||')
+        print('||  6. Reset Data Rental                     ||')
         print('||  7. Penghitungan Rata-Rata Biaya Rental   ||')
-        print('||  7. Mencari min-max Biaya Rental          ||')
+        print('||  8. Mencari min-max Biaya Rental          ||')
         print('||  0. Kembali ke menu admin                 ||')
         print('++===========================================++')
         menu_crud = int(input('Masukkan pilihan Anda : '))
     return menu_crud
 
+def fungsi_tampil_menu_sorting_admin(menu_sorting):
+    print('++===========================================++')
+    print('||                 KOKO RENTAL               ||')
+    print('++===========================================++')
+    print('||                                           ||')
+    print('++------------------- MENU ------------------++')
+    print('||  1. Sorting Format ASC                    ||')
+    print('||  2. Sorting Format DESC                   ||')
+    print('||  0. Kembali ke menu admin                 ||')
+    print('++===========================================++')
+    menu_sorting = int(input('Masukkan pilihan Anda : '))
+    
+    
+    while (menu_sorting != 1) and (menu_sorting != 2) and (menu_sorting != 0):
+        os.system('clear')
+        print('++===========================================++')
+        print('||                 KOKO RENTAL               ||')
+        print('++===========================================++')
+        print('||                                           ||')
+        print('++------------------- MENU ------------------++')
+        print('||  1. Sorting Format ASC                    ||')
+        print('||  2. Sorting Format DESC                   ||')
+        print('||  0. Kembali ke menu admin                 ||')
+        print('++===========================================++')
+        menu_sorting = int(input('Masukkan pilihan Anda : '))
+    return menu_sorting
+
+def fungsi_tampil_menu_sorting_asc_admin(menu_sorting_asc):
+    print('++===========================================++')
+    print('||                 KOKO RENTAL               ||')
+    print('++===========================================++')
+    print('||                                           ||')
+    print('++------------------- MENU ------------------++')
+    print('||  1. Plat Nomor                            ||')
+    print('||  2. Model                                 ||')
+    print('||  3. Brand                                 ||')
+    print('||  4. Harga Sewa                            ||')
+    print('||  5. Supir                                 ||')
+    print('||  6. Nomor Supir                           ||')
+    print('||  0. Kembali ke menu admin                 ||')
+    print('++===========================================++')
+    menu_sorting_asc = int(input('Masukkan pilihan Anda : '))
+    
+    
+    while (menu_sorting_asc != 1) and (menu_sorting_asc != 2) and (menu_sorting_asc != 3) and (menu_sorting_asc != 4) and (menu_sorting_asc != 5) and (menu_sorting_asc != 6) and (menu_sorting_asc != 0) and (menu_sorting_asc != 77):
+        os.system('clear')
+        print('++===========================================++')
+        print('||                 KOKO RENTAL               ||')
+        print('++===========================================++')
+        print('||                                           ||')
+        print('++------------------- MENU ------------------++')
+        print('||  1. Plat Nomor                            ||')
+        print('||  2. Model                                 ||')
+        print('||  3. Brand                                 ||')
+        print('||  4. Harga Sewa                            ||')
+        print('||  5. Supir                                 ||')
+        print('||  6. Nomor Supir                           ||')
+        print('||  0. Kembali ke menu admin                 ||')
+        print('++===========================================++')
+        menu_sorting_asc = int(input('Masukkan pilihan Anda : '))
+    return menu_sorting_asc
 
 def main():
     # DEKLARASI VARIABEL
@@ -277,6 +399,8 @@ def main():
     menu_utama = 0
     menu_admin = 0
     menu_crud  = 0
+    menu_sorting = 0
+    menu_sorting_asc = 0
     password = ""
     login = False
     
@@ -322,16 +446,44 @@ def main():
                                         posisi_hapus = int(input('masukkan posisi data yang mau dihapus : '))
                                         banyak_data = prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus)
                                     case 6:
-                                        print(" menu crud 1")
+                                        prosedur_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
+                                        banyak_data = 0
                                     case 7:
-                                        print(" menu crud 1")
-                                        print(f'{plat_nomor}')
+                                        prosedur_menghitung_rata_rata_data_rental(harga_sewa)
+                                    case 8:
+                                        prosedur_min_max_data_rental(plat_nomor, harga_sewa)
                                     case 77:
                                         banyak_data = DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
                                 input('pp')
                                 menu_crud = fungsi_tampil_menu_crud_admin(menu_crud)
                         case 2:
-                            print('menu admin 1')
+                            menu_sorting = fungsi_tampil_menu_sorting_admin(menu_sorting)
+                            while(menu_sorting != 0):
+                                match menu_sorting:
+                                    case 1:
+                                        menu_sorting_asc = fungsi_tampil_menu_sorting_asc_admin(menu_sorting_asc)
+                                        while(menu_sorting_asc != 0):
+                                            match menu_sorting_asc:
+                                                case 1:
+                                                    prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, plat_nomor)
+                                                case 2:
+                                                    prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, model)
+                                                case 3:
+                                                    prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, brand)
+                                                case 4:
+                                                    prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, harga_sewa)
+                                                case 5:
+                                                    prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, supir)
+                                                case 6:
+                                                    prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, nomor_supir)
+                                                case 77:
+                                                    banyak_data = DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
+                                            input('asc bos')
+                                            menu_sorting_asc = fungsi_tampil_menu_sorting_asc_admin(menu_sorting_asc)
+                                    case 2:
+                                        print('desc')
+                                input('coba sort')
+                                menu_sorting = fungsi_tampil_menu_sorting_admin(menu_sorting)
                         case 0:
                             menu_utama = 0
                     input('bro')
@@ -340,42 +492,3 @@ def main():
 # Algoritma Utama
 main()
 print("Keluar aplikasi, selamat tinggall!!")
-
-os.system('clear')
-# print('                                 DATA RENTAL                                  ')
-# print('                                                                              ')
-# print('Pengurutan data bedasarkan = Brand                                            ')
-# print('Format Pengurutan          = Menurun                                          ')
-# print('                                                                              ')
-# print('++====++============++========++=======++============++=====================++')
-# print('|| No || Plat Nomor || Brand  || Model || Nama Supir || Nomor Telepon Supir ||')
-# print('++====++============++========++=======++============++=====================++')
-# print('|| 01 ||  D 1990 DY || Toyota || T-001 || Deriel Hoy ||     6281920202020   ||')
-# print('++----++------------++--------++-------++------------++---------------------++')
-# print('|| 01 ||  D 1990 DY || Toyota || T-001 || Deriel Hoy ||     6281920202020   ||')
-# print('++----++------------++--------++-------++------------++---------------------++')
-# print('|| 01 ||  D 1990 DY || Toyota || T-001 || Deriel Hoy ||     6281920202020   ||')
-# print('++----++------------++--------++-------++------------++---------------------++')
-
-print('                                 DATA RENTAL                                  ')
-print('                                                                              ')
-print('Pengurutan data bedasarkan = Brand                                            ')
-print('Format Pengurutan          = Menurun                                          ')
-print('                                                                              ')
-print('╔══════════════════════════════════════════════════════════════════════════╗')
-print('║                                                                          ║')
-print('║                           DAFTAR RENTAL KENDARAAN                        ║')
-print('║                           ───────────────────────                        ║')
-print('║ Pengurutan    : Brand                                                    ║')
-print('║ Format        : Menaik                                                   ║')
-print('║ Total Product : 3                                                        ║')
-print('╠════╦════════════╦════════╦════════╦══════════════╦═══════════════════════╣')
-print('║ No ║ Plat Nomor ║ Brand  ║  Model ║  Nama Supir  ║  Nomor Telepon Supir  ║')
-print('╠════╬════════════╬════════╬════════╬══════════════╬═══════════════════════╣')
-print('║ 01 ║  D 1990 DY ║ Toyota ║ T-001  ║  Deriel Hoy  ║     6281920202020     ║')
-print('╠════╬════════════╬════════╬════════╬══════════════╬═══════════════════════╣')
-print('║ 01 ║  D 1990 DY ║ Toyota ║ T-001  ║  Deriel Hoy  ║     6281920202020     ║')
-print('╠════╬════════════╬════════╬════════╬══════════════╬═══════════════════════╣')
-print('║ 01 ║  D 1990 DY ║ Toyota ║ T-001  ║  Deriel Hoy  ║     6281920202020     ║')
-print('╚════╩════════════╩════════╩════════╩══════════════╩═══════════════════════╝')
-
