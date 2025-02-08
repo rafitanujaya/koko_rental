@@ -16,7 +16,7 @@ def DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
     harga_sewa[:] = [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000]
     plat_nomor[:] = ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST']
     supir[:] = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow']
-    nomor_supir[:] = [81234567890, 82345678901, 83456789012, 84567890123, 85678901234, 86789012345, 87890123456, 88901234567, 89012345678, 90123456789]
+    nomor_supir[:] = [81234567891, 82345678902, 83456789013, 84567890124, 85678901235, 86789012346, 87890123457, 88901234568, 89012345679, 90123456789]
     print(f'dummy success = {brand}-{model}-{harga_sewa}-{plat_nomor}-{supir}-{nomor_supir}')
     return 10
 
@@ -185,7 +185,43 @@ def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supi
                 nomor_supir[j] = temp
     print('done')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
+    
+    
+def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting):
+    for i in range(MAKSBARIS):
+        max = i
+        print(f'hallow {i}')
+        for j in range(i, MAKSBARIS):
+            print(f'hallow bro {j}')
+            
+            if(array_sorting[j] > array_sorting[max]):
+                max = j
         
+        temp = plat_nomor[i]
+        plat_nomor[i] = plat_nomor[max]
+        plat_nomor[max] = temp
+        
+        temp = model[i]
+        model[i] = model[max]
+        model[max] = temp
+        
+        temp = brand[i]
+        brand[i] = brand[max]
+        brand[max] = temp
+        
+        temp = harga_sewa[i]
+        harga_sewa[i] = harga_sewa[max]
+        harga_sewa[max] = temp
+        
+        temp = supir[i]
+        supir[i] = supir[max]
+        supir[max] = temp
+        
+        temp = nomor_supir[i]
+        nomor_supir[i] = nomor_supir[max]
+        nomor_supir[max] = temp
+    print('done')
+    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
         
 # FUNCTION
 
@@ -392,6 +428,41 @@ def fungsi_tampil_menu_sorting_asc_admin(menu_sorting_asc):
         menu_sorting_asc = int(input('Masukkan pilihan Anda : '))
     return menu_sorting_asc
 
+def fungsi_tampil_menu_sorting_desc_admin(menu_sorting_desc):
+    print('++===========================================++')
+    print('||                 KOKO RENTAL               ||')
+    print('++===========================================++')
+    print('||                                           ||')
+    print('++------------------- MENU ------------------++')
+    print('||  1. Plat Nomor                            ||')
+    print('||  2. Model                                 ||')
+    print('||  3. Brand                                 ||')
+    print('||  4. Harga Sewa                            ||')
+    print('||  5. Supir                                 ||')
+    print('||  6. Nomor Supir                           ||')
+    print('||  0. Kembali ke menu admin                 ||')
+    print('++===========================================++')
+    menu_sorting_desc = int(input('Masukkan pilihan Anda : '))
+    
+    
+    while (menu_sorting_desc != 1) and (menu_sorting_desc != 2) and (menu_sorting_desc != 3) and (menu_sorting_desc != 4) and (menu_sorting_desc != 5) and (menu_sorting_desc != 6) and (menu_sorting_desc != 0) and (menu_sorting_desc != 77):
+        os.system('clear')
+        print('++===========================================++')
+        print('||                 KOKO RENTAL               ||')
+        print('++===========================================++')
+        print('||                                           ||')
+        print('++------------------- MENU ------------------++')
+        print('||  1. Plat Nomor                            ||')
+        print('||  2. Model                                 ||')
+        print('||  3. Brand                                 ||')
+        print('||  4. Harga Sewa                            ||')
+        print('||  5. Supir                                 ||')
+        print('||  6. Nomor Supir                           ||')
+        print('||  0. Kembali ke menu admin                 ||')
+        print('++===========================================++')
+        menu_sorting_desc = int(input('Masukkan pilihan Anda : '))
+    return menu_sorting_desc
+
 def main():
     # DEKLARASI VARIABEL
     
@@ -401,6 +472,7 @@ def main():
     menu_crud  = 0
     menu_sorting = 0
     menu_sorting_asc = 0
+    menu_sorting_desc = 0
     password = ""
     login = False
     
@@ -481,7 +553,25 @@ def main():
                                             input('asc bos')
                                             menu_sorting_asc = fungsi_tampil_menu_sorting_asc_admin(menu_sorting_asc)
                                     case 2:
-                                        print('desc')
+                                        menu_sorting_desc = fungsi_tampil_menu_sorting_desc_admin(menu_sorting_desc)
+                                        while(menu_sorting_desc != 0):
+                                            match menu_sorting_desc:
+                                                case 1:
+                                                    prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, plat_nomor)
+                                                case 2:
+                                                    prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, model)
+                                                case 3:
+                                                    prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, brand)
+                                                case 4:
+                                                    prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, harga_sewa)
+                                                case 5:
+                                                    prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, supir)
+                                                case 6:
+                                                    prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, nomor_supir)
+                                                case 77:
+                                                    banyak_data = DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
+                                            input('desc bos')
+                                            menu_sorting_desc = fungsi_tampil_menu_sorting_desc_admin(menu_sorting_desc)
                                 input('coba sort')
                                 menu_sorting = fungsi_tampil_menu_sorting_admin(menu_sorting)
                         case 0:
