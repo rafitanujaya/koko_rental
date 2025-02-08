@@ -37,8 +37,6 @@ def main():
             1.automate default
             2.automate list
             3.automate custom
-            
-            
             """)
             menu = int(input(">"))
             if menu == 1:
