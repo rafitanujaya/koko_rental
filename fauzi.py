@@ -199,6 +199,26 @@ def procedure_sequential_tanpa_sentinel(data_dicari, banyak_data, temp_array, ar
 #     else :
 #         print('Maaf Data Tidak Ditemukan')
 
+#subrutin pencarian sequential dengan boolean
+def procedure_sequential_boolean(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir) :
+    i = 0
+    ketemu = False
+    while not ketemu and i <= banyak_data - 1 :
+        if temp_array[i] == data_dicari :
+            ketemu = True
+        else :
+            i += 1
+    if ketemu :
+        print('Data Ditemukan!')
+        print(f'Nama Brand    : {array_brand_mobil[i]}')
+        print(f'Nama Model    : {array_model_mobil[i]}')
+        print(f'Plat Nomor    : {array_plat_mobil[i]}')
+        print(f'Harga         : {array_harga_mobil[i]}')
+        print(f'Nama Supir    : {array_nama_supir[i]}')
+        print(f'Nomor Telepon : {array_nomor_supir[i]}')
+    else :
+        print('Maaf Data Tidak Ditemukan')
+
 #program utama
 os.system('cls')
 password = str(input('Password: '))
@@ -329,8 +349,7 @@ if login:
                         # procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
                         print('Metode Pencarian')
                         print('1. Pencarian Sequential tanpa sentinel dan boolean')
-                        print('2. Pencarian Sequential dengan sentinel dan tanpa boolean')
-                        print('3. Pencarian Sequential dengan sentinel dan boolean')
+                        print('2. Pencarian Sequential dengan boolean')
                         pencarian_sequential = int(input('Masukkan Metode Pencarian : '))
                         match (pencarian_sequential) :
                             case 1 :
@@ -359,32 +378,7 @@ if login:
                                         temp_array = array_nama_supir
                                         pencarian = procedure_sequential_tanpa_sentinel(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
                             case 2 :
-                                print('Pencarian Sequential dengan sentinel dan tanpa boolean')
-                                print('1. Brand mobil')
-                                print('2. Model mobil')
-                                print('3. Harga mobil')
-                                print('4. Nama supir')
-                                hal_dicari = int('Mau cari apa? [1-4] : ')
-                                hal_dicari = function_validasi_sequential(hal_dicari)
-                                match (hal_dicari) :
-                                    case 1 :
-                                        data_dicari = str(input('Masukkan brand mobil yang dicari : '))
-                                        temp_array = array_brand_mobil
-                                        temp_sentinel = temp_array + ['/']
-                                    case 2 :
-                                        data_dicari = str(input('Masukkan model mobil yang dicari : '))
-                                        temp_array = array_model_mobil
-                                        temp_sentinel = temp_array + ['/']
-                                    case 3 :
-                                        data_dicari = int(input('Masukkan harga mobil yang dicari : '))
-                                        temp_array = array_harga_mobil
-                                        temp_sentinel = temp_array + [0]
-                                    case 4 :
-                                        data_dicari = str(input('Masukkan nama supir yang dicari : '))
-                                        temp_array = array_nama_supir
-                                        temp_sentinel = temp_array + ['/']
-                            case 3 :
-                                print('Pencarian Sequential dengan sentinel dan boolean')
+                                print('Pencarian Sequential dengan boolean')
                                 print('1. Brand mobil')
                                 print('2. Model mobil')
                                 print('3. Harga mobil')
@@ -395,15 +389,19 @@ if login:
                                     case 1:
                                         data_dicari = str(input('Masukkan brand mobil yang dicari : '))
                                         temp_array = array_brand_mobil
+                                        procedure_sequential_boolean(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
                                     case 2:
                                         data_dicari = str(input('Masukkan model mobil yang dicari : '))
                                         temp_array = array_model_mobil
+                                        procedure_sequential_boolean(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
                                     case 3:
                                         data_dicari = int(input('Masukkan harga mobil yang dicari : '))
                                         temp_array = array_harga_mobil
+                                        procedure_sequential_boolean(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
                                     case 4:
                                         data_dicari = str(input('Masukkan nama supir yang dicari : '))
                                         temp_array = array_nama_supir
+                                        procedure_sequential_boolean(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             case 6 :
                 print('Penghancuran Array')
             case 7 :
