@@ -526,7 +526,6 @@ def main():
                                         prosedur_min_max_data_rental(plat_nomor, harga_sewa)
                                     case 77:
                                         banyak_data = DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
-                                input('pp')
                                 menu_crud = fungsi_tampil_menu_crud_admin(menu_crud)
                         case 2:
                             menu_sorting = fungsi_tampil_menu_sorting_admin(menu_sorting)
