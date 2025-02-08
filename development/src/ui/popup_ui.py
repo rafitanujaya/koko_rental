@@ -9,11 +9,11 @@ print('╚═══════════════════════�
 # PERINGATAN / ERROR
 
 print('╔══════════════════════════════════════════════════════════════════════════╗')
-print('║         /\                                                               ║')
-print('║        //\\           PERINTAH YANG ANDA MASUKAN TIDAK VALID!!           ║')
-print('║       // ║\\          ────────────────────────────────────────           ║')
-print('║      //  0 \\             SILAHKAN MASUKAN PERINTAH KEMBALI              ║')
-print('║     //______\\                tekan enter untuk kembali <--              ║')
+print('║                                                                          ║')
+print('║        //\            PERINTAH YANG ANDA MASUKAN TIDAK VALID!!           ║')
+print('║       // ║\           ────────────────────────────────────────           ║')
+print('║      //  0 \              SILAHKAN MASUKAN PERINTAH KEMBALI              ║')
+print('║     //______\                 tekan enter untuk kembali <--              ║')
 print('║                                                                          ║')
 print('╚══════════════════════════════════════════════════════════════════════════╝')
 
