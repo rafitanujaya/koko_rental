@@ -559,6 +559,8 @@ if login:
                             case 6 :
                                 print('Pengurutan sesuai nomor supir')
                                 procedure_pengurutan_nomor_supir_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
+            case 5 :
+                print('Pencarian Array')
             case 7 :
                 print(f'{array_brand_mobil}')
                 print(f'{array_model_mobil}')
