@@ -1,8 +1,6 @@
 # fauzi
 import os
 
-from abi import array_model
-
 
 #subrutin validasi login
 def function_validasi_login(password) :
