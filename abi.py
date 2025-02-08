@@ -45,12 +45,37 @@ def fungsi_tambah_array(indeks, teks, array_nama):
         array_nama[indeks] = massukkan_pengguna
     return array_nama[indeks]
 
-def fungsi_urut_array(mode,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
+def fungsi_urut_array1(mode,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
     if mode == 1:
         pass
     else:
         pass
     pass
+
+def fungsi_urut_array(mode, array_temp1, array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
+    if mode == 1:
+        for i in range(int_jumlah_maks - 1):
+            for j in range(int_jumlah_maks - 1, i, -1):
+                if array_temp1[j] < array_temp1[j - 1]:
+                    array_model[j], array_model[j - 1] = array_model[j - 1], array_model[j]
+                    array_brand[j], array_brand[j - 1] = array_brand[j - 1], array_brand[j]
+                    array_harga_rental[j], array_harga_rental[j - 1] = array_harga_rental[j - 1], array_harga_rental[j]
+                    array_plat_nomor[j], array_plat_nomor[j - 1] = array_plat_nomor[j - 1], array_plat_nomor[j]
+                    array_phone_supir[j], array_phone_supir[j - 1] = array_phone_supir[j - 1], array_phone_supir[j]
+                    array_supir[j], array_supir[j - 1] = array_supir[j - 1], array_supir[j]
+    else:
+        for i in range(int_jumlah_maks - 1):
+            for j in range(int_jumlah_maks - 1, i, -1):
+                if array_temp1[j] > array_temp1[j - 1]:
+                    array_model[j], array_model[j - 1] = array_model[j - 1], array_model[j]
+                    array_brand[j], array_brand[j - 1] = array_brand[j - 1], array_brand[j]
+                    array_harga_rental[j], array_harga_rental[j - 1] = array_harga_rental[j - 1], array_harga_rental[j]
+                    array_plat_nomor[j], array_plat_nomor[j - 1] = array_plat_nomor[j - 1], array_plat_nomor[j]
+                    array_phone_supir[j], array_phone_supir[j - 1] = array_phone_supir[j - 1], array_phone_supir[j]
+                    array_supir[j], array_supir[j - 1] = array_supir[j - 1], array_supir[j]
+
+
+
 
 def fungsi_tampil_kendaraan(int_jumlah_masuk, array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
     fungsi_bersihkan_layar()
@@ -173,7 +198,7 @@ def subrutin_menu_direksi(menu_pilihan,int_jumlah_masuk):
             case 2:
                 subrutin_hapus_kendaraan(array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
             case 3:
-                subrutin_urutkan_kendaraan()
+                subrutin_urutkan_kendaraan(menu_pilihan)
             case 4:
                 subrutin_cari_kendaraan()
             case 99:
@@ -195,6 +220,8 @@ def subrutin_tambah_kendaraan(int_jumlah_maks, int_jumlah_masuk):
     print('#------------------------------------------#')
     print('|      Masukkan data kendaraan baru        |')
     print('#------------------------------------------#')
+
+
     # Loop validasi
     jumlah_kendaraan = int(input('Masukkan jumlah kendaraan: '))
 
@@ -263,7 +290,7 @@ def subrutin_hapus_kendaraan(array_brand, array_model, array_harga_rental, array
 
 def subrutin_urutkan_kendaraan(menu_pilihan1):
     fungsi_bersihkan_layar()
-    menu_pilihan1 = 0
+    menu_pilihan1 = 1
     while menu_pilihan1 != 0:
         fungsi_bersihkan_layar()
         print('#--selamat datang di koko rental--#')
@@ -292,13 +319,13 @@ def subrutin_urutkan_kendaraan(menu_pilihan1):
             menu_pilihan2 = int(input('Pilihan: '))
             match menu_pilihan2:
                 case 1:
-                    fungsi_urut_array(menu_pilihan1,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
+                    fungsi_urut_array(menu_pilihan1,array_brand,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
                 case 2:
-                    fungsi_urut_array(menu_pilihan1,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
+                    fungsi_urut_array(menu_pilihan1,array_model,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
                 case 3:
-                    fungsi_urut_array(menu_pilihan1,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
+                    fungsi_urut_array(menu_pilihan1,array_harga_rental,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
                 case 4:
-                    fungsi_urut_array(menu_pilihan1,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
+                    fungsi_urut_array(menu_pilihan1,array_plat_nomor,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
                 case 0:
                     return
                 case _:
