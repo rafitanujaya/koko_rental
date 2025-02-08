@@ -5,6 +5,7 @@ import time
 password="admin123"
 #LIST PAUJI
 #flow unit>menu1>input+>enter>data>show>delete-1>show>
+#TAMBAH 10 UNIT, HAPUS 3 UNIT DI INDEX 1,2,2,3
 click_list_pauji = [
     "10", "1", "10","",
     "testcar1","botcar1","BK1111BT","1234567890","bob","628571234",
@@ -17,9 +18,10 @@ click_list_pauji = [
     "testcar8","botcar8","BK7777BT","4567890123","papi","628574321",
     "testcar9","botcar9","BK8888BT","1234567890","yangmulia","628571234",
     "testcar10","botcar10","BK9999BT","2345678901","pakpol","628574444",
-    "7","","2","","1","7","","4","1","1"
+    "7","","2","","1","2","","2","2","","3","7",""
     ]
 
+#list rafi
 click_list_rafi = [
     "1","admin", "1", "1","10",
     "testcar1","botcar1","BK1111BT","1234567890","bob","628571234",
@@ -57,6 +59,8 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
         time.sleep(delay)
     time.sleep(0.01)
     for text_to_insert in click_list:
+        if keyboard.is_pressed('backspace'):
+            exit("Emergency triggered!")
         keyboard.write(text_to_insert, delay=0.01)
         keyboard.press_and_release('enter')
         time.sleep(delay)
@@ -74,6 +78,7 @@ def main():
             if menu == 1:
                 automate(click_list_pauji,0.01,True,False)
             elif menu == 2:
+                print("NOTE:HAPUS PP DARI INPUT")
                 automate(click_list_rafi, 0.01,False,False)
         except Exception as e:
             print("error:", e)
