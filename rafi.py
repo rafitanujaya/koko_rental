@@ -3,7 +3,7 @@
 # I.S :
 # F.S :
 
-MAKSBARIS   = 4
+MAKSBARIS   = 10
 
 # IMPORT STANDAR LIBRARY
 import os
@@ -11,13 +11,13 @@ import os
 # PROSEDURE
 
 def DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
-    brand = ['1Toyota', '2Honda', '3Suzuki', '4Daihatsu', '5Nissan', '6Mitsubishi', '7Mazda', '8Kia', '9Hyundai', '10Ford']
-    model = ['Avanza', 'Civic', 'Ertiga', 'Xenia', 'Livina', 'Pajero', 'CX-5', 'Seltos', 'Elantra', 'Focus']
-    harga_sewa = [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000]
-    plat_nomor = ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST']
-    supir = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow']
-    phone_supir = ['081234567890', '082345678901', '083456789012', '084567890123', '085678901234', '086789012345', '087890123456', '088901234567', '089012345678', '090123456789']
-    print(f'dummy success = {brand}-{model}-{harga_sewa}-{plat_nomor}-{supir}-{phone_supir}')
+    brand[:] = ['1Toyota', '2Honda', '3Suzuki', '4Daihatsu', '5Nissan', '6Mitsubishi', '7Mazda', '8Kia', '9Hyundai', '10Ford']
+    model[:] = ['Avanza', 'Civic', 'Ertiga', 'Xenia', 'Livina', 'Pajero', 'CX-5', 'Seltos', 'Elantra', 'Focus']
+    harga_sewa[:] = [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000]
+    plat_nomor[:] = ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST']
+    supir[:] = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow']
+    nomor_supir[:] = [81234567890, 82345678901, 83456789012, 84567890123, 85678901234, 86789012345, 87890123456, 88901234567, 89012345678, 90123456789]
+    print(f'dummy success = {brand}-{model}-{harga_sewa}-{plat_nomor}-{supir}-{nomor_supir}')
     return 10
 
 def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
@@ -249,7 +249,7 @@ def fungsi_tampil_menu_crud_admin(menu_crud):
     print('++===========================================++')
     menu_crud = int(input('Masukkan pilihan Anda : '))
     
-    while (menu_crud != 1) and (menu_crud != 2) and (menu_crud != 3) and (menu_crud != 4) and (menu_crud != 5) and (menu_crud != 6) and (menu_crud != 7) and (menu_crud != 0):
+    while (menu_crud != 1) and (menu_crud != 2) and (menu_crud != 3) and (menu_crud != 4) and (menu_crud != 5) and (menu_crud != 6) and (menu_crud != 7) and (menu_crud != 0) and (menu_crud != 77):
         os.system('clear')
         print('++===========================================++')
         print('||                 KOKO RENTAL               ||')
@@ -279,9 +279,6 @@ def main():
     menu_crud  = 0
     password = ""
     login = False
-    
-    
-    
     
     # ARRAY
     plat_nomor  = [""] * (MAKSBARIS + 1)
@@ -322,15 +319,16 @@ def main():
                                         posisi_penyisipan = int(input('masukkan posisi data yang mau diisi : '))
                                         banyak_data = prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_penyisipan)
                                     case 5:
-                                         posisi_hapus = int(input('masukkan posisi data yang mau dihapus : '))
-                                         banyak_data = prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus)
+                                        posisi_hapus = int(input('masukkan posisi data yang mau dihapus : '))
+                                        banyak_data = prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus)
                                     case 6:
                                         print(" menu crud 1")
                                     case 7:
                                         print(" menu crud 1")
+                                        print(f'{plat_nomor}')
                                     case 77:
                                         banyak_data = DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
-                                input()
+                                input('pp')
                                 menu_crud = fungsi_tampil_menu_crud_admin(menu_crud)
                         case 2:
                             print('menu admin 1')
@@ -342,3 +340,42 @@ def main():
 # Algoritma Utama
 main()
 print("Keluar aplikasi, selamat tinggall!!")
+
+os.system('clear')
+# print('                                 DATA RENTAL                                  ')
+# print('                                                                              ')
+# print('Pengurutan data bedasarkan = Brand                                            ')
+# print('Format Pengurutan          = Menurun                                          ')
+# print('                                                                              ')
+# print('++====++============++========++=======++============++=====================++')
+# print('|| No || Plat Nomor || Brand  || Model || Nama Supir || Nomor Telepon Supir ||')
+# print('++====++============++========++=======++============++=====================++')
+# print('|| 01 ||  D 1990 DY || Toyota || T-001 || Deriel Hoy ||     6281920202020   ||')
+# print('++----++------------++--------++-------++------------++---------------------++')
+# print('|| 01 ||  D 1990 DY || Toyota || T-001 || Deriel Hoy ||     6281920202020   ||')
+# print('++----++------------++--------++-------++------------++---------------------++')
+# print('|| 01 ||  D 1990 DY || Toyota || T-001 || Deriel Hoy ||     6281920202020   ||')
+# print('++----++------------++--------++-------++------------++---------------------++')
+
+print('                                 DATA RENTAL                                  ')
+print('                                                                              ')
+print('Pengurutan data bedasarkan = Brand                                            ')
+print('Format Pengurutan          = Menurun                                          ')
+print('                                                                              ')
+print('╔══════════════════════════════════════════════════════════════════════════╗')
+print('║                                                                          ║')
+print('║                           DAFTAR RENTAL KENDARAAN                        ║')
+print('║                           ───────────────────────                        ║')
+print('║ Pengurutan    : Brand                                                    ║')
+print('║ Format        : Menaik                                                   ║')
+print('║ Total Product : 3                                                        ║')
+print('╠════╦════════════╦════════╦════════╦══════════════╦═══════════════════════╣')
+print('║ No ║ Plat Nomor ║ Brand  ║  Model ║  Nama Supir  ║  Nomor Telepon Supir  ║')
+print('╠════╬════════════╬════════╬════════╬══════════════╬═══════════════════════╣')
+print('║ 01 ║  D 1990 DY ║ Toyota ║ T-001  ║  Deriel Hoy  ║     6281920202020     ║')
+print('╠════╬════════════╬════════╬════════╬══════════════╬═══════════════════════╣')
+print('║ 01 ║  D 1990 DY ║ Toyota ║ T-001  ║  Deriel Hoy  ║     6281920202020     ║')
+print('╠════╬════════════╬════════╬════════╬══════════════╬═══════════════════════╣')
+print('║ 01 ║  D 1990 DY ║ Toyota ║ T-001  ║  Deriel Hoy  ║     6281920202020     ║')
+print('╚════╩════════════╩════════╩════════╩══════════════╩═══════════════════════╝')
+
