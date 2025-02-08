@@ -451,6 +451,14 @@ def procedure_penghapusan_elemen(banyak_data, indeks_dihapus, array_plat_mobil, 
             print('Posisi tidak valid')
     else :
         print('Data Kosong')
+def procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir) :
+    print('------------------------------------------------------------------------------------------------------------')
+    print('| No | Brand Mobil |   Model   |   Harga Mobil   | Plat Nomor |      Nama Supir      | Nomor Telepon Supir |')
+    print('------------------------------------------------------------------------------------------------------------')
+    for i in range(banyak_data) :
+        print(f'| {i+1:>2} | {array_brand_mobil[i]:11} | {array_model_mobil[i]:9} | Rp {array_harga_mobil[i]:12} | {array_plat_mobil[i]:10} | {array_nama_supir[i]:20} |     {array_nomor_supir[i]:15} |')
+    print('------------------------------------------------------------------------------------------------------------')
+
 #program utama
 os.system('cls')
 password = str(input('Password: '))
@@ -561,6 +569,7 @@ if login:
                                 procedure_pengurutan_nomor_supir_descending(maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
             case 5 :
                 print('Pencarian Array')
+                procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             case 7 :
                 print(f'{array_brand_mobil}')
                 print(f'{array_model_mobil}')
