@@ -16,7 +16,6 @@ def function_validasi_login(password):
         login = True
         return login
 
-
 # subrutin validasi jumlah unit mobil dan supir yang diinginkan
 def function_maks_array(maks_array):
     while maks_array < 0:
@@ -245,20 +244,28 @@ def procedure_binary(data_dicari, banyak_data, temp_array, array_plat_mobil, arr
     else:
         print('Maaf Data Tidak Ditemukan')
 
+#subrutin tambah array
+def procedure_tambah_array(maks_array, banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir) :
+    i = 0
+    for i in range(maks_array-1):
+        i += 1
+        if array_brand_mobil[i] == '/' :
+            banyak_data = i
+    if banyak_data >= maks_array:
+        print('Array sudah penuh!')
+    else :
+        array_brand_mobil[banyak_data] = str(input('Masukkan brand Mobil : '))
+        array_model_mobil[banyak_data] = str(input('Masukkan model Mobil : '))
+        array_plat_mobil[banyak_data] = str(input('Masukkan Plat Mobil : '))
+        array_harga_mobil[banyak_data] = int(input('Masukkan harga Mobil : '))
+        array_nama_supir[banyak_data] = str(input('Masukkan Nama Supir : '))
+        array_nomor_supir[banyak_data] = str(input('Masukkan Nomor Supir : '))
 
 # program utama
 os.system('cls')
 password = str(input('Password: '))
 login = function_validasi_login(password)
 if login:
-    maks_array = int(input('Masukkan Jumlah Unit : '))
-    maks_array_mobil = function_maks_array(maks_array)
-    array_plat_mobil = ['/'] * maks_array_mobil
-    array_brand_mobil = ['/'] * maks_array_mobil
-    array_model_mobil = ['/'] * maks_array_mobil
-    array_harga_mobil = [0] * maks_array_mobil
-    array_nama_supir = ['/'] * maks_array_mobil
-    array_nomor_supir = ['/'] * maks_array_mobil
     print('Menu pilihan')
     print('1. Traversal tambah Array')
     print('2. Hapus Elemen Array')
@@ -266,12 +273,13 @@ if login:
     print('4. Pengurutan Array')
     print('5. Pencarian Array')
     print('6. Penghancuran Array')
-    print('7. Tampilkan Array')
+    print('7. Penciptaan Array')
+    print('8. Tampilkan Array')
     print('0. Keluar Program')
     menu_pilihan = int(input('Masukkan Menu Pilihan : '))
     while menu_pilihan != 0:
-        if menu_pilihan != 1:
-            print('Silahkan pilih menu no. 1 dulu')
+        if menu_pilihan != 7:
+            print('Silahkan pilih menu no. 7 dulu')
         match (menu_pilihan):
             case 1:
                 print('Menu Traversal Array')
@@ -289,6 +297,8 @@ if login:
                 procedure_penghapusan_elemen(banyak_data, indeks_dihapus, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             case 3:
                 print('Tambah Array')
+                print('Menambahkan array di elemen paling akhir')
+                procedure_tambah_array(maks_array, banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             case 4:
                 print('Pengurutan Array')
                 print('1. Pengurutan secara ascending')
@@ -366,7 +376,7 @@ if login:
                                 print('Pengurutan sesuai nomor supir')
                                 temp_array_sorting = array_nomor_supir
                                 procedure_pengurutan_bubble_descending(temp_array_sorting, maks_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
-            case 5:
+            case 5 :
                 print('Pencarian Array')
                 print('1. Metode Pencarian Sequential')
                 print('2. Metode Pencarian Binary')
@@ -443,9 +453,28 @@ if login:
                                 data_dicari = str(input('Masukkan nomor telepon supir yang dicari : '))
                                 temp_array = array_nomor_supir
                                 procedure_binary(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
-            case 6:
+            case 6 :
                 print('Penghancuran Array')
-            case 7:
+                persetujuan = str('Yakin Mau Reset Array? [y/n] : ').lower()
+                if persetujuan == 'y':
+                    array_brand_mobil *= 0
+                    array_model_mobil *= 0
+                    array_plat_mobil *= 0
+                    array_harga_mobil *= 0
+                    array_nama_supir *= 0
+                    array_nomor_supir *= 0
+                else :
+                    print('ok')
+            case 7 :
+                maks_array = int(input('Masukkan Jumlah Elemen Kosong : '))
+                maks_array_mobil = function_maks_array(maks_array)
+                array_plat_mobil = ['/'] * maks_array_mobil
+                array_brand_mobil = ['/'] * maks_array_mobil
+                array_model_mobil = ['/'] * maks_array_mobil
+                array_harga_mobil = [0] * maks_array_mobil
+                array_nama_supir = ['/'] * maks_array_mobil
+                array_nomor_supir = ['/'] * maks_array_mobil
+            case 8 :
                 print(f'{array_brand_mobil}')
                 print(f'{array_model_mobil}')
                 print(f'{array_plat_mobil}')
@@ -462,7 +491,8 @@ if login:
         print('4. Pengurutan Array')
         print('5. Pencarian Array')
         print('6. Penghancuran Array')
-        print('7. Tampilkan Array')
+        print('7. Penciptaan Array')
+        print('8. Tampilkan Array')
         print('0. Keluar Program')
         menu_pilihan = int(input('Masukkan Menu Pilihan : '))
 else:
