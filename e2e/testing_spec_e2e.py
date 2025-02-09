@@ -1,7 +1,17 @@
-import mouse
-import keyboard
-import time
 
+import platform
+if platform.system() == "Darwin":
+    import keyboard
+else:
+    print("WIN MODE")
+    import mouse
+    import keyboard
+    import time
+
+
+
+
+#pip install mouse,keyboard
 password="admin123"
 #LIST PAUJI
 #flow unit>menu1>input+>enter>data>show>delete-1>show>
@@ -75,6 +85,28 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
         time.sleep(delay)
     print("TEST PASSED")
 
+def automate_mac(click_list,delay=0.1,islocked=True,isselectadmin=True):
+    print("PRESS BACKSPACE TO START")
+    while True:
+        if keyboard.is_pressed('backspace'):
+            break
+    print("TEST IN PROGRESS. DO NOT TOUCH!")
+    if isselectadmin:
+        keyboard.write("1", delay=0.01)
+        keyboard.press_and_release('enter')
+        time.sleep(delay)
+    if islocked:
+        keyboard.write(password, delay=0.01)
+        keyboard.press_and_release('enter')
+        time.sleep(delay)
+    time.sleep(0.01)
+    for text_to_insert in click_list:
+        if keyboard.is_pressed('backspace'):
+            exit("Emergency triggered!")
+        keyboard.write(text_to_insert, delay=0.01)
+        keyboard.press_and_release('enter')
+        time.sleep(delay)
+    print("TEST PASSED")
 
 def main():
     while True:
@@ -86,13 +118,28 @@ def main():
             """)
             menu = int(input(">"))
             if menu == 1:
-                automate(click_list_pauji,0.01,True,False)
+                if platform.system() == "Darwin":
+                    automate_mac(click_list_pauji,0.01,True,False)
+                else:
+                    automate(click_list_pauji,0.01,True,False)
             elif menu == 2:
-                print("NOTE:HAPUS PP DARI INPUT")
-                automate(click_list_rafi, 0.01,False,False)
+                if platform.system() == "Darwin":
+                    automate_mac(click_list_rafi, 0.01,False,False)
+                else:
+                    print("NOTE:HAPUS PP DARI INPUT")
+                    automate(click_list_rafi, 0.01,False,False)
         except Exception as e:
             print("error:", e)
 
 
 if __name__ == "__main__":
+
     main()
+
+
+
+
+
+
+
+
