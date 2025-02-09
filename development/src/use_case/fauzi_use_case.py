@@ -1,8 +1,5 @@
 # fauzi
 import os
-from unittest import case
-
-
 # subrutin validasi login
 def function_validasi_login(password):
     # variabel constant untuk login dan counter
@@ -10,23 +7,14 @@ def function_validasi_login(password):
     percobaan = 0
     login = False
     while (password != PASSWORD) and percobaan < 2:
-        print('Password salah!')
+        print('Password atau Username salah!')
         os.system('pause')
         os.system('cls')
         percobaan += 1
         password = input('Password: ')
     if password == PASSWORD:
         login = True
-        return login
-
-def function_input_login(status) :
-    status_login = False
-    while status != 1 :
-        print('Maaf harus jadi admin terlebih dahulu untuk isi data')
-        status = int(input('Masukkan pilihan anda : '))
-    if status == 1:
-        status_login = True
-    return status_login
+    return login
 
 # subrutin validasi jumlah unit mobil dan supir yang diinginkan
 def function_maks_array(maks_array):
@@ -72,7 +60,7 @@ def function_validasi_menu_pengurutan(pilihan_menu_pengurutan):
 
 # subrutin validasi menu pilihan pengurutan ascending
 def function_validasi_menu_bubble_sort(pilihan_menu_ascending):
-    while pilihan_menu_ascending > 6 or pilihan_menu_ascending < 1:
+    while pilihan_menu_ascending > 7 or pilihan_menu_ascending < 1:
         print('Menu ascending tidak tersedia, pilih ulang')
         pilihan_menu_ascending = int(input('Masukkan Pilihan Menu Sorting : '))
     return pilihan_menu_ascending
@@ -139,6 +127,7 @@ def procedure_pengurutan_bubble_descending(temp_array_sorting, maks_array, array
                 array_nomor_supir[j] = array_nomor_supir[j + 1]
                 array_nomor_supir[j + 1] = temp
 
+
 # subrutin penghapusan unit dalam array bergantung indeks dari plat nomor
 def procedure_penghapusan_elemen(banyak_data, indeks_dihapus, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir):
     if banyak_data > 0:
@@ -176,6 +165,7 @@ def procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobi
     print(
         '------------------------------------------------------------------------------------------------------------')
 
+
 # subrutin validasi menu pilihan yang dicari
 def function_validasi_sequential(hal_dicari):
     while hal_dicari < 1 or hal_dicari > 4:
@@ -206,6 +196,7 @@ def procedure_sequential_tanpa_sentinel(data_dicari, banyak_data, temp_array, ar
         print(f'Nomor Telepon : {array_nomor_supir[i]}')
     else:
         print('Maaf Data Tidak Ditemukan')
+
 
 # subrutin pencarian sequential dengan boolean
 def procedure_sequential_boolean(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir):
@@ -365,7 +356,9 @@ print('1. Admin')
 print('2. User')
 print('0. Akhiri Program')
 status = int(input('Masukkan pilihan anda : '))
-status_login = function_input_login(status)
+while status != 1 and status != 0 :
+    print('Maaf harus jadi admin terlebih dahulu untuk isi data')
+    status = int(input('Masukkan pilihan anda : '))
 while status != 0 :
     if status == 1:
         os.system('cls')
@@ -656,3 +649,11 @@ while status != 0 :
                     login = False
         else:
             print('Maaf, Login anda gagal')
+    if status == 2 :
+        print('user')
+    os.system('pause')
+    print('Pilihan Program Anda')
+    print('1. Admin')
+    print('2. User')
+    print('0. Akhiri Program')
+    status = int(input('Masukkan pilihan anda : '))
