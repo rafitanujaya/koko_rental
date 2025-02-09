@@ -139,66 +139,6 @@ def procedure_pengurutan_bubble_descending(temp_array_sorting, maks_array, array
                 array_nomor_supir[j] = array_nomor_supir[j + 1]
                 array_nomor_supir[j + 1] = temp
 
-#subrutin bubble sort ascending untuk manajemen pengguna
-def procedure_pengurutan_pengguna_asceding(data_akun, data_pass, data_pengguna):
-    for i in range((data_pengguna - 1) - 1):
-        j = data_pengguna - 1
-        while j >= i + 1:
-            if data_akun[j] < data_akun[j - 1]:
-                # username
-                temp = data_akun[j]
-                data_akun[j] = data_akun[j - 1]
-                data_akun[j - 1] = temp
-                # password
-                temp = data_pass[j]
-                data_pass[j] = data_pass[j - 1]
-                data_pass[j - 1] = temp
-            j -= 1
-
-#subrutin bubble sort descending untuk manajemen pengguna
-def procedure_pengurutan_pengguna_descending(data_akun, data_pass, data_pengguna):
-    for i in range((data_pengguna) - 1):
-        for j in range((data_pengguna) - (i + 1)):
-            if data_akun[j] < data_akun[j + 1]:
-                # brand
-                temp = data_akun[j]
-                data_akun[j] = data_akun[j + 1]
-                data_akun[j + 1] = temp
-                # model
-                temp = data_pass[j]
-                data_pass[j] = data_pass[j + 1]
-                data_pass[j + 1] = temp
-#subrutin sequential search tanpa sentinel manajemen pengguna
-def procedure_sequential_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna):
-    i = 0
-    while data_akun[i] != pengguna_dicari and i < data_pengguna - 1:
-        i += 1
-    if data_akun[i] == pengguna_dicari and i < data_pengguna - 1:
-        print('Data Ditemukan!')
-        print(f'Username : {data_akun[i]}')
-        print(f'Password : {data_pass[i]}')
-    else:
-        print('Maaf Data Tidak Ditemukan')
-#subrutin binary search manajemen pengguna
-def procedure_binary_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna):
-    ia = 0
-    ib = data_pengguna - 1
-    ketemu = False
-    while not ketemu and ia <= ib:
-        k = (ia + ib) // 2
-        if data_akun[k] == pengguna_dicari:
-            ketemu = True
-        else:
-            if data_akun[k] < pengguna_dicari:
-                ia = k + 1
-            else:
-                ib = k - 1
-    if ketemu:
-        print('Data Ditemukan!')
-        print(f'Username : {data_akun[k]}')
-        print(f'Password : {data_pass[k]}')
-    else:
-        print('Maaf Data Tidak Ditemukan')
 # subrutin penghapusan unit dalam array bergantung indeks dari plat nomor
 def procedure_penghapusan_elemen(banyak_data, indeks_dihapus, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir):
     if banyak_data > 0:
@@ -339,7 +279,66 @@ def procedure_penghapusan_pengguna(user_dihapus, data_pengguna_terisi, data_akun
             print('Posisi tidak valid')
     else:
         print('Data Kosong')
+#subrutin bubble sort ascending untuk manajemen pengguna
+def procedure_pengurutan_pengguna_asceding(data_akun, data_pass, data_pengguna):
+    for i in range((data_pengguna - 1) - 1):
+        j = data_pengguna - 1
+        while j >= i + 1:
+            if data_akun[j] < data_akun[j - 1]:
+                # username
+                temp = data_akun[j]
+                data_akun[j] = data_akun[j - 1]
+                data_akun[j - 1] = temp
+                # password
+                temp = data_pass[j]
+                data_pass[j] = data_pass[j - 1]
+                data_pass[j - 1] = temp
+            j -= 1
 
+#subrutin bubble sort descending untuk manajemen pengguna
+def procedure_pengurutan_pengguna_descending(data_akun, data_pass, data_pengguna):
+    for i in range((data_pengguna) - 1):
+        for j in range((data_pengguna) - (i + 1)):
+            if data_akun[j] < data_akun[j + 1]:
+                # brand
+                temp = data_akun[j]
+                data_akun[j] = data_akun[j + 1]
+                data_akun[j + 1] = temp
+                # model
+                temp = data_pass[j]
+                data_pass[j] = data_pass[j + 1]
+                data_pass[j + 1] = temp
+#subrutin sequential search tanpa sentinel manajemen pengguna
+def procedure_sequential_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna):
+    i = 0
+    while data_akun[i] != pengguna_dicari and i < data_pengguna - 1:
+        i += 1
+    if data_akun[i] == pengguna_dicari and i < data_pengguna - 1:
+        print('Data Ditemukan!')
+        print(f'Username : {data_akun[i]}')
+        print(f'Password : {data_pass[i]}')
+    else:
+        print('Maaf Data Tidak Ditemukan')
+#subrutin binary search manajemen pengguna
+def procedure_binary_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna_terisi):
+    ia = 0
+    ib = data_pengguna_terisi - 1
+    ketemu = False
+    while not ketemu and ia <= ib:
+        k = (ia + ib) // 2
+        if data_akun[k] == pengguna_dicari:
+            ketemu = True
+        else:
+            if data_akun[k] < pengguna_dicari:
+                ia = k + 1
+            else:
+                ib = k - 1
+    if ketemu:
+        print('Data Ditemukan!')
+        print(f'Username : {data_akun[k]}')
+        print(f'Password : {data_pass[k]}')
+    else:
+        print('Maaf Data Tidak Ditemukan')
 #subrutin pengecekan ketersediaan data pengguna
 def function_traversal_cek_pengguna(data_akun, data_pengguna) :
     for i in range(data_pengguna - 1) :
@@ -618,7 +617,7 @@ while status != 0 :
                                 case 4 :
                                     print('Searching Data Pengguna Binary')
                                     pengguna_dicari = str(input('Masukkan Username Yang Dicari : '))
-                                    procedure_binary_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna)
+                                    procedure_binary_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna_terisi)
                                 case 5 :
                                     print('Hapus Data Pengguna')
                                     procedure_tampilan_pengguna(data_pengguna_terisi, data_akun, data_pass)
@@ -627,6 +626,16 @@ while status != 0 :
                                 case 6 :
                                     print('Traversal Tampilan Data Pengguna')
                                     procedure_tampilan_pengguna(data_pengguna_terisi, data_akun, data_pass)
+
+                            print('Pilihan Menu Manajemen Pengguna')
+                            print('1. Sorting Data Pengguna Asc')
+                            print('2. Sorting Data Pengguna Desc')
+                            print('3. Searching Data Pengguna Sequential')
+                            print('4. Searching Data Pengguna Binary')
+                            print('5. Hapus Data Pengguna')
+                            print('6. Traversal Tampilan Data Pengguna')
+                            print('0. exit')
+                            manajemen_user = int(input('Masukkan Menu Pilihan : '))
 
                 print('Menu pilihan')
                 print('1. Traversal Array')
