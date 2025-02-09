@@ -7,7 +7,7 @@ menu_utama = 0
 
 def fungsi_menu_utama(menu_utama):
     print('╔════════════════════════════════════════════════════════════════════════════╗')
-    print('║                        >> PILIH PERAN ANDA <<                              ║')
+    print('║                            >> PILIH PERAN ANDA <<                          ║')
     print('╠════════════════════════════════════════════════════════════════════════════╣')
     print('║ [1] ADMIN / STAFF                                                          ║')
     print('║     Kelola unit kendaraan, pengguna, dan data operasional rental.          ║')
@@ -22,9 +22,9 @@ def fungsi_menu_utama(menu_utama):
     input()
     menu_utama = int(input(' Masukkan pilihan Anda : '))
     
-    while (menu_utama != 1) and (menu_utama != 2) and (menu_utama != 0):
+    while (menu_utama < 0) and (menu_utama > 2):
         print('╔════════════════════════════════════════════════════════════════════════════╗')
-        print('║                        >> PILIH PERAN ANDA <<                              ║')
+        print('║                            >> PILIH PERAN ANDA <<                          ║')
         print('╠════════════════════════════════════════════════════════════════════════════╣')
         print('║ [1] ADMIN / STAFF                                                          ║')
         print('║     Kelola unit kendaraan, pengguna, dan data operasional rental.          ║')
