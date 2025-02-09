@@ -18,6 +18,19 @@ menu_admin_searching_sequential = 0
 menu_admin_searching_binary = 0
 
 
+# start variabel
+
+# end variabel
+
+# start prosedur
+
+# end prosdure
+
+# start fungsi
+
+# end fungsi
+
+
 def fungsi_menu_utama(menu_utama):
     print('╔════════════════════════════════════════════════════════════════════════════╗')
     print('║                            >> PILIH PERAN ANDA <<                          ║')
@@ -454,6 +467,7 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary):
         print('>>> Masukkan pilihan Anda dan tekan [ENTER] untuk melanjutkan.')
         menu_admin_searching_binary = int(input(' Masukan pilihan anda : '))
     return menu_admin_searching_binary
+
 
 
 menu_utama = fungsi_menu_utama(menu_utama)
