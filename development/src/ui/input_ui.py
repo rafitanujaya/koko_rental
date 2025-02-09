@@ -7,6 +7,7 @@ print('║                M E M A S U K A N   D E T A I L   D A T A             
 print('║                         ───────────────────────                          ║')
 print('║  Jumlah data : __                                                        ║')
 print('╚══════════════════════════════════════════════════════════════════════════╝')
+#bagian yang diulang
 print('   Data kendaraan ke-__')
 print('   · Plat nomor    : ')
 print('   · Model         : ')
@@ -15,6 +16,7 @@ print('   · Harga         : ')
 print('   · Nama Supir    : ')
 print('   · Nomor telepon : ')
 print('════════════════════════════════════════════════════════════════════════════')
+#akhir dari yag diulang
 
 #6. MENAMBAHKAN DATA BARU
 
@@ -38,6 +40,7 @@ print('║                ──────────────────
 print('║  Jumlah data : __                                                        ║')
 print('╚══════════════════════════════════════════════════════════════════════════╝')
 print('   Urutan data yang ingin disisip : ')
+print('════════════════════════════════════════════════════════════════════════════')
 print('   · Plat nomor    : ')
 print('   · Model         : ')
 print('   · Brand         : ')
