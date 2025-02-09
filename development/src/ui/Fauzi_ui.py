@@ -7,23 +7,19 @@ def function_validasi_login(password):
     percobaan = 0
     login = False
     while (password != PASSWORD) and percobaan < 2:
-        print('Password salah!')
+        print('Password atau Username salah!')
         os.system('pause')
         os.system('cls')
         percobaan += 1
         password = input('Password: ')
     if password == PASSWORD:
         login = True
-        return login
+    return login
 
-def function_input_login(status) :
-    status_login = False
-    while status != 1 :
+def procedure_input_login(status) :
+    while status != 1 and status != 0 :
         print('Maaf harus jadi admin terlebih dahulu untuk isi data')
         status = int(input('Masukkan pilihan anda : '))
-    if status == 1:
-        status_login = True
-    return status_login
 
 # subrutin validasi jumlah unit mobil dan supir yang diinginkan
 def function_maks_array(maks_array):
@@ -273,7 +269,7 @@ print('1. Admin')
 print('2. User')
 print('0. Akhiri Program')
 status = int(input('Masukkan pilihan anda : '))
-status_login = function_input_login(status)
+procedure_input_login(status)
 while status != 0 :
     if status == 1:
         os.system('cls')
@@ -513,3 +509,11 @@ while status != 0 :
                     login = False
         else:
             print('Maaf, Login anda gagal')
+    if status == 2 :
+        print('user')
+    os.system('pause')
+    print('Pilihan Program Anda')
+    print('1. Admin')
+    print('2. User')
+    print('0. Akhiri Program')
+    status = int(input('Masukkan pilihan anda : '))
