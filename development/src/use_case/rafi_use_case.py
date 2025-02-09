@@ -11,12 +11,28 @@ import os
 # PROSEDURE
 
 def DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
-    brand[:] = ['1Toyota', '2Honda', '3Suzuki', '4Daihatsu', '5Nissan', '6Mitsubishi', '7Mazda', '8Kia', '9Hyundai', '10Ford']
-    model[:] = ['Avanza', 'Civic', 'Ertiga', 'Xenia', 'Livina', 'Pajero', 'CX-5', 'Seltos', 'Elantra', 'Focus']
-    harga_sewa[:] = [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000]
-    plat_nomor[:] = ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST']
-    supir[:] = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow']
-    nomor_supir[:] = [81234567891, 82345678902, 83456789013, 84567890124, 85678901235, 86789012346, 87890123457, 88901234568, 89012345679, 90123456789]
+    datas = [
+        ['1Toyota', '2Honda', '3Suzuki', '4Daihatsu', '5Nissan', '6Mitsubishi', '7Mazda', '8Kia', '9Hyundai', '10Ford'],
+        ['Avanza', 'Civic', 'Ertiga', 'Xenia', 'Livina', 'Pajero', 'CX-5', 'Seltos', 'Elantra', 'Focus'],
+        [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000],
+        ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST'],
+        ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow'],
+        [81234567891, 82345678902, 83456789013, 84567890124, 85678901235, 86789012346, 87890123457, 88901234568, 89012345679, 90123456789]
+        ]
+    
+    for i in range(MAKSBARIS):
+        brand[i] = datas[0][i]
+        model[i] = datas[1][i]
+        harga_sewa[i] = datas[2][i]
+        plat_nomor[i] = datas[3][i]
+        supir[i] = datas[4][i]
+        nomor_supir[i] = datas[5][i]
+    # brand[:] = ['1Toyota', '2Honda', '3Suzuki', '4Daihatsu', '5Nissan', '6Mitsubishi', '7Mazda', '8Kia', '9Hyundai', '10Ford']
+    # model[:] = ['Avanza', 'Civic', 'Ertiga', 'Xenia', 'Livina', 'Pajero', 'CX-5', 'Seltos', 'Elantra', 'Focus']
+    # harga_sewa[:] = [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000]
+    # plat_nomor[:] = ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST']
+    # supir[:] = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow']
+    # nomor_supir[:] = [81234567891, 82345678902, 83456789013, 84567890124, 85678901235, 86789012346, 87890123457, 88901234568, 89012345679, 90123456789]
     print(f'dummy success = {brand}-{model}-{harga_sewa}-{plat_nomor}-{supir}-{nomor_supir}')
     return 10
 
@@ -185,8 +201,7 @@ def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supi
                 nomor_supir[j] = temp
     print('done')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
-    
-    
+      
 def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting):
     for i in range(MAKSBARIS):
         max = i
@@ -222,7 +237,113 @@ def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_sup
         nomor_supir[max] = temp
     print('done')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
+    
+def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, searching_array, banyak_data):
+        dicari = input('masukkan data yang ingin dicari : ')
+        i = 0;
+        while searching_array[i] != dicari and i < banyak_data - 1:
+            i += 1;
+            print(i)
+        if searching_array[i] == dicari:
+            print(f'data ditemukan {dicari}')
+            print(f'Data : {plat_nomor[i]}')
+            print(f'Data : {model[i]}')
+            print(f'Data : {brand[i]}')
+            print(f'Data : {harga_sewa[i]}')
+            print(f'Data : {supir[i]}')
+            print(f'Data : {nomor_supir[i]}')
+            i += 1
+            while(i < banyak_data):
+                if(searching_array[i] == dicari):
+                    print(f'data ditemukan {dicari}')
+                    print(f'Data : {plat_nomor[i]}')
+                    print(f'Data : {model[i]}')
+                    print(f'Data : {brand[i]}')
+                    print(f'Data : {harga_sewa[i]}')
+                    print(f'Data : {supir[i]}')
+                    print(f'Data : {nomor_supir[i]}')
+                i += 1
+        else:
+            print(f'data tidak ditemukan')
+
+def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, searching_array, banyak_data):
+        dicari = int(input('masukkan data yang ingin dicari : '))
+        i = 0;
+        while searching_array[i] != dicari and i < banyak_data - 1:
+            i += 1;
+            print(i)
+        if searching_array[i] == dicari:
+            print(f'data ditemukan {dicari}')
+            print(f'Data : {plat_nomor[i]}')
+            print(f'Data : {model[i]}')
+            print(f'Data : {brand[i]}')
+            print(f'Data : {harga_sewa[i]}')
+            print(f'Data : {supir[i]}')
+            print(f'Data : {nomor_supir[i]}')
+            i += 1
+            while(i < banyak_data):
+                if(searching_array[i] == dicari):
+                    print(f'data ditemukan {dicari}')
+                    print(f'Data : {plat_nomor[i]}')
+                    print(f'Data : {model[i]}')
+                    print(f'Data : {brand[i]}')
+                    print(f'Data : {harga_sewa[i]}')
+                    print(f'Data : {supir[i]}')
+                    print(f'Data : {nomor_supir[i]}')
+                i += 1
+        else:
+            print(f'data tidak ditemukan')    
+            
+def prosedur_search_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, searching_array, banyak_data):
+    dicari = input('data yang dicari : ')
+    la = 0
+    lb = banyak_data - 1
+    ketemu = False #dicari 7
+    while not ketemu and la <= lb :
+        k = (la + lb) // 2
+        print(k)
+        if (searching_array[k] == dicari):
+            ketemu =  True
+        else:
+            if (searching_array[k] < dicari):
+                la = k + 1
+            else:
+                lb = k - 1
+    if ketemu :
+        print(f'data dicari ketemu {dicari}')
+        print(f'Data : {plat_nomor[k]}')
+        print(f'Data : {model[k]}')
+        print(f'Data : {brand[k]}')
+        print(f'Data : {harga_sewa[k]}')
+        print(f'Data : {supir[k]}')
+        print(f'Data : {nomor_supir[k]}')
+    else:
+        print(f'tidak ketemu')
         
+def prosedur_search_binary_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, searching_array, banyak_data):
+    dicari = input('data yang dicari : ')
+    la = 0
+    lb = banyak_data - 1
+    ketemu = False #dicari 7
+    while not ketemu and la <= lb :
+        k = (la + lb) // 2
+        if (searching_array[k] == dicari):
+            ketemu =  True
+        else:
+            if (searching_array[k] < dicari):
+                la = k + 1
+            else:
+                lb = k - 1
+    if ketemu :
+        print(f'data dicari ketemu {dicari}')
+        print(f'Data : {plat_nomor[k]}')
+        print(f'Data : {model[k]}')
+        print(f'Data : {brand[k]}')
+        print(f'Data : {harga_sewa[k]}')
+        print(f'Data : {supir[k]}')
+        print(f'Data : {nomor_supir[k]}')
+    else:
+        print(f'tidak ketemu')
 # FUNCTION
 
 # subrutin fungsi untuk menampilkan menu utama
@@ -463,6 +584,91 @@ def fungsi_tampil_menu_sorting_desc_admin(menu_sorting_desc):
         menu_sorting_desc = int(input('Masukkan pilihan Anda : '))
     return menu_sorting_desc
 
+def fungsi_tampil_menu_searching_admin(menu_searching):
+    print('++===========================================++')
+    print('||                 KOKO RENTAL               ||')
+    print('++===========================================++')
+    print('||                                           ||')
+    print('++------------------- MENU ------------------++')
+    print('||  1. Sequential Search                     ||')
+    print('||  2. Binary Search                         ||')
+    print('||  0. Kembali ke menu admin                 ||')
+    print('++===========================================++')
+    menu_searching = int(input('Masukkan pilihan Anda : '))
+    
+    
+    while (menu_searching != 1) and (menu_searching != 2) and (menu_searching != 0) and (menu_searching != 77):
+        os.system('clear')
+        print('++===========================================++')
+        print('||                 KOKO RENTAL               ||')
+        print('++===========================================++')
+        print('||                                           ||')
+        print('++------------------- MENU ------------------++')
+        print('||  1. Sequential Search                     ||')
+        print('||  2. Binary Search                         ||')
+        print('||  0. Kembali ke menu admin                 ||')
+        print('++===========================================++')
+        menu_searching = int(input('Masukkan pilihan Anda : '))
+    return menu_searching
+
+def fungsi_tampil_menu_searching_seq_admin(menu_searching_seq):
+    print('++===========================================++')
+    print('||                 KOKO RENTAL               ||')
+    print('++===========================================++')
+    print('||                                           ||')
+    print('++------------------- MENU ------------------++')
+    print('||  1. Model                                 ||')
+    print('||  2. Brand                                 ||')
+    print('||  3. Harga sewa                            ||')
+    print('||  4. supir                                 ||')
+    print('||  0. Kembali ke menu admin                 ||')
+    print('++===========================================++')
+    menu_searching_seq = int(input('Masukkan pilihan Anda : '))
+    
+    
+    while (menu_searching_seq != 1) and (menu_searching_seq != 2)  and (menu_searching_seq != 3)  and (menu_searching_seq != 4) and (menu_searching_seq != 0):
+        os.system('clear')
+        print('++===========================================++')
+        print('||                 KOKO RENTAL               ||')
+        print('++===========================================++')
+        print('||                                           ||')
+        print('++------------------- MENU ------------------++')
+        print('||  1. Model                                 ||')
+        print('||  2. Brand                                 ||')
+        print('||  3. Harga sewa                            ||')
+        print('||  4. supir                                 ||')
+        print('||  0. Kembali ke menu admin                 ||')
+        print('++===========================================++')
+        menu_searching_seq = int(input('Masukkan pilihan Anda : '))
+    return menu_searching_seq
+
+def fungsi_tampil_menu_searching_binary_admin(menu_searching_binary):
+    print('++===========================================++')
+    print('||                 KOKO RENTAL               ||')
+    print('++===========================================++')
+    print('||                                           ||')
+    print('++------------------- MENU ------------------++')
+    print('||  1. Plat Nomor                            ||')
+    print('||  2. Nomor Telephone Supir                 ||')
+    print('||  0. Kembali ke menu admin                 ||')
+    print('++===========================================++')
+    menu_searching_binary = int(input('Masukkan pilihan Anda : '))
+    
+    
+    while (menu_searching_binary != 1) and (menu_searching_binary != 2) and (menu_searching_binary != 0):
+        os.system('clear')
+        print('++===========================================++')
+        print('||                 KOKO RENTAL               ||')
+        print('++===========================================++')
+        print('||                                           ||')
+        print('++------------------- MENU ------------------++')
+        print('||  1. Sequential Search                     ||')
+        print('||  2. Binary Search                         ||')
+        print('||  0. Kembali ke menu admin                 ||')
+        print('++===========================================++')
+        menu_searching_binary = int(input('Masukkan pilihan Anda : '))
+    return menu_searching_binary
+
 def main():
     # DEKLARASI VARIABEL
     
@@ -473,6 +679,9 @@ def main():
     menu_sorting = 0
     menu_sorting_asc = 0
     menu_sorting_desc = 0
+    menu_searching = 0
+    menu_searching_seq = 0
+    menu_searching_binary = 0
     password = ""
     login = False
     
@@ -573,6 +782,35 @@ def main():
                                             menu_sorting_desc = fungsi_tampil_menu_sorting_desc_admin(menu_sorting_desc)
                                 input('coba sort')
                                 menu_sorting = fungsi_tampil_menu_sorting_admin(menu_sorting)
+                        case 3:
+                            menu_searching = fungsi_tampil_menu_searching_admin(menu_searching)
+                            while menu_searching != 0:
+                                match menu_searching:
+                                    case 1:
+                                        menu_searching_seq = fungsi_tampil_menu_searching_seq_admin(menu_searching_seq)
+                                        while(menu_searching_seq != 0):
+                                            match menu_searching_seq:
+                                                case 1:
+                                                    prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, model, banyak_data)
+                                                case 2:
+                                                    prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, brand, banyak_data)
+                                                case 3:
+                                                    prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, harga_sewa, banyak_data)
+                                                case 4:
+                                                    prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, supir, banyak_data)
+                                            menu_searching_seq = fungsi_tampil_menu_searching_seq_admin(menu_searching_seq)
+                                    case 2:
+                                        menu_searching_binary = fungsi_tampil_menu_searching_binary_admin(menu_searching_binary)
+                                        while(menu_searching_binary != 0):
+                                            match menu_searching_binary:
+                                                case 1:
+                                                    prosedur_search_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, plat_nomor, banyak_data)
+                                                case 2:
+                                                    prosedur_search_binary_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, nomor_supir, banyak_data)
+                                            menu_searching_binary = fungsi_tampil_menu_searching_binary_admin(menu_searching_binary)
+                                    case 77:
+                                        banyak_data = DEBUG_DUMMY_DATA(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
+                                menu_searching = fungsi_tampil_menu_searching_admin(menu_searching)
                         case 0:
                             menu_utama = 0
                     input('bro')
