@@ -86,7 +86,7 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
     print("TEST PASSED")
 
 def automate_mac(click_list,delay=0.1,islocked=True,isselectadmin=True):
-    print("PRESS BACKSPACE TO START")
+    print("PRESS ESC TO START")
     while True:
         if keyboard.is_pressed('escape'):
             break
