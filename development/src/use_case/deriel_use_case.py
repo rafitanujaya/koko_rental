@@ -44,6 +44,29 @@ def function_masuk_admin():
     return password
 
 
+def function_isi_banyak_data(banyak_data):
+    print('--------------------------------------------')
+    print('| BERAPA BANYAK DATA YANG INGIN DIMASUKAN? |')
+    print('--------------------------------------------')
+    print('')
+    banyak_data = int(input('Banyak data : '))
+    while (banyak_data < 0):
+        os.system('cls')
+        print('Banyak data tidak boleh kurang dari 0. ualngi!!')
+        os.system('pause')
+        os.system('cls')
+        print('--------------------------------------------')
+        print('| BERAPA BANYAK DATA YANG INGIN DIMASUKAN? |')
+        print('--------------------------------------------')
+        print('')
+        banyak_data = int(input('Banyak data : '))
+    os.system('cls')
+    print(' + +  TERIMAKASI ATAS INFORMASINYA  + + ')
+    print('           SELAMAT BEKERJA :)           ')
+    os.system('pause')
+    return banyak_data
+
+
 def function_menu_admin():
     print('---------------------------')
     print('|  M E N U   A D M I N D  |')
@@ -105,27 +128,27 @@ def function_Menu_CRUD():
     return pilihan
 
 
-def function_isi_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR):
+def function_isi_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
     print('-----------------------------------------------')
     print('|  M E M A S U K A N   J U M L A H   D A T A  |')
     print('-----------------------------------------------')
     i = 0
-    print(f'data mobil ke-{i + 1}')
-    PLAT_MOBIL[i] = str(input('Plat Mobil : ')).upper()
-    while (PLAT_MOBIL[i] != 'STOP'):
+    while (i < banyak_data):
+        print(f'data mobil ke-{i + 1}')
+        PLAT_MOBIL[i] = str(input('Plat Mobil  : ')).upper()
         BRAND_MOBIL[i] = str(input('Brand Mobil : '))
         MODEL_MOBIL[i] = str(input('Model Mobil : '))
         HARGA[i] = int(input('Harga       : Rp.'))
         SUPIR[i] = str(input('Nama Supir  : '))
         NOMOR_SUPIR[i] = int(input('Nomor Supir : '))
+        print('-----------------------------------------------')
         i += 1
-        if (i == 9):
-            PLAT_MOBIL = 'STOP'
-        else:
-            print(f'data mobil ke-{i + 1}')
-            PLAT_MOBIL[i] = str(input('Plat Mobil : ')).upper()
     banyak_data = i
     return banyak_data
+
+
+def function_tapil_banyak_data(banyak_data):
+    print(f'Banyak kendaraan yang tersedia yaitu {banyak_data}')
 
 
 def function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
@@ -134,8 +157,19 @@ def function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOM
     print('--------------------------------------------------------------------------------------------')
     for i in range(banyak_data):
         print(
-            f'|  {i + 1:<2} |  {PLAT_MOBIL[i]:10}  |  {BRAND_MOBIL[i]:7}  |  {MODEL_MOBIL[i]:7}  | Rp.{HARGA[i]:<10} | {SUPIR[i]:11} | {NOMOR_SUPIR[i]:<13} |')
+            f'|  {i + 1:<2} |  {PLAT_MOBIL[i]:10}  |  {BRAND_MOBIL[i]:7}  |  {MODEL_MOBIL[i]:>7}  | Rp.{HARGA[i]:<10} | {SUPIR[i]:11} | {NOMOR_SUPIR[i]:<13} |')
         print('--------------------------------------------------------------------------------------------')
+
+
+def function_tampil_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    print('---------------------------------------------------------------------------------------------------')
+    print('| keterangan |     Harga     |  Plat Mobil  |   Brand   |   Model   |    Supir    |  Nomor Supir  |')
+    print('---------------------------------------------------------------------------------------------------')
+    print(
+        f'|  Termahal  | Rp.{HARGA[banyak_data - 1]:<10} |  {PLAT_MOBIL[banyak_data - 1]:10}  |  {BRAND_MOBIL[banyak_data - 1]:7}  |  {MODEL_MOBIL[banyak_data - 1]:>7}  | {SUPIR[banyak_data - 1]:11} | {NOMOR_SUPIR[banyak_data - 1]:<13} |')
+    print(
+        f'|  Termurah  | Rp.{HARGA[0]:<10} |  {PLAT_MOBIL[0]:10}  |  {BRAND_MOBIL[0]:7}  |  {MODEL_MOBIL[0]:>7}  | {SUPIR[0]:11} | {NOMOR_SUPIR[0]:<13} |')
+    print('---------------------------------------------------------------------------------------------------')
 
 
 def function_rata_rata_harga(HARGA, banyak_data):
@@ -144,6 +178,64 @@ def function_rata_rata_harga(HARGA, banyak_data):
         total_harga += HARGA[i]
     rata_rata = total_harga // banyak_data
     return rata_rata
+
+
+def function_tambah_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    PLAT_MOBIL[banyak_data] = str(input('Plat Mobil  : ')).upper()
+    BRAND_MOBIL[banyak_data] = str(input('Brand Mobil : '))
+    MODEL_MOBIL[banyak_data] = str(input('Model Mobil : '))
+    HARGA[banyak_data] = int(input('Harga       : Rp.'))
+    SUPIR[banyak_data] = str(input('Nama Supir  : '))
+    NOMOR_SUPIR[banyak_data] = int(input('Nomor Supir : '))
+    os.system('cls')
+    print('Data diterima :D')
+    os.system('pause')
+    os.system('cls')
+
+
+def function_penyisipan_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data, posisi):
+    if (posisi - 1 >= 0) and (posisi - 1 <= banyak_data - 1):
+        i = banyak_data
+        while (i >= posis - 1):
+            PLAT_MOBIL[i + 1] = PLAT_MOBIL[i]
+            BRAND_MOBIL[i + 1] = BRAND_MOBIL[i]
+            MODEL_MOBIL[i + 1] = MODEL_MOBIL[i]
+            HARGA[i + 1] = HARGA[i]
+            SUPIR[i + 1] = SUPIR[i]
+            NOMOR_SUPIR[i + 1] = NOMOR_SUPIR[i]
+            i -= 1
+
+        PLAT_MOBIL[posis - 1] = str(input('Plat Mobil  : ')).upper()
+        BRAND_MOBIL[posis - 1] = str(input('Brand Mobil : '))
+        MODEL_MOBIL[posis - 1] = str(input('Model Mobil : '))
+        HARGA[posis - 1] = int(input('Harga       : Rp.'))
+        SUPIR[posis - 1] = str(input('Nama Supir  : '))
+        NOMOR_SUPIR[posis - 1] = int(input('Nomor Supir : '))
+    else:
+        os.system('cls')
+        print('data tidak valid!!')
+
+
+def function_penghapusan_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data, posisi):
+    if (posisi - 1 >= 0) and (posisi - 1 <= banyak_data - 1):
+        i = banyak_data
+        for i in range(posis, banyak_data):
+            PLAT_MOBIL[i - 1] = PLAT_MOBIL[i]
+            BRAND_MOBIL[i - 1] = BRAND_MOBIL[i]
+            MODEL_MOBIL[i - 1] = MODEL_MOBIL[i]
+            HARGA[i - 1] = HARGA[i]
+            SUPIR[i - 1] = SUPIR[i]
+            NOMOR_SUPIR[i - 1] = NOMOR_SUPIR[i]
+
+        PLAT_MOBIL[posis - 1] = '/'
+        BRAND_MOBIL[posis - 1] = '/'
+        MODEL_MOBIL[posis - 1] = '/'
+        HARGA[posis - 1] = 0
+        SUPIR[posis - 1] = '/'
+        NOMOR_SUPIR[posis - 1] = 0
+    else:
+        os.system('cls')
+        print('data tidak valid!!')
 
 
 def function_Menu_sorting():
@@ -202,30 +294,30 @@ def function_menu_shorting_naik():
 
 def function_shorting_naik_plat(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
     for i in range(banyak_data - 1):
-        j = banyak_data
+        j = banyak_data - 2
         while (j >= i + 1):
-            if (PLAT_MOBIL[j] < PLAT_MOBIL[j + 1]):
-                Temp = PLAT_MOBIL
+            if (PLAT_MOBIL[j] < PLAT_MOBIL[j - 1]):
+                Temp = PLAT_MOBIL[j]
                 PLAT_MOBIL[j] = PLAT_MOBIL[j - 1]
                 PLAT_MOBIL[j - 1] = Temp
 
-                Temp = BRAND_MOBIL
+                Temp = BRAND_MOBIL[j]
                 BRAND_MOBIL[j] = BRAND_MOBIL[j - 1]
                 BRAND_MOBIL[j - 1] = Temp
 
-                Temp = MODEL_MOBIL
+                Temp = MODEL_MOBIL[j]
                 MODEL_MOBIL[j] = MODEL_MOBIL[j - 1]
                 MODEL_MOBIL[j - 1] = Temp
 
-                Temp = HARGA
+                Temp = HARGA[j]
                 HARGA[j] = HARGA[j - 1]
                 HARGA[j - 1] = Temp
 
-                Temp = SUPIR
+                Temp = SUPIR[j]
                 SUPIR[j] = SUPIR[j - 1]
                 SUPIR[j - 1] = Temp
 
-                Temp = NOMOR_SUPIR
+                Temp = NOMOR_SUPIR[j]
                 NOMOR_SUPIR[j] = NOMOR_SUPIR[j - 1]
                 NOMOR_SUPIR[j - 1] = Temp
             j -= 1
@@ -233,30 +325,30 @@ def function_shorting_naik_plat(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUP
 
 def function_shorting_naik_brand(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
     for i in range(banyak_data - 1):
-        j = banyak_data
+        j = banyak_data - 2
         while (j >= i + 1):
-            if (BRAND_MOBIL[j] < BRAND_MOBIL[j + 1]):
-                Temp = PLAT_MOBIL
+            if (BRAND_MOBIL[j] < BRAND_MOBIL[j - 1]):
+                Temp = PLAT_MOBIL[j]
                 PLAT_MOBIL[j] = PLAT_MOBIL[j - 1]
                 PLAT_MOBIL[j - 1] = Temp
 
-                Temp = BRAND_MOBIL
+                Temp = BRAND_MOBIL[j]
                 BRAND_MOBIL[j] = BRAND_MOBIL[j - 1]
                 BRAND_MOBIL[j - 1] = Temp
 
-                Temp = MODEL_MOBIL
+                Temp = MODEL_MOBIL[j]
                 MODEL_MOBIL[j] = MODEL_MOBIL[j - 1]
                 MODEL_MOBIL[j - 1] = Temp
 
-                Temp = HARGA
+                Temp = HARGA[j]
                 HARGA[j] = HARGA[j - 1]
                 HARGA[j - 1] = Temp
 
-                Temp = SUPIR
+                Temp = SUPIR[j]
                 SUPIR[j] = SUPIR[j - 1]
                 SUPIR[j - 1] = Temp
 
-                Temp = NOMOR_SUPIR
+                Temp = NOMOR_SUPIR[j]
                 NOMOR_SUPIR[j] = NOMOR_SUPIR[j - 1]
                 NOMOR_SUPIR[j - 1] = Temp
             j -= 1
@@ -264,30 +356,30 @@ def function_shorting_naik_brand(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SU
 
 def function_shorting_naik_model(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
     for i in range(banyak_data - 1):
-        j = banyak_data
+        j = banyak_data - 2
         while (j >= i + 1):
-            if (MODEL_MOBIL[j] < MODEL_MOBIL[j + 1]):
-                Temp = PLAT_MOBIL
+            if (MODEL_MOBIL[j] < MODEL_MOBIL[j - 1]):
+                Temp = PLAT_MOBIL[j]
                 PLAT_MOBIL[j] = PLAT_MOBIL[j - 1]
                 PLAT_MOBIL[j - 1] = Temp
 
-                Temp = BRAND_MOBIL
+                Temp = BRAND_MOBIL[j]
                 BRAND_MOBIL[j] = BRAND_MOBIL[j - 1]
                 BRAND_MOBIL[j - 1] = Temp
 
-                Temp = MODEL_MOBIL
+                Temp = MODEL_MOBIL[j]
                 MODEL_MOBIL[j] = MODEL_MOBIL[j - 1]
                 MODEL_MOBIL[j - 1] = Temp
 
-                Temp = HARGA
+                Temp = HARGA[j]
                 HARGA[j] = HARGA[j - 1]
                 HARGA[j - 1] = Temp
 
-                Temp = SUPIR
+                Temp = SUPIR[j]
                 SUPIR[j] = SUPIR[j - 1]
                 SUPIR[j - 1] = Temp
 
-                Temp = NOMOR_SUPIR
+                Temp = NOMOR_SUPIR[j]
                 NOMOR_SUPIR[j] = NOMOR_SUPIR[j - 1]
                 NOMOR_SUPIR[j - 1] = Temp
             j -= 1
@@ -295,30 +387,30 @@ def function_shorting_naik_model(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SU
 
 def function_shorting_naik_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
     for i in range(banyak_data - 1):
-        j = banyak_data
+        j = banyak_data - 2
         while (j >= i + 1):
-            if (HARGA[j] < HARGA[j + 1]):
-                Temp = PLAT_MOBIL
+            if (HARGA[j] < HARGA[j - 1]):
+                Temp = PLAT_MOBIL[j]
                 PLAT_MOBIL[j] = PLAT_MOBIL[j - 1]
                 PLAT_MOBIL[j - 1] = Temp
 
-                Temp = BRAND_MOBIL
+                Temp = BRAND_MOBIL[j]
                 BRAND_MOBIL[j] = BRAND_MOBIL[j - 1]
                 BRAND_MOBIL[j - 1] = Temp
 
-                Temp = MODEL_MOBIL
+                Temp = MODEL_MOBIL[j]
                 MODEL_MOBIL[j] = MODEL_MOBIL[j - 1]
                 MODEL_MOBIL[j - 1] = Temp
 
-                Temp = HARGA
+                Temp = HARGA[j]
                 HARGA[j] = HARGA[j - 1]
                 HARGA[j - 1] = Temp
 
-                Temp = SUPIR
+                Temp = SUPIR[j]
                 SUPIR[j] = SUPIR[j - 1]
                 SUPIR[j - 1] = Temp
 
-                Temp = NOMOR_SUPIR
+                Temp = NOMOR_SUPIR[j]
                 NOMOR_SUPIR[j] = NOMOR_SUPIR[j - 1]
                 NOMOR_SUPIR[j - 1] = Temp
             j -= 1
@@ -326,30 +418,30 @@ def function_shorting_naik_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SU
 
 def function_shorting_naik_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
     for i in range(banyak_data - 1):
-        j = banyak_data
+        j = banyak_data - 2
         while (j >= i + 1):
-            if (SUPIR[j] < NOMOR_SUPIR[j + 1]):
-                Temp = PLAT_MOBIL
+            if (SUPIR[j] < SUPIR[j - 1]):
+                Temp = PLAT_MOBIL[j]
                 PLAT_MOBIL[j] = PLAT_MOBIL[j - 1]
                 PLAT_MOBIL[j - 1] = Temp
 
-                Temp = BRAND_MOBIL
+                Temp = BRAND_MOBIL[j]
                 BRAND_MOBIL[j] = BRAND_MOBIL[j - 1]
                 BRAND_MOBIL[j - 1] = Temp
 
-                Temp = MODEL_MOBIL
+                Temp = MODEL_MOBIL[j]
                 MODEL_MOBIL[j] = MODEL_MOBIL[j - 1]
                 MODEL_MOBIL[j - 1] = Temp
 
-                Temp = HARGA
+                Temp = HARGA[j]
                 HARGA[j] = HARGA[j - 1]
                 HARGA[j - 1] = Temp
 
-                Temp = SUPIR
+                Temp = SUPIR[j]
                 SUPIR[j] = SUPIR[j - 1]
                 SUPIR[j - 1] = Temp
 
-                Temp = NOMOR_SUPIR
+                Temp = NOMOR_SUPIR[j]
                 NOMOR_SUPIR[j] = NOMOR_SUPIR[j - 1]
                 NOMOR_SUPIR[j - 1] = Temp
             j -= 1
@@ -357,44 +449,241 @@ def function_shorting_naik_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SU
 
 def function_shorting_naik_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
     for i in range(banyak_data - 1):
-        j = banyak_data
+        j = banyak_data - 2
         while (j >= i + 1):
-            if (NOMOR_SUPIR[j] < NOMOR_SUPIR[j + 1]):
-                Temp = PLAT_MOBIL
+            if (NOMOR_SUPIR[j] < NOMOR_SUPIR[j - 1]):
+                Temp = PLAT_MOBIL[j]
                 PLAT_MOBIL[j] = PLAT_MOBIL[j - 1]
                 PLAT_MOBIL[j - 1] = Temp
 
-                Temp = BRAND_MOBIL
+                Temp = BRAND_MOBIL[j]
                 BRAND_MOBIL[j] = BRAND_MOBIL[j - 1]
                 BRAND_MOBIL[j - 1] = Temp
 
-                Temp = MODEL_MOBIL
+                Temp = MODEL_MOBIL[j]
                 MODEL_MOBIL[j] = MODEL_MOBIL[j - 1]
                 MODEL_MOBIL[j - 1] = Temp
 
-                Temp = HARGA
+                Temp = HARGA[j]
                 HARGA[j] = HARGA[j - 1]
                 HARGA[j - 1] = Temp
 
-                Temp = SUPIR
+                Temp = SUPIR[j]
                 SUPIR[j] = SUPIR[j - 1]
                 SUPIR[j - 1] = Temp
 
-                Temp = NOMOR_SUPIR
+                Temp = NOMOR_SUPIR[j]
                 NOMOR_SUPIR[j] = NOMOR_SUPIR[j - 1]
                 NOMOR_SUPIR[j - 1] = Temp
             j -= 1
 
 
+def function_menu_shorting_turun():
+    print('-------------------------------------------')
+    print('|  M E N U   S H O R T I N G   T U R U N  |')
+    print('-------------------------------------------')
+    print('| 1. Berdasarkan plat                     |')
+    print('| 2. berdasarkan brand                    |')
+    print('| 3. Berdasarkan model                    |')
+    print('| 4. Berdasarkan harga                    |')
+    print('| 5. berdasarkan nama supir               |')
+    print('| 6. Berdasarkan nomor supir              |')
+    print('-------------------------------------------')
+    pilihan = int(input('Pilihan anda : '))
+    while (pilihan < 0) or (pilihan > 6):
+        os.system('cls')
+        print('pilihan tidak ada')
+        os.system('pause')
+        print('-------------------------------------------')
+        print('|  M E N U   S H O R T I N G   T U R U N  |')
+        print('-------------------------------------------')
+        print('| 1. Berdasarkan plat                     |')
+        print('| 2. berdasarkan brand                    |')
+        print('| 3. Berdasarkan model                    |')
+        print('| 4. Berdasarkan harga                    |')
+        print('| 5. berdasarkan nama supir               |')
+        print('| 6. Berdasarkan nomor supir              |')
+        print('-------------------------------------------')
+        pilihan = int(input('Pilihan anda : '))
+    return pilihan
+
+
+def function_shorting_turun_plat(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    for i in range(banyak_data - 1):
+        for j in range(banyak_data - (i + 1)):
+            if (PLAT_MOBIL[j] < PLAT_MOBIL[j + 1]):
+                Temp = PLAT_MOBIL[j]
+                PLAT_MOBIL[j] = PLAT_MOBIL[j + 1]
+                PLAT_MOBIL[j + 1] = Temp
+
+                Temp = BRAND_MOBIL[j]
+                BRAND_MOBIL[j] = BRAND_MOBIL[j + 1]
+                BRAND_MOBIL[j + 1] = Temp
+
+                Temp = MODEL_MOBIL[j]
+                MODEL_MOBIL[j] = MODEL_MOBIL[j + 1]
+                MODEL_MOBIL[j + 1] = Temp
+
+                Temp = HARGA[j]
+                HARGA[j] = HARGA[j + 1]
+                HARGA[j + 1] = Temp
+
+                Temp = SUPIR[j]
+                SUPIR[j] = SUPIR[j + 1]
+                SUPIR[j + 1] = Temp
+
+                Temp = NOMOR_SUPIR[j]
+                NOMOR_SUPIR[j] = NOMOR_SUPIR[j + 1]
+                NOMOR_SUPIR[j + 1] = Temp
+
+
+def function_shorting_turun_brand(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    for i in range(banyak_data - 1):
+        for j in range(banyak_data - (i + 1)):
+            if (BRAND_MOBIL[j] < BRAND_MOBIL[j + 1]):
+                Temp = PLAT_MOBIL[j]
+                PLAT_MOBIL[j] = PLAT_MOBIL[j + 1]
+                PLAT_MOBIL[j + 1] = Temp
+
+                Temp = BRAND_MOBIL[j]
+                BRAND_MOBIL[j] = BRAND_MOBIL[j + 1]
+                BRAND_MOBIL[j + 1] = Temp
+
+                Temp = MODEL_MOBIL[j]
+                MODEL_MOBIL[j] = MODEL_MOBIL[j + 1]
+                MODEL_MOBIL[j + 1] = Temp
+
+                Temp = HARGA[j]
+                HARGA[j] = HARGA[j + 1]
+                HARGA[j + 1] = Temp
+
+                Temp = SUPIR[j]
+                SUPIR[j] = SUPIR[j + 1]
+                SUPIR[j + 1] = Temp
+
+                Temp = NOMOR_SUPIR[j]
+                NOMOR_SUPIR[j] = NOMOR_SUPIR[j + 1]
+                NOMOR_SUPIR[j + 1] = Temp
+
+
+def function_shorting_turun_model(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    for i in range(banyak_data - 1):
+        for j in range(banyak_data - (i + 1)):
+            if (MODEL_MOBIL[j] < MODEL_MOBIL[j + 1]):
+                Temp = PLAT_MOBIL[j]
+                PLAT_MOBIL[j] = PLAT_MOBIL[j + 1]
+                PLAT_MOBIL[j + 1] = Temp
+
+                Temp = BRAND_MOBIL[j]
+                BRAND_MOBIL[j] = BRAND_MOBIL[j + 1]
+                BRAND_MOBIL[j + 1] = Temp
+
+                Temp = MODEL_MOBIL[j]
+                MODEL_MOBIL[j] = MODEL_MOBIL[j + 1]
+                MODEL_MOBIL[j + 1] = Temp
+
+                Temp = HARGA[j]
+                HARGA[j] = HARGA[j + 1]
+                HARGA[j + 1] = Temp
+
+                Temp = SUPIR[j]
+                SUPIR[j] = SUPIR[j + 1]
+                SUPIR[j + 1] = Temp
+
+                Temp = NOMOR_SUPIR[j]
+                NOMOR_SUPIR[j] = NOMOR_SUPIR[j + 1]
+                NOMOR_SUPIR[j + 1] = Temp
+
+
+def function_shorting_turun_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    for i in range(banyak_data - 1):
+        for j in range(banyak_data - (i + 1)):
+            if (HARGA[j] < HARGA[j + 1]):
+                Temp = PLAT_MOBIL[j]
+                PLAT_MOBIL[j] = PLAT_MOBIL[j + 1]
+                PLAT_MOBIL[j + 1] = Temp
+
+                Temp = BRAND_MOBIL[j]
+                BRAND_MOBIL[j] = BRAND_MOBIL[j + 1]
+                BRAND_MOBIL[j + 1] = Temp
+
+                Temp = MODEL_MOBIL[j]
+                MODEL_MOBIL[j] = MODEL_MOBIL[j + 1]
+                MODEL_MOBIL[j + 1] = Temp
+
+                Temp = HARGA[j]
+                HARGA[j] = HARGA[j + 1]
+                HARGA[j + 1] = Temp
+
+                Temp = SUPIR[j]
+                SUPIR[j] = SUPIR[j + 1]
+                SUPIR[j + 1] = Temp
+
+                Temp = NOMOR_SUPIR[j]
+                NOMOR_SUPIR[j] = NOMOR_SUPIR[j + 1]
+                NOMOR_SUPIR[j + 1] = Temp
+
+
+def function_shorting_turun_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    for i in range(banyak_data - 1):
+        for j in range(banyak_data - (i + 1)):
+            if (SUPIR[j] < SUPIR[j + 1]):
+                Temp = PLAT_MOBIL[j]
+                PLAT_MOBIL[j] = PLAT_MOBIL[j + 1]
+                PLAT_MOBIL[j + 1] = Temp
+
+                Temp = BRAND_MOBIL[j]
+                BRAND_MOBIL[j] = BRAND_MOBIL[j + 1]
+                BRAND_MOBIL[j + 1] = Temp
+
+                Temp = MODEL_MOBIL[j]
+                MODEL_MOBIL[j] = MODEL_MOBIL[j + 1]
+                MODEL_MOBIL[j + 1] = Temp
+
+                Temp = HARGA[j]
+                HARGA[j] = HARGA[j + 1]
+                HARGA[j + 1] = Temp
+
+                Temp = SUPIR[j]
+                SUPIR[j] = SUPIR[j + 1]
+                SUPIR[j + 1] = Temp
+
+                Temp = NOMOR_SUPIR[j]
+                NOMOR_SUPIR[j] = NOMOR_SUPIR[j + 1]
+                NOMOR_SUPIR[j + 1] = Temp
+
+
+def function_shorting_turun_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    for i in range(banyak_data - 1):
+        for j in range(banyak_data - (i + 1)):
+            if (NOMOR_SUPIR[j] < NOMOR_SUPIR[j + 1]):
+                Temp = PLAT_MOBIL[j]
+                PLAT_MOBIL[j] = PLAT_MOBIL[j + 1]
+                PLAT_MOBIL[j + 1] = Temp
+
+                Temp = BRAND_MOBIL[j]
+                BRAND_MOBIL[j] = BRAND_MOBIL[j + 1]
+                BRAND_MOBIL[j + 1] = Temp
+
+                Temp = MODEL_MOBIL[j]
+                MODEL_MOBIL[j] = MODEL_MOBIL[j + 1]
+                MODEL_MOBIL[j + 1] = Temp
+
+                Temp = HARGA[j]
+                HARGA[j] = HARGA[j + 1]
+                HARGA[j + 1] = Temp
+
+                Temp = SUPIR[j]
+                SUPIR[j] = SUPIR[j + 1]
+                SUPIR[j + 1] = Temp
+
+                Temp = NOMOR_SUPIR[j]
+                NOMOR_SUPIR[j] = NOMOR_SUPIR[j + 1]
+                NOMOR_SUPIR[j + 1] = Temp
+
+
 # badan_utama_program
-MAKSDATA = 10
 PASSWORD = 'admin123'
-PLAT_MOBIL = ['/'] * MAKSDATA
-BRAND_MOBIL = ['/'] * MAKSDATA
-MODEL_MOBIL = ['/'] * MAKSDATA
-HARGA = [0] * MAKSDATA
-SUPIR = ['/'] * MAKSDATA
-NOMOR_SUPIR = ['/'] * MAKSDATA
 posisi = function_menu_login()
 while (posisi != 0):
     match posisi:
@@ -402,6 +691,15 @@ while (posisi != 0):
             os.system('cls')
             login_admin = function_masuk_admin()
             if (login_admin == PASSWORD):
+                os.system('cls')
+                banyak_data = 0
+                banyak_data = function_isi_banyak_data(banyak_data)
+                PLAT_MOBIL = ['/'] * banyak_data
+                BRAND_MOBIL = ['/'] * banyak_data
+                MODEL_MOBIL = ['/'] * banyak_data
+                HARGA = [0] * banyak_data
+                SUPIR = ['/'] * banyak_data
+                NOMOR_SUPIR = ['/'] * banyak_data
                 os.system('cls')
                 pilihan_admin = function_menu_admin()
                 while (pilihan_admin != 0):
@@ -413,27 +711,61 @@ while (posisi != 0):
                                 match pilihan_CRUD:
                                     case 1:
                                         os.system('cls')
-                                        banyak_data = function_isi_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,
-                                                                        SUPIR, NOMOR_SUPIR)
-                                    # case 2 :
+                                        function_isi_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                    case 2:
+                                        os.system('cls')
+                                        function_tapil_banyak_data(banyak_data)
                                     case 3:
                                         os.system('cls')
-                                        if (banyak_data <= MAKSDATA):
-                                            function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,
-                                                                 NOMOR_SUPIR, banyak_data)
-                                        else:
-                                            function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,
-                                                                 NOMOR_SUPIR, MAKSDATA)
-                                    # case 4 :
+                                        function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                    case 4:
+                                        os.system('cls')
+                                        function_shorting_naik_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                        function_tampil_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
                                     case 5:
                                         os.system('cls')
                                         rata_rata = function_rata_rata_harga(HARGA, banyak_data)
-                                        function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,
-                                                             NOMOR_SUPIR, banyak_data)
-                                        print(f'harga rata-rata sewa mobil adalah Rp.{rata_rata:,.2}')
-                                    # case 6 :
-                                    # case 7 :
-                                    # case 8 :
+                                        function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                        print(f'harga rata-rata sewa mobil adalah Rp.{rata_rata:,}')
+                                    case 6:
+                                        os.system('cls')
+                                        function_tambah_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                        banyak_data += 1
+                                        lihatkan = str(
+                                            input('Apakah anda ingin menampilkan hasilnya? [IYA / TIDAK] : ')).upper()
+                                        if (lihatkan == 'IYA'):
+                                            function_tampil_data()
+                                        else:
+                                            print('Baiklah, terimakasih. tekan enter untuk melanjutkan.')
+                                    case 7:
+                                        os.system('cls')
+                                        posis = int(input('posisi data yang disisip : '))
+                                        if (posisi > 0) or (posis < banyak_data):
+                                            function_penyisipan_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data, posisi)
+                                            banyak_data += 1
+                                            lihatkan = str(input(
+                                                'Apakah anda ingin menampilkan hasilnya? [IYA / TIDAK] : ')).upper()
+                                            if (lihatkan == 'IYA'):
+                                                function_tampil_data()
+                                            else:
+                                                print('Baiklah, terimakasih. tekan enter untuk melanjutkan.')
+                                        else:
+                                            print('posisi tidak valid. tolong ulangi!')
+                                    case 8:
+                                        os.system('cls')
+                                        posis = int(input('posisi data yang dihapus : '))
+                                        if (posisi > 0) or (posis < banyak_data):
+                                            function_penghapusan_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR, banyak_data, posisi)
+                                            banyak_data -= 1
+                                            lihatkan = str(input(
+                                                'Apakah anda ingin menampilkan hasilnya? [IYA / TIDAK] : ')).upper()
+                                            if (lihatkan == 'IYA'):
+                                                function_tampil_data()
+                                            else:
+                                                print('Baiklah, terimakasih. tekan enter untuk melanjutkan.')
+                                        else:
+                                            print('posisi tidak valid. tolong ulangi!')
+
                                 os.system('pause')
                                 os.system('cls')
                                 pilihan_CRUD = function_Menu_CRUD()
@@ -476,16 +808,48 @@ while (posisi != 0):
                                             Pilihan_shorting_naik = function_menu_shorting_naik()
                                     case 2:
                                         os.system('cls')
+                                        Pilihan_shorting_turun = function_menu_shorting_turun()
+                                        while (Pilihan_shorting_turun != 0):
+                                            match Pilihan_shorting_turun:
+                                                case 1:
+                                                    os.system('cls')
+                                                    function_shorting_turun_plat(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL,HARGA, SUPIR, NOMOR_SUPIR, banyak_data)
+                                                    function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR, banyak_data)
+                                                case 2:
+                                                    os.system('cls')
+                                                    function_shorting_turun_brand(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL,HARGA, SUPIR, NOMOR_SUPIR,banyak_data)
+                                                    function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR, banyak_data)
+                                                case 3:
+                                                    os.system('cls')
+                                                    function_shorting_turun_model(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL,HARGA, SUPIR, NOMOR_SUPIR,banyak_data)
+                                                    function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR, banyak_data)
+                                                case 4:
+                                                    os.system('cls')
+                                                    function_shorting_turun_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL,HARGA, SUPIR, NOMOR_SUPIR,banyak_data)
+                                                    function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR, banyak_data)
+                                                case 5:
+                                                    os.system('cls')
+                                                    function_shorting_turun_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL,HARGA, SUPIR, NOMOR_SUPIR,banyak_data)
+                                                    function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR, banyak_data)
+                                                case 6:
+                                                    os.system('cls')
+                                                    function_shorting_turun_nomor_supir(PLAT_MOBIL, BRAND_MOBIL,MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                                    function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR, banyak_data)
+                                            os.system('pause')
+                                            os.system('cls')
+                                            Pilihan_shorting_turun = function_menu_shorting_turun()
                                 os.system('pause')
                                 os.system('cls')
                                 pilihan_sorting = function_Menu_sorting()
-                        case 3:
-                            Pilihan_searching = function_menu_searching()
+                        #case 3:
+                            #Pilihan_searching = function_menu_searching()
                     os.system('pause')
                     os.system('cls')
                     pilihan_admin = function_menu_admin()
             else:
                 print('Anda sudah 3 kali salah, anda sudah tidak bisa masuk')
+        #case 2:
+            #function_menu_user()
     os.system('pause')
     os.system('cls')
     posisi = function_menu_login()
