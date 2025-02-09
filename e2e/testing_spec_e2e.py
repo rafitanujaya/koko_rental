@@ -88,7 +88,7 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
 def automate_mac(click_list,delay=0.1,islocked=True,isselectadmin=True):
     print("PRESS BACKSPACE TO START")
     while True:
-        if keyboard.is_pressed('backspace'):
+        if keyboard.is_pressed('escape'):
             break
     print("TEST IN PROGRESS. DO NOT TOUCH!")
     if isselectadmin:
@@ -101,7 +101,7 @@ def automate_mac(click_list,delay=0.1,islocked=True,isselectadmin=True):
         time.sleep(delay)
     time.sleep(0.01)
     for text_to_insert in click_list:
-        if keyboard.is_pressed('backspace'):
+        if keyboard.is_pressed('escape'):
             exit("Emergency triggered!")
         keyboard.write(text_to_insert, delay=0.01)
         keyboard.press_and_release('enter')
