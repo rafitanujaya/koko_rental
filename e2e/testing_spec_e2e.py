@@ -1,12 +1,11 @@
-
+import keyboard
 import platform
-if platform.system() == "Darwin":
-    import keyboard
-else:
+if not platform.system() == "Darwin":
     print("WIN MODE")
     import mouse
-    import keyboard
     import time
+
+
 
 
 
@@ -126,7 +125,6 @@ def main():
                 if platform.system() == "Darwin":
                     automate_mac(click_list_rafi, 0.01,False,False)
                 else:
-                    print("NOTE:HAPUS PP DARI INPUT")
                     automate(click_list_rafi, 0.01,False,False)
         except Exception as e:
             print("error:", e)

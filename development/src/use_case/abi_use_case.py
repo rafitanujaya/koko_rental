@@ -45,8 +45,17 @@ def fungsi_tambah_array(indeks, teks, array_nama):
         array_nama[indeks] = massukkan_pengguna
     return array_nama[indeks]
 
+def fungsi_menu_salah():
+    print('#-< PERHATIAN >------------------------#')
+    print('|                               / \\    |')
+    print('|  NOMOR MENU TIDAK ADA!       /   \\   |')
+    print('|  HARAP ULANGIN KEMBALI      /  !  \\  |')
+    print('|                            /_______\\ |')
+    print('#--------------------------------------#')
 
 
+def fungsi_cari_array_b(mode, array_temp1, array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
+    pass
 def fungsi_urut_array(mode, array_temp1, array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
     if mode == 1:
         for i in range(int_jumlah_maks - 1):
@@ -157,7 +166,7 @@ def subrutin_menu_utama(menu_pilihan, int_jumlah_masuk):
             case 1:
                 int_jumlah_masuk = subrutin_menu_direksi(menu_pilihan,int_jumlah_masuk)
             case 2:
-                subrutin_cari_kendaraan()
+                subrutin_cari_kendaraan(menu_pilihan)
             case 3:
                 fungsi_tampil_kendaraan(int_jumlah_masuk, array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
             case 99:
@@ -165,12 +174,7 @@ def subrutin_menu_utama(menu_pilihan, int_jumlah_masuk):
             case 0:
                 break
             case _:
-                print('#-< PERHATIAN >------------------------#')
-                print('|                               / \\    |')
-                print('|  NOMOR MENU TIDAK ADA!       /   \\   |')
-                print('|  HARAP ULANGIN KEMBALI      /  !  \\  |')
-                print('|                            /_______\\ |')
-                print('#--------------------------------------#')
+                fungsi_menu_salah()
 
 def subrutin_menu_direksi(menu_pilihan,int_jumlah_masuk):
     while menu_pilihan != 0:
@@ -201,12 +205,7 @@ def subrutin_menu_direksi(menu_pilihan,int_jumlah_masuk):
             case 0:
                 return int_jumlah_masuk
             case _:
-                print('#-< PERHATIAN >------------------------#')
-                print('|                               / \\    |')
-                print('|  NOMOR MENU TIDAK ADA!       /   \\   |')
-                print('|  HARAP ULANGIN KEMBALI      /  !  \\  |')
-                print('|                            /_______\\ |')
-                print('#--------------------------------------#')
+                fungsi_menu_salah()
 
 
 # subrutin tambah kendaraan pada array
@@ -321,23 +320,50 @@ def subrutin_urutkan_kendaraan(menu_pilihan1):
                     fungsi_urut_array(menu_pilihan1,array_harga_rental,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
                 case 4:
                     fungsi_urut_array(menu_pilihan1,array_plat_nomor,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
+                case 5:
+                    fungsi_urut_array(menu_pilihan1,array_supir,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
+                case 6:
+                    fungsi_urut_array(menu_pilihan1,array_phone_supir,array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir)
                 case 0:
                     return
                 case _:
-                    print('#-< PERHATIAN >------------------------#')
-                    print('|                               / \\    |')
-                    print('|  NOMOR MENU TIDAK ADA!       /   \\   |')
-                    print('|  HARAP ULANGIN KEMBALI      /  !  \\  |')
-                    print('|                            /_______\\ |')
-                    print('#--------------------------------------#')
+                    fungsi_menu_salah()
 
 
-# placeholder cari kendaraan
-def subrutin_cari_kendaraan():
-    fungsi_bersihkan_layar()
-    print('Cari Kendaraan')
-    input('Tekan Enter untuk Melanjutkan')
-
+def subrutin_cari_kendaraan(menu_pilihan):
+    while menu_pilihan != 0:
+        fungsi_bersihkan_layar()
+        print('#--selamat datang di koko rental--#')
+        print('|                                 |')
+        print('| Menu Cari  kendaraan:           |')
+        print('| 1. Berdasarkan brand            |')
+        print('| 2. Berdasarkan model            |')
+        print('| 3. berdasarkan harga            |')
+        print('| 4. berdasarkan plat             |')
+        print('| 5. berdasarkan nama supir       |')
+        print('| 6. berdasarkan nomor supir      |')
+        print('| 0. Kembali                      |')
+        print('|                                 |')
+        print('#---------------------------------#')
+        menu_pilihan = int(input('Pilihan: '))
+        match menu_pilihan:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 6:
+                pass
+            case 0:
+                break
+            case _:
+                fungsi_menu_salah()
+    
 # DEBUG PANGGIL FUNGSI
 if __name__ == '__main__':
     subrutin_menu_login(percobaan,batas_percobaan,int_jumlah_masuk)
