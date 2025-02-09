@@ -1,5 +1,8 @@
 # fauzi
 import os
+from unittest import case
+
+
 # subrutin validasi login
 def function_validasi_login(password):
     # variabel constant untuk login dan counter
@@ -69,7 +72,7 @@ def function_validasi_menu_pengurutan(pilihan_menu_pengurutan):
 
 # subrutin validasi menu pilihan pengurutan ascending
 def function_validasi_menu_bubble_sort(pilihan_menu_ascending):
-    while pilihan_menu_ascending > 7 or pilihan_menu_ascending < 1:
+    while pilihan_menu_ascending > 6 or pilihan_menu_ascending < 1:
         print('Menu ascending tidak tersedia, pilih ulang')
         pilihan_menu_ascending = int(input('Masukkan Pilihan Menu Sorting : '))
     return pilihan_menu_ascending
@@ -136,7 +139,66 @@ def procedure_pengurutan_bubble_descending(temp_array_sorting, maks_array, array
                 array_nomor_supir[j] = array_nomor_supir[j + 1]
                 array_nomor_supir[j + 1] = temp
 
+#subrutin bubble sort ascending untuk manajemen pengguna
+def procedure_pengurutan_pengguna_asceding(data_akun, data_pass, data_pengguna):
+    for i in range((data_pengguna - 1) - 1):
+        j = data_pengguna - 1
+        while j >= i + 1:
+            if data_akun[j] < data_akun[j - 1]:
+                # username
+                temp = data_akun[j]
+                data_akun[j] = data_akun[j - 1]
+                data_akun[j - 1] = temp
+                # password
+                temp = data_pass[j]
+                data_pass[j] = data_pass[j - 1]
+                data_pass[j - 1] = temp
+            j -= 1
 
+#subrutin bubble sort descending untuk manajemen pengguna
+def procedure_pengurutan_pengguna_descending(data_akun, data_pass, data_pengguna):
+    for i in range((data_pengguna) - 1):
+        for j in range((data_pengguna) - (i + 1)):
+            if data_akun[j] < data_akun[j + 1]:
+                # brand
+                temp = data_akun[j]
+                data_akun[j] = data_akun[j + 1]
+                data_akun[j + 1] = temp
+                # model
+                temp = data_pass[j]
+                data_pass[j] = data_pass[j + 1]
+                data_pass[j + 1] = temp
+#subrutin sequential search tanpa sentinel manajemen pengguna
+def procedure_sequential_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna):
+    i = 0
+    while data_akun[i] != pengguna_dicari and i < data_pengguna - 1:
+        i += 1
+    if data_akun[i] == pengguna_dicari and i < data_pengguna - 1:
+        print('Data Ditemukan!')
+        print(f'Username : {data_akun[i]}')
+        print(f'Password : {data_pass[i]}')
+    else:
+        print('Maaf Data Tidak Ditemukan')
+#subrutin binary search manajemen pengguna
+def procedure_binary_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna):
+    ia = 0
+    ib = data_pengguna - 1
+    ketemu = False
+    while not ketemu and ia <= ib:
+        k = (ia + ib) // 2
+        if data_akun[k] == pengguna_dicari:
+            ketemu = True
+        else:
+            if data_akun[k] < pengguna_dicari:
+                ia = k + 1
+            else:
+                ib = k - 1
+    if ketemu:
+        print('Data Ditemukan!')
+        print(f'Username : {data_akun[k]}')
+        print(f'Password : {data_pass[k]}')
+    else:
+        print('Maaf Data Tidak Ditemukan')
 # subrutin penghapusan unit dalam array bergantung indeks dari plat nomor
 def procedure_penghapusan_elemen(banyak_data, indeks_dihapus, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir):
     if banyak_data > 0:
@@ -174,7 +236,6 @@ def procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobi
     print(
         '------------------------------------------------------------------------------------------------------------')
 
-
 # subrutin validasi menu pilihan yang dicari
 def function_validasi_sequential(hal_dicari):
     while hal_dicari < 1 or hal_dicari > 4:
@@ -205,7 +266,6 @@ def procedure_sequential_tanpa_sentinel(data_dicari, banyak_data, temp_array, ar
         print(f'Nomor Telepon : {array_nomor_supir[i]}')
     else:
         print('Maaf Data Tidak Ditemukan')
-
 
 # subrutin pencarian sequential dengan boolean
 def procedure_sequential_boolean(data_dicari, banyak_data, temp_array, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir):
@@ -266,6 +326,36 @@ def function_tambah_array(maks_array, banyak_data, array_plat_mobil, array_brand
         array_nama_supir[banyak_data] = str(input('Masukkan Nama Supir : '))
         array_nomor_supir[banyak_data] = str(input('Masukkan Nomor Supir : '))
         return banyak_data + 1
+#subrutin penghapusan data user
+def procedure_penghapusan_pengguna(user_dihapus, data_pengguna_terisi, data_akun, data_pass):
+    if data_pengguna_terisi > 0 :
+        if user_dihapus >= 0 and user_dihapus <= data_pengguna_terisi :
+            for i in range(user_dihapus, data_pengguna_terisi - 1):
+                data_akun[i - 1] = data_akun[i]
+                data_pass[i - 1] = data_pass[i]
+            data_akun[data_pengguna_terisi - 1] = '/'
+            data_pass[data_pengguna_terisi - 1] = '/'
+        else:
+            print('Posisi tidak valid')
+    else:
+        print('Data Kosong')
+
+#subrutin pengecekan ketersediaan data pengguna
+def function_traversal_cek_pengguna(data_akun, data_pengguna) :
+    for i in range(data_pengguna - 1) :
+        if data_akun[i] == '/' :
+            return i
+        if data_akun[data_pengguna - 1] != '/' :
+            return data_pengguna
+
+#subrutin traversal tampilkan data pengguna
+def procedure_tampilan_pengguna(data_pengguna_terisi, data_akun, data_pass) :
+    print('----------------------------------------------------')
+    print('| No |       Username       |       Password       |')
+    print('----------------------------------------------------')
+    for i in range(data_pengguna_terisi) :
+        print(f'| {i+1:2} | {data_akun[i]:20} | {data_pass[i]:20} |')
+    print('----------------------------------------------------')
 
 # program utama
 print('Pilihan Program Anda')
@@ -289,6 +379,7 @@ while status != 0 :
             print('6. Penghancuran Array')
             print('7. Penciptaan Array')
             print('8. Tampilkan Array')
+            print('9. Manajemen Pengguna')
             print('0. Keluar Program')
             menu_pilihan = int(input('Masukkan Menu Pilihan : '))
             while menu_pilihan != 0:
@@ -497,6 +588,45 @@ while status != 0 :
                         print(f'{array_nomor_supir}')
                         os.system('pause')
                         os.system('cls')
+                    case 9 :
+                        print('Manajemen Pengguna')
+                        data_pengguna = int(input('Berapa data pengguna yang disediakan : '))
+                        data_akun = ['/'] * data_pengguna
+                        data_pass = ['/'] * data_pengguna
+                        data_pengguna_terisi = function_traversal_cek_pengguna(data_akun, data_pengguna)
+                        print('Pilihan Menu Manajemen Pengguna')
+                        print('1. Sorting Data Pengguna Asc')
+                        print('2. Sorting Data Pengguna Desc')
+                        print('3. Searching Data Pengguna Sequential')
+                        print('4. Searching Data Pengguna Binary')
+                        print('5. Hapus Data Pengguna')
+                        print('6. Traversal Tampilan Data Pengguna')
+                        print('0. exit')
+                        manajemen_user = int(input('Masukkan Menu Pilihan : '))
+                        while manajemen_user != 0 :
+                            match(manajemen_user) :
+                                case 1 :
+                                    print('Sorting Data Pengguna Asc')
+                                    procedure_pengurutan_pengguna_asceding(data_akun, data_pass, data_pengguna)
+                                case 2 :
+                                    print('Sorting Data Pengguna Desc')
+                                    procedure_pengurutan_pengguna_descending(data_akun, data_pass, data_pengguna)
+                                case 3 :
+                                    print('Searching Data Pengguna Sequential')
+                                    pengguna_dicari = str(input('Masukkan Username Yang Dicari : '))
+                                    procedure_sequential_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna)
+                                case 4 :
+                                    print('Searching Data Pengguna Binary')
+                                    pengguna_dicari = str(input('Masukkan Username Yang Dicari : '))
+                                    procedure_binary_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna)
+                                case 5 :
+                                    print('Hapus Data Pengguna')
+                                    procedure_tampilan_pengguna(data_pengguna_terisi, data_akun, data_pass)
+                                    user_dihapus = int(input('Masukkan Indeks Yang Dihapus : '))
+                                    procedure_penghapusan_pengguna(user_dihapus, data_pengguna_terisi, data_akun, data_pass)
+                                case 6 :
+                                    print('Traversal Tampilan Data Pengguna')
+                                    procedure_tampilan_pengguna(data_pengguna_terisi, data_akun, data_pass)
 
                 print('Menu pilihan')
                 print('1. Traversal Array')
@@ -507,6 +637,7 @@ while status != 0 :
                 print('6. Penghancuran Array')
                 print('7. Penciptaan Array')
                 print('8. Tampilkan Array')
+                print('9. Manajemen Pengguna')
                 print('0. Keluar Program')
                 menu_pilihan = int(input('Masukkan Menu Pilihan : '))
                 if menu_pilihan == 0 :
