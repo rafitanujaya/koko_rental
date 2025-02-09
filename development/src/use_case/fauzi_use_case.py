@@ -308,6 +308,7 @@ def procedure_pengurutan_pengguna_descending(data_akun, data_pass, data_pengguna
                 temp = data_pass[j]
                 data_pass[j] = data_pass[j + 1]
                 data_pass[j + 1] = temp
+
 #subrutin sequential search tanpa sentinel manajemen pengguna
 def procedure_sequential_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna):
     i = 0
@@ -319,6 +320,7 @@ def procedure_sequential_pengguna(pengguna_dicari, data_akun, data_pass, data_pe
         print(f'Password : {data_pass[i]}')
     else:
         print('Maaf Data Tidak Ditemukan')
+
 #subrutin binary search manajemen pengguna
 def procedure_binary_pengguna(pengguna_dicari, data_akun, data_pass, data_pengguna_terisi):
     ia = 0
@@ -339,6 +341,7 @@ def procedure_binary_pengguna(pengguna_dicari, data_akun, data_pass, data_penggu
         print(f'Password : {data_pass[k]}')
     else:
         print('Maaf Data Tidak Ditemukan')
+
 #subrutin pengecekan ketersediaan data pengguna
 def function_traversal_cek_pengguna(data_akun, data_pengguna) :
     for i in range(data_pengguna - 1) :
