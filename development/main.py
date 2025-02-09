@@ -1,6 +1,10 @@
+# IMPORT 
+import os
+
 # DEKLARASI VARIABEL
 
 # Menu
+hapus = 'clear'
 menu_utama = 0
 
 
@@ -22,7 +26,22 @@ def fungsi_menu_utama(menu_utama):
     input()
     menu_utama = int(input(' Masukkan pilihan Anda : '))
     
-    while (menu_utama < 0) and (menu_utama > 2):
+    while (menu_utama < 0) or (menu_utama > 2):
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║                                                                          ║')
+        print('║        //\\            PERINTAH YANG ANDA MASUKAN TIDAK VALID!!           ║')
+        print('║       // ║\\           ────────────────────────────────────────           ║')
+        print('║      //  0 \\              SILAHKAN MASUKKAN PERINTAH KEMBALI             ║')
+        print('║     //______\\                 tekan enter untuk kembali <--              ║')
+        print('║                                                                          ║')
+        print('╠══════════════════════════════════════════════════════════════════════════╣')
+        print('║                       PILIHAN YANG TERSEDIA:                             ║')
+        print('║                       [1] ADMIN / STAFF                                  ║')
+        print('║                       [2] USER                                           ║')
+        print('║                       [0] KELUAR                                         ║')
+        print('╚══════════════════════════════════════════════════════════════════════════╝')
+        input('Tekan [ENTER] untuk melanjutkan.')
+        os.system(hapus)
         print('╔════════════════════════════════════════════════════════════════════════════╗')
         print('║                            >> PILIH PERAN ANDA <<                          ║')
         print('╠════════════════════════════════════════════════════════════════════════════╣')
@@ -40,6 +59,8 @@ def fungsi_menu_utama(menu_utama):
         menu_utama = int(input(' Masukkan pilihan Anda : '))
     
     return menu_utama
+
+
 
 menu_utama = fungsi_menu_utama(menu_utama)
 while menu_utama != 0:
