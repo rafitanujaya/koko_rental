@@ -2,6 +2,8 @@
 import os
 
 # DEKLARASI VARIABEL
+PASSWORD = 'admin'
+password = ''
 
 # Menu
 hapus = 'clear'
@@ -60,13 +62,54 @@ def fungsi_menu_utama(menu_utama):
     
     return menu_utama
 
+def fungsi_validasi_admin(password):
+    print('╔══════════════════════════════════════════════════════════════════════════╗')
+    print('║                                                                          ║')
+    print('║                     ~ LOGIN ADMIN KOKO RENTAL ~                          ║')
+    print('║                                                                          ║')
+    print('╠══════════════════════════════════════════════════════════════════════════╣')
+    print('║  Silakan masukkan password admin Anda untuk melanjutkan:                 ║')
+    print('╚══════════════════════════════════════════════════════════════════════════╝')
+    password = input('Masukkan password admin: ')
+    
+    percobaan = 0
+    while password != PASSWORD and percobaan < 2:
+        percobaan += 1
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║ ⚠️  PASSWORD SALAH!                                                       ║')
+        print(f'║ ➡️  Anda masih memiliki {3 - percobaan} kesempatan lagi.                  ║')
+        print('╚══════════════════════════════════════════════════════════════════════════╝')
+        input('Tekan [ENTER] untuk melanjutkan.')
+        
+        os.system(hapus)
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║                                                                          ║')
+        print('║                     ~ LOGIN ADMIN KOKO RENTAL ~                          ║')
+        print('║                                                                          ║')
+        print('╠══════════════════════════════════════════════════════════════════════════╣')
+        print('║  Silakan masukkan password admin Anda untuk melanjutkan:                 ║')
+        print('╚══════════════════════════════════════════════════════════════════════════╝')
+        password = input('Masukkan password admin: ')
+    if(password != PASSWORD):
+        os.system(hapus)
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║  Anda telah kehabisan kesempatan! Silakan hubungi developer.             ║')
+        print('╚══════════════════════════════════════════════════════════════════════════╝')
+        input('Tekan [ENTER] untuk melanjutkan.')
+        os.system(hapus)
+        return False
+    else: 
+        return True
 
 
 menu_utama = fungsi_menu_utama(menu_utama)
 while menu_utama != 0:
+    os.system(hapus)
     match menu_utama: 
         case 1:
-            print('a')
+            login = fungsi_validasi_admin(password)
+            if (login):
+                print('berhasil login')
         case 2:
             print('b')
     menu_utama = fungsi_menu_utama(menu_utama)
