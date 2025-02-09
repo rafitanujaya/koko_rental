@@ -74,6 +74,7 @@ def function_menu_admin():
     print('| 1. CRUD                 |')
     print('| 2. Sorting              |')
     print('| 3. Searching            |')
+    print('| 0. keluar               |')
     print('---------------------------')
     pilihan = int(input('Pilihan anda : '))
     while (pilihan < 0) or (pilihan > 4):
@@ -87,6 +88,7 @@ def function_menu_admin():
         print('| 1. CRUD                 |')
         print('| 2. Sorting              |')
         print('| 3. Searching            |')
+        print('| 0. keluar               |')
         print('---------------------------')
         pilihan = int(input('Pilihan anda : '))
     return pilihan
@@ -136,11 +138,11 @@ def function_isi_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_
     while (i < banyak_data):
         print(f'data mobil ke-{i + 1}')
         PLAT_MOBIL[i] = str(input('Plat Mobil  : ')).upper()
-        BRAND_MOBIL[i] = str(input('Brand Mobil : '))
-        MODEL_MOBIL[i] = str(input('Model Mobil : '))
+        BRAND_MOBIL[i] = str(input('Brand Mobil : ')).upper()
+        MODEL_MOBIL[i] = str(input('Model Mobil : ')).upper()
         HARGA[i] = int(input('Harga       : Rp.'))
-        SUPIR[i] = str(input('Nama Supir  : '))
-        NOMOR_SUPIR[i] = int(input('Nomor Supir : '))
+        SUPIR[i] = str(input('Nama Supir  : ')).upper()
+        NOMOR_SUPIR[i] = str(input('Nomor Supir : '))
         print('-----------------------------------------------')
         i += 1
     banyak_data = i
@@ -162,14 +164,14 @@ def function_tampil_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOM
 
 
 def function_tampil_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
-    print('---------------------------------------------------------------------------------------------------')
+    print('----------------------------------------------------------------------------------------------------')
     print('| keterangan |     Harga     |  Plat Mobil  |   Brand   |   Model   |    Supir    |  Nomor Supir  |')
-    print('---------------------------------------------------------------------------------------------------')
+    print('----------------------------------------------------------------------------------------------------')
     print(
         f'|  Termahal  | Rp.{HARGA[banyak_data - 1]:<10} |  {PLAT_MOBIL[banyak_data - 1]:10}  |  {BRAND_MOBIL[banyak_data - 1]:7}  |  {MODEL_MOBIL[banyak_data - 1]:>7}  | {SUPIR[banyak_data - 1]:11} | {NOMOR_SUPIR[banyak_data - 1]:<13} |')
     print(
         f'|  Termurah  | Rp.{HARGA[0]:<10} |  {PLAT_MOBIL[0]:10}  |  {BRAND_MOBIL[0]:7}  |  {MODEL_MOBIL[0]:>7}  | {SUPIR[0]:11} | {NOMOR_SUPIR[0]:<13} |')
-    print('---------------------------------------------------------------------------------------------------')
+    print('----------------------------------------------------------------------------------------------------')
 
 
 def function_rata_rata_harga(HARGA, banyak_data):
@@ -182,11 +184,11 @@ def function_rata_rata_harga(HARGA, banyak_data):
 
 def function_tambah_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
     PLAT_MOBIL[banyak_data] = str(input('Plat Mobil  : ')).upper()
-    BRAND_MOBIL[banyak_data] = str(input('Brand Mobil : '))
-    MODEL_MOBIL[banyak_data] = str(input('Model Mobil : '))
+    BRAND_MOBIL[banyak_data] = str(input('Brand Mobil : ')).upper()
+    MODEL_MOBIL[banyak_data] = str(input('Model Mobil : ')).upper()
     HARGA[banyak_data] = int(input('Harga       : Rp.'))
-    SUPIR[banyak_data] = str(input('Nama Supir  : '))
-    NOMOR_SUPIR[banyak_data] = int(input('Nomor Supir : '))
+    SUPIR[banyak_data] = str(input('Nama Supir  : ')).upper()
+    NOMOR_SUPIR[banyak_data] = str(input('Nomor Supir : '))
     os.system('cls')
     print('Data diterima :D')
     os.system('pause')
@@ -206,11 +208,11 @@ def function_penyisipan_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,
             i -= 1
 
         PLAT_MOBIL[posis - 1] = str(input('Plat Mobil  : ')).upper()
-        BRAND_MOBIL[posis - 1] = str(input('Brand Mobil : '))
-        MODEL_MOBIL[posis - 1] = str(input('Model Mobil : '))
+        BRAND_MOBIL[posis - 1] = str(input('Brand Mobil : ')).upper()
+        MODEL_MOBIL[posis - 1] = str(input('Model Mobil : ')).upper()
         HARGA[posis - 1] = int(input('Harga       : Rp.'))
-        SUPIR[posis - 1] = str(input('Nama Supir  : '))
-        NOMOR_SUPIR[posis - 1] = int(input('Nomor Supir : '))
+        SUPIR[posis - 1] = str(input('Nama Supir  : ')).upper()
+        NOMOR_SUPIR[posis - 1] = str(input('Nomor Supir : '))
     else:
         os.system('cls')
         print('data tidak valid!!')
@@ -272,6 +274,7 @@ def function_menu_shorting_naik():
     print('| 4. Berdasarkan harga                  |')
     print('| 5. berdasarkan nama supir             |')
     print('| 6. Berdasarkan nomor supir            |')
+    print('| 0. kembali                            |')
     print('-----------------------------------------')
     pilihan = int(input('Pilihan anda : '))
     while (pilihan < 0) or (pilihan > 6):
@@ -287,6 +290,7 @@ def function_menu_shorting_naik():
         print('| 4. Berdasarkan harga                  |')
         print('| 5. berdasarkan nama supir             |')
         print('| 6. Berdasarkan nomor supir            |')
+        print('| 0. kembali                            |')
         print('-----------------------------------------')
         pilihan = int(input('Pilihan anda : '))
     return pilihan
@@ -488,6 +492,7 @@ def function_menu_shorting_turun():
     print('| 4. Berdasarkan harga                    |')
     print('| 5. berdasarkan nama supir               |')
     print('| 6. Berdasarkan nomor supir              |')
+    print('| 0. kembali                              |')
     print('-------------------------------------------')
     pilihan = int(input('Pilihan anda : '))
     while (pilihan < 0) or (pilihan > 6):
@@ -503,6 +508,7 @@ def function_menu_shorting_turun():
         print('| 4. Berdasarkan harga                    |')
         print('| 5. berdasarkan nama supir               |')
         print('| 6. Berdasarkan nomor supir              |')
+        print('| 0. kembali                              |')
         print('-------------------------------------------')
         pilihan = int(input('Pilihan anda : '))
     return pilihan
@@ -682,6 +688,212 @@ def function_shorting_turun_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HA
                 NOMOR_SUPIR[j + 1] = Temp
 
 
+def function_menu_searching():
+    print('-----------------------------------------')
+    print('| M E N U   P E N C A R I A N   D A T A |')
+    print('-----------------------------------------')
+    print('| 1. Mencari plat nomor                 |')
+    print('| 2. Mencari brand mobil                |')
+    print('| 3. Mencari model mobil                |')
+    print('| 4. Mencari harga                      |')
+    print('| 5. mencari nama supir                 |')
+    print('| 6. Mencari nomor supir                |')
+    print('| 0. keluar                             |')
+    print('-----------------------------------------')
+    pilihan = int(input('Pilihan anda : '))
+    while (pilihan < 0) or (pilihan > 6):
+        os.system('cls')
+        print('pilihan tidak ada')
+        os.system('pause')
+        print('-----------------------------------------')
+        print('| M E N U   P E N C A R I A N   D A T A |')
+        print('-----------------------------------------')
+        print('| 1. Mencari plat nomor                 |')
+        print('| 2. Mencari brand mobil                |')
+        print('| 3. Mencari model mobil                |')
+        print('| 4. Mencari harga                      |')
+        print('| 5. mencari nama supir                 |')
+        print('| 6. Mencari nomor supir                |')
+        print('| 0. keluar                             |')
+        print('-----------------------------------------')
+        pilihan = int(input('Pilihan anda : '))
+    return pilihan
+
+
+def function_cari_plat(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    cari = str(input('Plat yang ingin dicari : ')).upper()
+    Ia = 0
+    Ib = banyak_data - 1
+    dapat = False
+    while (not dapat) and (Ia <= Ib):
+        k = (Ia + Ib) // 2
+        if (PLAT_MOBIL[k] == cari):
+            dapat = True
+        else:
+            if (PLAT_MOBIL[k] < cari):
+                Ia = k + 1
+            else:
+                Ib = k - 1
+    os.system('cls')
+    if (dapat):
+        print(f'Plat mobil {cari} ditemukan')
+        print('Keterangan : ')
+        print('--------------------------------------------------------------------------------------')
+        print('|  Plat Mobil  |   Brand   |   Model   |     Harga     |    Supir    |  Nomor Supir  |')
+        print('--------------------------------------------------------------------------------------')
+        print(
+            f'|  {PLAT_MOBIL[k]:10}  |  {BRAND_MOBIL[k]:7}  |  {MODEL_MOBIL[k]:>7}  | Rp.{HARGA[k]:<10} | {SUPIR[k]:11} | {NOMOR_SUPIR[k]:<13} |')
+        print('--------------------------------------------------------------------------------------------')
+    else:
+        print(f'Plat mobil {cari} tidak ditemukan')
+
+
+def function_cari_brand(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    cari = str(input('Brand yang ingin dicari  : ')).upper()
+    i = 0
+    while (BRAND_MOBIL[i] != cari) and (i < banyak_data):
+        i += 1
+    os.system('cls')
+    if (BRAND_MOBIL[i] == cari):
+        print(f'Brand mobil {cari} ditemukan')
+        print('Keterangan : ')
+        print('-------------------------------------------------------------------------------------------')
+        print('| No |  Plat Mobil  |   Brand   |   Model   |     Harga     |    Supir    |  Nomor Supir  |')
+        print('-------------------------------------------------------------------------------------------')
+        No = 0
+        for j in range(i, banyak_data):
+            if (BRAND_MOBIL[j] == cari):
+                No += 1
+                print(
+                    f'| {No:>2} |  {PLAT_MOBIL[j]:10}  |  {BRAND_MOBIL[j]:7}  |  {MODEL_MOBIL[j]:>7}  | Rp.{HARGA[j]:<10} | {SUPIR[j]:11} | {NOMOR_SUPIR[j]:<13} |')
+                print('--------------------------------------------------------------------------------------------')
+    else:
+        print(f'Brand mobil {cari} tidak ditemukan')
+
+
+def function_cari_model(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    cari = str(input('Brand yang ingin dicari  : ')).upper()
+    i = 0
+    while (MODEL_MOBIL[i] != cari) and (i < banyak_data):
+        i += 1
+    os.system('cls')
+    if (MODEL_MOBIL[i] == cari):
+        print(f'Model mobil {cari} ditemukan')
+        print('Keterangan : ')
+        print('-------------------------------------------------------------------------------------------')
+        print('| No |  Plat Mobil  |   Brand   |   Model   |     Harga     |    Supir    |  Nomor Supir  |')
+        print('-------------------------------------------------------------------------------------------')
+        No = 0
+        for j in range(i, banyak_data):
+            if (MODEL_MOBIL[j] == cari):
+                No += 1
+                print(
+                    f'| {No:>2} |  {PLAT_MOBIL[j]:10}  |  {BRAND_MOBIL[j]:7}  |  {MODEL_MOBIL[j]:>7}  | Rp.{HARGA[j]:<10} | {SUPIR[j]:11} | {NOMOR_SUPIR[j]:<13} |')
+                print('--------------------------------------------------------------------------------------------')
+    else:
+        print(f'Model mobil {cari} tidak ditemukan')
+
+
+def function_cari_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    cari = int(input('Brand yang ingin dicari  : '))
+    i = 0
+    while (HARGA[i] != cari) and (i < banyak_data):
+        i += 1
+    os.system('cls')
+    if (HARGA[i] == cari):
+        print(f'Brand mobil {cari} ditemukan')
+        print('Keterangan : ')
+        print('-------------------------------------------------------------------------------------------')
+        print('| No |  Plat Mobil  |   Brand   |   Model   |     Harga     |    Supir    |  Nomor Supir  |')
+        print('-------------------------------------------------------------------------------------------')
+        No = 0
+        for j in range(i, banyak_data):
+            if (HARGA[j] == cari):
+                No += 1
+                print(
+                    f'| {No:>2} |  {PLAT_MOBIL[j]:10}  |  {BRAND_MOBIL[j]:7}  |  {MODEL_MOBIL[j]:>7}  | Rp.{HARGA[j]:<10} | {SUPIR[j]:11} | {NOMOR_SUPIR[j]:<13} |')
+                print('--------------------------------------------------------------------------------------------')
+    else:
+        print(f'Brand mobil {cari} tidak ditemukan')
+
+
+def function_cari_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    cari = str(input('Brand yang ingin dicari  : ')).upper()
+    i = 0
+    while (SUPIR[i] != cari) and (i < banyak_data):
+        i += 1
+    os.system('cls')
+    if (SUPIR[i] == cari):
+        print(f'Brand mobil {cari} ditemukan')
+        print('Keterangan : ')
+        print('-------------------------------------------------------------------------------------------')
+        print('| No |  Plat Mobil  |   Brand   |   Model   |     Harga     |    Supir    |  Nomor Supir  |')
+        print('-------------------------------------------------------------------------------------------')
+        No = 0
+        for j in range(i, banyak_data):
+            if (SUPIR[j] == cari):
+                No += 1
+                print(
+                    f'| {No:>2} |  {PLAT_MOBIL[j]:10}  |  {BRAND_MOBIL[j]:7}  |  {MODEL_MOBIL[j]:>7}  | Rp.{HARGA[j]:<10} | {SUPIR[j]:11} | {NOMOR_SUPIR[j]:<13} |')
+                print('--------------------------------------------------------------------------------------------')
+    else:
+        print(f'Brand mobil {cari} tidak ditemukan')
+
+
+def function_cari_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    cari = str(input('Plat yang ingin dicari : '))
+    Ia = 0
+    Ib = banyak_data - 1
+    dapat = False
+    while (not dapat) and (Ia <= Ib):
+        k = (Ia + Ib) // 2
+        if (NOMOR_SUPIR[k] == cari):
+            dapat = True
+        else:
+            if (NOMOR_SUPIR[k] < cari):
+                Ia = k + 1
+            else:
+                Ib = k - 1
+    os.system('cls')
+    if (dapat):
+        print(f'Plat mobil {cari} ditemukan')
+        print('Keterangan : ')
+        print('--------------------------------------------------------------------------------------')
+        print('|  Plat Mobil  |   Brand   |   Model   |     Harga     |    Supir    |  Nomor Supir  |')
+        print('--------------------------------------------------------------------------------------')
+        print(
+            f'|  {PLAT_MOBIL[k]:10}  |  {BRAND_MOBIL[k]:7}  |  {MODEL_MOBIL[k]:>7}  | Rp.{HARGA[k]:<10} | {SUPIR[k]:11} | {NOMOR_SUPIR[k]:<13} |')
+        print('--------------------------------------------------------------------------------------------')
+    else:
+        print(f'Plat mobil {cari} tidak ditemukan')
+
+
+def function_menu_user():
+    print('-----------------------')
+    print('|  M E N U   U S E R  |')
+    print('-----------------------')
+    print('| 1. Informasi data   |')
+    print('| 2. Sewa kendaraan   |')
+    print('| 3. Transaksi        |')
+    print('| 0. kembali          |')
+    print('-----------------------')
+    pilihan = int(input('Pilihan anda :'))
+    while (pilihan < 0) or (pilihan > 3):
+        os.system('cls')
+        print('pilihan tidak ada')
+        os.system('pause')
+        print('-----------------------')
+        print('|  M E N U   U S E R  |')
+        print('-----------------------')
+        print('| 1. Informasi data   |')
+        print('| 2. Sewa kendaraan   |')
+        print('| 3. Transaksi        |')
+        print('| 0. kembali          |')
+        print('-----------------------')
+        pilihan = int(input('Pilihan anda : '))
+    return pilihan
+
+
 # badan_utama_program
 PASSWORD = 'admin123'
 posisi = function_menu_login()
@@ -841,15 +1053,49 @@ while (posisi != 0):
                                 os.system('pause')
                                 os.system('cls')
                                 pilihan_sorting = function_Menu_sorting()
-                        #case 3:
-                            #Pilihan_searching = function_menu_searching()
+                        case 3:
+                            os.system('cls')
+                            Pilihan_searching = function_menu_searching()
+                            while (Pilihan_searching != 0):
+                                match Pilihan_searching:
+                                    case 1:
+                                        os.system('cls')
+                                        function_shorting_naik_plat(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                        function_cari_plat(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                    case 2:
+                                        os.system('cls')
+                                        function_cari_brand(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                    case 3:
+                                        os.system('cls')
+                                        function_cari_model(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                    case 4:
+                                        os.system('cls')
+                                        function_cari_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                    case 5:
+                                        os.system('cls')
+                                        function_cari_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                    case 6:
+                                        os.system('cls')
+                                        function_shorting_naik_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR, banyak_data)
+                                        function_cari_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                os.system('pause')
+                                os.system('cls')
+                                Pilihan_searching = function_menu_searching()
                     os.system('pause')
                     os.system('cls')
                     pilihan_admin = function_menu_admin()
             else:
                 print('Anda sudah 3 kali salah, anda sudah tidak bisa masuk')
-        #case 2:
-            #function_menu_user()
+        case 2:
+            os.system('cls')
+            pilihan_user = function_menu_user()
+            while (pilihan_user != 0):
+                match pilihan_user:
+                    case 1:
+                        os.system('cls')
+                    # case 2 :
+                    # case 3 :
     os.system('pause')
     os.system('cls')
     posisi = function_menu_login()
+print('terimakasih sudah menggunakan layanan kali :D')
