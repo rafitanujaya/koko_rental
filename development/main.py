@@ -6,7 +6,7 @@ PASSWORD = 'admin'
 password = ''
 
 # Menu
-hapus = 'clear'
+hapus = 'cls'
 menu_utama = 0
 menu_admin = 0
 menu_admin_crud = 0
@@ -19,15 +19,72 @@ menu_admin_searching_binary = 0
 
 
 # start variabel
-
+maks_array_mobil = 10
+menu_admin_detail_mobil = 0
+array_plat_mobil = ['/'] * maks_array_mobil
+array_brand_mobil = ['/'] * maks_array_mobil
+array_model_mobil = ['/'] * maks_array_mobil
+array_harga_mobil = [0] * maks_array_mobil
+array_nama_supir = ['/'] * maks_array_mobil
+array_nomor_supir = ['/'] * maks_array_mobil
 # end variabel
 
 # start prosedur
+def prosedur_sequential_search_sentinel(array, dicari, batas):
+    if batas >= len(array):
+        batas = len(array) - 1
+    array[batas] = dicari
+    i = 0
+    while (array[i] != dicari):
+        i += 1
+    if (i < batas) or (i == batas and array[batas] == dicari):
+        return True
+    else:
+        return False
+
+
+
+def prosedur_isi_data(menu_admin_tambah_mobil,array_plat_mobil, array_model_mobil, array_brand_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir, posisi, batas):
+    print('   Data kendaraan ke-', posisi + 1)
+    tempdata = input('   · Plat nomor    : ')
+    plat_duplikat = prosedur_sequential_search_sentinel(array_plat_mobil, tempdata, batas)
+    while not plat_duplikat:
+        print(f'ERROR HERE')  # PLACEHOLDER
+        input()
+        os.system(hapus)
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║                M E M A S U K A N   D E T A I L   D A T A                 ║')
+        print('║                         ───────────────────────                          ║')
+        if menu_admin_tambah_mobil < 10:
+            print(f'║  Jumlah data : 0{menu_admin_tambah_mobil}                                                        ║')
+        else:
+            print(f'║  Jumlah data : {menu_admin_tambah_mobil}                                                        ║')
+        print('╚══════════════════════════════════════════════════════════════════════════╝')
+        print('   Data kendaraan ke-', posisi + 1)
+        tempdata = input('   · Plat nomor    : ')
+        plat_duplikat = prosedur_sequential_search_sentinel(array_plat_mobil, tempdata, batas)
+    array_plat_mobil[posisi] = tempdata
+    array_model_mobil[posisi] = input('   · Model         : ')
+    array_brand_mobil[posisi] = input('   · Brand         : ')
+    array_harga_mobil[posisi] = int(input('   · Harga         : '))
+    array_nama_supir[posisi] = input('   · Nama Supir    : ')
+    array_nomor_supir[posisi] = int(input('   · Nomor telepon : '))
+    posisi += 1
+    return posisi
+
 
 # end prosdure
 
 # start fungsi
 
+def fungsi_memunculkan_data_kendaraan(total_kendaraan,array_plat_mobil, array_model_mobil, array_brand_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir):
+    for i in range(total_kendaraan):
+        print('╠════╬════════════╬══════════════╬══════════════╬═════════════════════╬═══════════════════════════════╬═══════════════════════╣')
+        if i < 9:
+            print(f'║ 0{i+1} ║  {array_plat_mobil[i]:<8}  ║  {array_brand_mobil[i]:<10}  ║ {array_model_mobil[i]:<11}  ║  Rp.{array_harga_mobil[i]:>14}  ║  {array_nama_supir[i]:<27}  ║   +{array_nomor_supir[i]:<15}    ║')
+        else:
+            print(f'║ {i+1} ║  {array_plat_mobil[i]:<8}  ║  {array_brand_mobil[i]:<10}  ║ {array_model_mobil[i]:<11}  ║  Rp.{array_harga_mobil[i]:>14}  ║  {array_nama_supir[i]:<27}  ║   +{array_nomor_supir[i]:<15}    ║')
+    return total_kendaraan
 # end fungsi
 
 
@@ -168,7 +225,7 @@ def fungsi_menu_admin_crud(menu_admin_crud):
     print('║                 -  +  -  M E N U   C. R. U. D.  -  +  -                  ║')
     print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
     print('║  1. MEMBUAT / MEMASUKAN DATA      ║  6. MENAMBAHKAN DATA BARU            ║')
-    print('║  2. JUMLAH BAANYAK DATA           ║  7. MENYISIPKAN SEBUAH DATA          ║')
+    print('║  2. JUMLAH BANYAK DATA            ║  7. MENYISIPKAN SEBUAH DATA          ║')
     print('║  3. MENAMPILKAN DATA              ║  8. MENGHAPUS SEBUAH DATA            ║')
     print('║  4. HARGA TERMAHAL DAN TERMURAH   ║  9. DATA INSTAN                      ║')
     print('║  5. RATA-RATA HARGA RENTAL        ║                                      ║')
@@ -469,6 +526,47 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary):
     return menu_admin_searching_binary
 
 
+def fungsi_menu_admin_crud_tambah_detail_mobil(menu_admin_detail_mobil):
+    print('╔══════════════════════════════════════════════════════════════════════════╗')
+    print('║                M E M A S U K A N   D E T A I L   D A T A                 ║')
+    print('║                         ───────────────────────                          ║')
+    print('║  Jumlah data : __                                                        ║')
+    print('╚══════════════════════════════════════════════════════════════════════════╝')
+    print('>>> Masukkan pilihan Anda dan tekan [ENTER] untuk melanjutkan.')
+    menu_admin_detail_mobil = int(input(' Masukan pilihan anda : '))
+    return menu_admin_detail_mobil
+def fungsi_menu_admin_crud_tambah_mobil(menu_admin_tambah_mobil):
+    for i in range(menu_admin_tambah_mobil):
+        os.system(hapus)
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║                M E M A S U K A N   D E T A I L   D A T A                 ║')
+        print('║                         ───────────────────────                          ║')
+        if menu_admin_tambah_mobil < 10:
+            print(f'║  Jumlah data : 0{menu_admin_tambah_mobil}                                                        ║')
+        else:
+            print(f'║  Jumlah data : {menu_admin_tambah_mobil}                                                        ║')
+        print('╚══════════════════════════════════════════════════════════════════════════╝')
+        i = prosedur_isi_data(menu_admin_tambah_mobil,array_plat_mobil, array_model_mobil, array_brand_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir, i ,menu_admin_tambah_mobil)
+    return menu_admin_tambah_mobil
+def fungsi_menu_admin_crud_daftar_mobil(total_kendaraan):
+    os.system(hapus)
+    print('╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗')
+    print('║                                                                                                                             ║')
+    print('║                          -  +  -      D A F T A R    R E N T A L    K E N D A R A A N      -  +  -                          ║')
+    print('║                                                                                                                             ║')
+    print('╠═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣')
+
+    print('║                                                                                                                             ║')
+    if menu_admin_tambah_mobil < 10:
+        print(f'║ Jumlah data : 0{menu_admin_tambah_mobil}                                                                                                            ║')
+    else:
+        print(f'║ Jumlah data : {menu_admin_tambah_mobil}                                                                                                            ║')
+    print('║                                                                                                                             ║')
+    print('╠════╦════════════╦══════════════╦══════════════╦═════════════════════╦═══════════════════════════════╦═══════════════════════╣')
+    print('║ No ║ Plat Nomor ║  Brand       ║   Model      ║  Harga Kendaraan    ║          Nama Supir           ║  Nomor Telepon Supir  ║')
+    fungsi_memunculkan_data_kendaraan(total_kendaraan,array_plat_mobil, array_model_mobil, array_brand_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
+    print('╚════╩════════════╩══════════════╩══════════════╩═════════════════════╩═══════════════════════════════╩═══════════════════════╝')
+    return total_kendaraan
 
 menu_utama = fungsi_menu_utama(menu_utama)
 while menu_utama != 0:
@@ -487,11 +585,12 @@ while menu_utama != 0:
                                 os.system(hapus)
                                 match menu_admin_crud:
                                     case 1:
-                                        print('1')
+                                        menu_admin_detail_mobil = fungsi_menu_admin_crud_tambah_detail_mobil(menu_admin_crud)
+                                        menu_admin_tambah_mobil = fungsi_menu_admin_crud_tambah_mobil(menu_admin_detail_mobil)
                                     case 2:
                                         print('2')
                                     case 3:
-                                        print('3')
+                                        fungsi_menu_admin_crud_daftar_mobil(menu_admin_detail_mobil)
                                     case 4:
                                         print('4')
                                     case 5:
