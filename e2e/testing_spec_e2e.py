@@ -55,6 +55,12 @@ click_list_rafi = [
     "testcar4", "botcar4", "BK4444BT", "4567890123", "bangbang", "628574321",
     "testcar5", "botcar5", "BK1111BT", "1234567890", "emely", "628571234","2"
     ]
+click_list_main1 = [
+                    "1","admin","1","1","2",
+                    "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
+                    "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
+                    "3"
+                   ]
 click_list_main = [
                     "1","admin","1","1","10",
                     "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
@@ -69,7 +75,6 @@ click_list_main = [
                     "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
                     "3"
                    ]
-
 #PLAT/MODEL/BRAND/HARGA/SUPIR/NOSUPIR
 def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
     print("TEST IN PROGRESS. DO NOT TOUCH!")

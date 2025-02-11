@@ -393,8 +393,32 @@ def fungsi_ngukur_panjang_ui(teks, maks):
     for i in teks:
         banyak += 1
         if banyak > maks:
-            return teks[:maks - 2] + '..'
+            return teks[:maks - 3] + '...'
     return teks
+
+def fungsi_urut_array(mode,banyak_data, array_temp1, array_brand, array_model, array_harga_rental, array_plat_nomor, array_supir, array_phone_supir):
+    if mode == 1:
+        for i in range(banyak_data - 1):
+            for j in range(banyak_data - 1, i, -1):
+                if array_temp1[j] < array_temp1[j - 1]:
+                    array_model[j], array_model[j - 1] = array_model[j - 1], array_model[j]
+                    array_brand[j], array_brand[j - 1] = array_brand[j - 1], array_brand[j]
+                    array_harga_rental[j], array_harga_rental[j - 1] = array_harga_rental[j - 1], array_harga_rental[j]
+                    array_plat_nomor[j], array_plat_nomor[j - 1] = array_plat_nomor[j - 1], array_plat_nomor[j]
+                    array_phone_supir[j], array_phone_supir[j - 1] = array_phone_supir[j - 1], array_phone_supir[j]
+                    array_supir[j], array_supir[j - 1] = array_supir[j - 1], array_supir[j]
+    else:
+        for i in range(banyak_data - 1):
+            for j in range(banyak_data - 1, i, -1):
+                if array_temp1[j] > array_temp1[j - 1]:
+                    array_model[j], array_model[j - 1] = array_model[j - 1], array_model[j]
+                    array_brand[j], array_brand[j - 1] = array_brand[j - 1], array_brand[j]
+                    array_harga_rental[j], array_harga_rental[j - 1] = array_harga_rental[j - 1], array_harga_rental[j]
+                    array_plat_nomor[j], array_plat_nomor[j - 1] = array_plat_nomor[j - 1], array_plat_nomor[j]
+                    array_phone_supir[j], array_phone_supir[j - 1] = array_phone_supir[j - 1], array_phone_supir[j]
+                    array_supir[j], array_supir[j - 1] = array_supir[j - 1], array_supir[j]
+
+
 
 # end fungsi
 
@@ -917,19 +941,19 @@ while menu_utama != 0:
                                             os.system(hapus)
                                             match menu_admin_sorting_asc:
                                                 case 1:
-                                                    print('1')
+                                                    fungsi_urut_array(1,banyak_data, plat_nomor, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 2:
-                                                    print('1')
+                                                    fungsi_urut_array(1,banyak_data, model, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 3:
-                                                    print('1')
+                                                    fungsi_urut_array(1,banyak_data, brand, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 4:
-                                                    print('1')
+                                                    fungsi_urut_array(1,banyak_data, harga_sewa, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 5:
-                                                    print('1')
+                                                    fungsi_urut_array(1,supir, harga_sewa, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 6:
-                                                    print('1')
+                                                    fungsi_urut_array(1,nomor_supir, harga_sewa, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 7:
-                                                    print('1')
+                                                    print('WOW')
                                             os.system(hapus)
                                             menu_admin_sorting_asc = fungsi_menu_admin_sorting_asc(menu_admin_sorting_asc)
                                     case 2:
@@ -938,17 +962,17 @@ while menu_utama != 0:
                                             os.system(hapus)
                                             match menu_admin_sorting_desc:
                                                 case 1:
-                                                    print('1')
+                                                    fungsi_urut_array(0, banyak_data, plat_nomor, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 2:
-                                                    print('1')
+                                                    fungsi_urut_array(0, banyak_data, model, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 3:
-                                                    print('1')
+                                                    fungsi_urut_array(0, banyak_data, brand, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 4:
-                                                    print('1')
+                                                    fungsi_urut_array(0, banyak_data, harga_sewa, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 5:
-                                                    print('1')
+                                                    fungsi_urut_array(0, supir, harga_sewa, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 6:
-                                                    print('1')
+                                                    fungsi_urut_array(0, nomor_supir, harga_sewa, brand, model, harga_sewa, plat_nomor, supir, nomor_supir)
                                                 case 7:
                                                     print('1')
                                             os.system(hapus)
