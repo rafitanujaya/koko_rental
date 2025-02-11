@@ -362,7 +362,7 @@ def function_login_pengguna(nama_pengguna, pass_pengguna, data_akun, data_pass, 
             return True
         else :
             return False
-def function_harga_rental(pilihan_pengguna, lama_rental) :
+def function_harga_rental(pilihan_pengguna, lama_rental, array_harga_mobil) :
     harga = array_harga_mobil[pilihan_pengguna - 1]
     return harga * lama_rental
 
@@ -686,8 +686,7 @@ while status != 0 :
             procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             pilihan_pengguna = int(input('Masukkan Nomor Pilihan : '))
             lama_rental = int(input('Lama Rental [Hari] : '))
-            procedure_sewa_mobil(pilihan_pengguna, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
-            harga = function_harga_rental(pilihan_pengguna, lama_rental)
+            harga = function_harga_rental(pilihan_pengguna, lama_rental, array_harga_mobil)
             print(f'Harga yang harus dibayar : Rp {harga}')
             pembayaran = int(input('Masukkan Total Pembayaran : '))
             while pembayaran < harga :
@@ -699,6 +698,7 @@ while status != 0 :
                 print('Selamat Menikmati Rental Anda')
             else :
                 print('Selamat Menikmati Rental Anda')
+            procedure_sewa_mobil(pilihan_pengguna, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
         elif not status_login:
             print('Password atau Username salah!')
     os.system('pause')
