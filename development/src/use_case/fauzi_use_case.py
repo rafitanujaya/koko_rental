@@ -366,6 +366,14 @@ def function_harga_rental(pilihan_pengguna, lama_rental) :
     harga = array_harga_mobil[pilihan_pengguna - 1]
     return harga * lama_rental
 
+def procedure_sewa_mobil(pilihan_pengguna, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir):
+    array_brand_mobil[pilihan_pengguna - 1] = 'Disewakan'
+    array_model_mobil[pilihan_pengguna - 1] = 'Disewakan'
+    array_harga_mobil[pilihan_pengguna - 1] = 0
+    array_plat_mobil[pilihan_pengguna - 1] = 'Disewakan'
+    array_nama_supir[pilihan_pengguna - 1] = 'Disewakan'
+    array_nomor_supir[pilihan_pengguna - 1] = 'Disewakan'
+
 # program utama
 print('Pilihan Program Anda')
 print('1. Admin')
@@ -668,7 +676,7 @@ while status != 0 :
         # main program user
         akun_user = str(input('Sudah Punya Akun? [y/n]: '))
         status_akun = function_akun_user(akun_user)
-        if not status_akun:
+        if not status_akun :
             procedure_buat_akun(data_akun, data_pass)
         print('Silahkan Login Dahulu')
         nama_pengguna = str(input('Masukkan username : '))
@@ -678,6 +686,7 @@ while status != 0 :
             procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             pilihan_pengguna = int(input('Masukkan Nomor Pilihan : '))
             lama_rental = int(input('Lama Rental [Hari] : '))
+            procedure_sewa_mobil(pilihan_pengguna, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
             harga = function_harga_rental(pilihan_pengguna, lama_rental)
             print(f'Harga yang harus dibayar : Rp {harga}')
             pembayaran = int(input('Masukkan Total Pembayaran : '))
