@@ -32,7 +32,6 @@ nomor_supir = [""] * (MAKSBARIS + 1)
 # end variabel
 
 # start prosedur
-3
 def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
     for i in range(banyak_data):
         print('╔══════════════════════════════════════════════════════════════════════════╗')
@@ -892,7 +891,7 @@ while menu_utama != 0:
                                         banyak_data = prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus)
                                     case 8:
                                         konfirmasi = input('Apakah Anda yakin hapus semua data? Y/N')
-                                        while konfirmasi != 'Y' and konfirmasi != 'N':
+                                        while konfirmasi.upper() != 'Y' and konfirmasi.upper() != 'N':
                                             print('Masukkan tidak valid, harus Y atau N ulangiii!!')
                                             input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
