@@ -14,6 +14,7 @@ def function_menu_login():
         os.system('cls')
         print('pilihan tidak ada')
         os.system('pause')
+        os.system('cls')
         print('-------------------------------------')
         print('|<<<  P I L I H A N   L O G I N  >>>|')
         print('-------------------------------------')
@@ -113,6 +114,7 @@ def function_Menu_CRUD():
         os.system('cls')
         print('pilihan tidak ada')
         os.system('pause')
+        os.system('cls')
         print('---------------------------------')
         print('|      M E N U    C R U D       |')
         print('---------------------------------')
@@ -183,6 +185,7 @@ def function_rata_rata_harga(HARGA, banyak_data):
 
 
 def function_tambah_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
+    print(' M E N A M B A H   D A T A   B A R U ')
     PLAT_MOBIL[banyak_data] = str(input('Plat Mobil  : ')).upper()
     BRAND_MOBIL[banyak_data] = str(input('Brand Mobil : ')).upper()
     MODEL_MOBIL[banyak_data] = str(input('Model Mobil : ')).upper()
@@ -191,8 +194,6 @@ def function_tambah_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOM
     NOMOR_SUPIR[banyak_data] = str(input('Nomor Supir : '))
     os.system('cls')
     print('Data diterima :D')
-    os.system('pause')
-    os.system('cls')
 
 
 def function_penyisipan_data(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data, posisi):
@@ -253,6 +254,7 @@ def function_Menu_sorting():
         os.system('cls')
         print('pilihan tidak ada')
         os.system('pause')
+        os.system('cls')
         print('-------------------------------')
         print('|  M E N U   S H O T R I N G  |')
         print('-------------------------------')
@@ -281,6 +283,7 @@ def function_menu_shorting_naik():
         os.system('cls')
         print('pilihan tidak ada')
         os.system('pause')
+        os.system('cls')
         print('-----------------------------------------')
         print('|  M E N U   S H O R T I N G   N A I K  |')
         print('-----------------------------------------')
@@ -499,6 +502,7 @@ def function_menu_shorting_turun():
         os.system('cls')
         print('pilihan tidak ada')
         os.system('pause')
+        os.system('cls')
         print('-------------------------------------------')
         print('|  M E N U   S H O R T I N G   T U R U N  |')
         print('-------------------------------------------')
@@ -705,6 +709,7 @@ def function_menu_searching():
         os.system('cls')
         print('pilihan tidak ada')
         os.system('pause')
+        os.system('cls')
         print('-----------------------------------------')
         print('| M E N U   P E N C A R I A N   D A T A |')
         print('-----------------------------------------')
@@ -772,7 +777,7 @@ def function_cari_brand(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMO
 
 
 def function_cari_model(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
-    cari = str(input('Brand yang ingin dicari  : ')).upper()
+    cari = str(input('Model yang ingin dicari  : ')).upper()
     i = 0
     while (MODEL_MOBIL[i] != cari) and (i < banyak_data):
         i += 1
@@ -795,7 +800,7 @@ def function_cari_model(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMO
 
 
 def function_cari_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
-    cari = int(input('Brand yang ingin dicari  : '))
+    cari = int(input('Harga yang ingin dicari  : '))
     i = 0
     while (HARGA[i] != cari) and (i < banyak_data):
         i += 1
@@ -818,13 +823,13 @@ def function_cari_harga(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMO
 
 
 def function_cari_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
-    cari = str(input('Brand yang ingin dicari  : ')).upper()
+    cari = str(input('Supir yang ingin dicari  : ')).upper()
     i = 0
     while (SUPIR[i] != cari) and (i < banyak_data):
         i += 1
     os.system('cls')
     if (SUPIR[i] == cari):
-        print(f'Brand mobil {cari} ditemukan')
+        print(f'Supir {cari} ditemukan')
         print('Keterangan : ')
         print('-------------------------------------------------------------------------------------------')
         print('| No |  Plat Mobil  |   Brand   |   Model   |     Harga     |    Supir    |  Nomor Supir  |')
@@ -837,11 +842,11 @@ def function_cari_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMO
                     f'| {No:>2} |  {PLAT_MOBIL[j]:10}  |  {BRAND_MOBIL[j]:7}  |  {MODEL_MOBIL[j]:>7}  | Rp.{HARGA[j]:<10} | {SUPIR[j]:11} | {NOMOR_SUPIR[j]:<13} |')
                 print('--------------------------------------------------------------------------------------------')
     else:
-        print(f'Brand mobil {cari} tidak ditemukan')
+        print(f'Supir {cari} tidak ditemukan')
 
 
 def function_cari_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR, NOMOR_SUPIR, banyak_data):
-    cari = str(input('Plat yang ingin dicari : '))
+    cari = str(input('Nomor yang ingin dicari : '))
     Ia = 0
     Ib = banyak_data - 1
     dapat = False
@@ -856,7 +861,7 @@ def function_cari_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR
                 Ib = k - 1
     os.system('cls')
     if (dapat):
-        print(f'Plat mobil {cari} ditemukan')
+        print(f'Nomor {cari} ditemukan')
         print('Keterangan : ')
         print('--------------------------------------------------------------------------------------')
         print('|  Plat Mobil  |   Brand   |   Model   |     Harga     |    Supir    |  Nomor Supir  |')
@@ -865,7 +870,75 @@ def function_cari_nomor_supir(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL, HARGA, SUPIR
             f'|  {PLAT_MOBIL[k]:10}  |  {BRAND_MOBIL[k]:7}  |  {MODEL_MOBIL[k]:>7}  | Rp.{HARGA[k]:<10} | {SUPIR[k]:11} | {NOMOR_SUPIR[k]:<13} |')
         print('--------------------------------------------------------------------------------------------')
     else:
-        print(f'Plat mobil {cari} tidak ditemukan')
+        print(f'Nomor {cari} tidak ditemukan')
+
+
+def function_menu_login_user():
+    print('---------------------------------')
+    print('| M E N U   L O G I N   U S E R |')
+    print('---------------------------------')
+    print('| 1. Masuk                      |')
+    print('| 2. Buat akun                  |')
+    print('| 0. keluar                     |')
+    print('---------------------------------')
+    pilihan = int(input('Pilihan anda :'))
+    while (pilihan < 0) or (pilihan > 2):
+        os.system('cls')
+        print('pilihan tidak ada')
+        os.system('pause')
+        os.system('cls')
+        print('---------------------------------')
+        print('| M E N U   L O G I N   U S E R |')
+        print('---------------------------------')
+        print('| 1. Masuk                      |')
+        print('| 2. Buat akun                  |')
+        print('| 0. keluar                     |')
+        print('---------------------------------')
+        pilihan = int(input('Pilihan anda : '))
+    return pilihan
+
+
+def function_login_user(user):
+    print('-----------------------')
+    print('| L O G I N   U S E R |')
+    print('-----------------------')
+    nama = str(input('Username : ')).upper()
+    if (nama in user):
+        return True
+    else:
+        salah = 3
+        while (salah > 0):
+            os.system('cls')
+            print(f'Username tidak ditemukan. sisa percobaan {salah}')
+            os.system('pause')
+            os.system('cls')
+            print('-----------------------')
+            print('| L O G I N   U S E R |')
+            print('-----------------------')
+            nama = str(input('Username : ')).upper()
+            if (nama in user):
+                return True
+            else:
+                salah -= 1
+    return False
+
+
+def function_konvirmasi():
+    print(' login user yang anda lakukan gagal ')
+    print('Apakah anda ingin membuat akun baru?')
+    print(' 1. Iya')
+    print(' 2. Tidak')
+    pilihan = int(input('Pilihan anda : '))
+    while (pilihan < 1) or (pilihan > 2):
+        os.system('cls')
+        print('Pilihan tidak ada')
+        os.system('pause')
+        os.system('cls')
+        print('Apakah anda ingin membuat akun baru?')
+        print(' 1. Iya')
+        print(' 2. Tidak')
+        pilihan = int(input('Pilihan anda : '))
+    return pilihan
 
 
 def function_menu_user():
@@ -882,6 +955,7 @@ def function_menu_user():
         os.system('cls')
         print('pilihan tidak ada')
         os.system('pause')
+        os.system('cls')
         print('-----------------------')
         print('|  M E N U   U S E R  |')
         print('-----------------------')
@@ -894,8 +968,55 @@ def function_menu_user():
     return pilihan
 
 
+def function_menu_informasi_data():
+    print('-----------------------------------------')
+    print('| M E N U   I N F O R M A S I   D A T A |')
+    print('-----------------------------------------')
+    print('| 1. tranversal                         |')
+    print('| 2. Searching                          |')
+    print('| 0. keluar                             |')
+    print('-----------------------------------------')
+    pilihan = int(input('Pilihan anda :'))
+    while (pilihan < 0) or (pilihan > 3):
+        os.system('cls')
+        print('pilihan tidak ada')
+        os.system('pause')
+        os.system('cls')
+        print('-----------------------------------------')
+        print('| M E N U   I N F O R M A S I   D A T A |')
+        print('-----------------------------------------')
+        print('| 1. tranversal                         |')
+        print('| 2. Searching                          |')
+        print('| 0. keluar                             |')
+        print('-----------------------------------------')
+        pilihan = int(input('Pilihan anda :'))
+    return pilihan
+
+
+def function_buat_akun(user):
+    print('---------------------------')
+    print('| M E M B U A T   A K U N |')
+    print('---------------------------')
+    username_baru = str(input('Username : ')).upper()
+    for i in range(user):
+        if (username_baru == user):
+            while (username_baru == user):
+                os.system('cls')
+                print('Username sudah ada. silahkan buat username yang berbeda')
+                os.system('pause')
+                os.system('cls')
+                print('---------------------------')
+                print('| M E M B U A T   A K U N |')
+                print('---------------------------')
+                username_baru = str(input('Username : ')).upper()
+        else:
+            user += [username_baru]
+    return user
+
+
 # badan_utama_program
 PASSWORD = 'admin123'
+user = ['DERIEL']
 posisi = function_menu_login()
 while (posisi != 0):
     match posisi:
@@ -977,7 +1098,6 @@ while (posisi != 0):
                                                 print('Baiklah, terimakasih. tekan enter untuk melanjutkan.')
                                         else:
                                             print('posisi tidak valid. tolong ulangi!')
-
                                 os.system('pause')
                                 os.system('cls')
                                 pilihan_CRUD = function_Menu_CRUD()
@@ -1085,16 +1205,80 @@ while (posisi != 0):
                     os.system('cls')
                     pilihan_admin = function_menu_admin()
             else:
+                os.system('cls')
                 print('Anda sudah 3 kali salah, anda sudah tidak bisa masuk')
+                os.system('pause')
+                os.system('cls')
+                posisi = 0
         case 2:
             os.system('cls')
-            pilihan_user = function_menu_user()
-            while (pilihan_user != 0):
-                match pilihan_user:
+            login_user = function_menu_login_user()
+            while (login_user != 0):
+                match login_user:
                     case 1:
                         os.system('cls')
-                    # case 2 :
-                    # case 3 :
+                        masuk_user = function_login_user(user)
+                        if (masuk_user):
+                            os.system('cls')
+                            pilihan_user = function_menu_user()
+                            while (pilihan_user != 0):
+                                match pilihan_user:
+                                    case 1:
+                                        os.system('cls')
+                                        pilihan_informasi = function_menu_informasi_data()
+                                        while (pilihan_informasi != 0):
+                                            match pilihan_informasi:
+                                                case 1:
+                                                    os.system('cls')
+                                                case 2:
+                                                    os.system('cls')
+                                                    Pilihan_searching = function_menu_searching()
+                                                    while (Pilihan_searching != 0):
+                                                        match Pilihan_searching:
+                                                            case 1:
+                                                                os.system('cls')
+                                                                function_shorting_naik_plat(PLAT_MOBIL, BRAND_MOBIL,MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                                                function_cari_plat(PLAT_MOBIL, BRAND_MOBIL, MODEL_MOBIL,HARGA, SUPIR, NOMOR_SUPIR,banyak_data)
+                                                            case 2:
+                                                                os.system('cls')
+                                                                function_cari_brand(PLAT_MOBIL, BRAND_MOBIL,MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                                            case 3:
+                                                                os.system('cls')
+                                                                function_cari_model(PLAT_MOBIL, BRAND_MOBIL,MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                                            case 4:
+                                                                os.system('cls')
+                                                                function_cari_harga(PLAT_MOBIL, BRAND_MOBIL,MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                                            case 5:
+                                                                os.system('cls')
+                                                                function_cari_supir(PLAT_MOBIL, BRAND_MOBIL,MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                                            case 6:
+                                                                os.system('cls')
+                                                                function_shorting_naik_nomor_supir(PLAT_MOBIL,BRAND_MOBIL,MODEL_MOBIL, HARGA,SUPIR, NOMOR_SUPIR,banyak_data)
+                                                                function_cari_nomor_supir(PLAT_MOBIL, BRAND_MOBIL,MODEL_MOBIL, HARGA, SUPIR,NOMOR_SUPIR, banyak_data)
+                                                        os.system('pause')
+                                                        os.system('cls')
+                                                    Pilihan_searching = function_menu_searching()
+                                            os.system('pause')
+                                            os.system('cls')
+                                            pilihan_informasi = function_menu_informasi_data()
+                                    case 2:
+                                        os.system('cls')
+                                    # case 3 :
+                                os.system('pause')
+                                os.system('cls')
+                                pilihan_user = function_menu_user()
+                            login_user = 0
+                        else:
+                            os.system('cls')
+                            jawab = function_konvirmasi()
+                            if (jawab == 1):
+                                login_user = 2
+                            else:
+                                login_user = 0
+                    case 2:
+                        os.system('cls')
+                        function_buat_akun(user)
+                        login_user = 1
     os.system('pause')
     os.system('cls')
     posisi = function_menu_login()
