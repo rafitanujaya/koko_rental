@@ -672,6 +672,7 @@ while status != 0 :
                     login = False
         else:
             print('Maaf, Login anda gagal')
+
     if status == 2 :
         # main program user
         akun_user = str(input('Sudah Punya Akun? [y/n]: '))
