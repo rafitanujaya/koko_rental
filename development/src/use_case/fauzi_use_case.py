@@ -362,6 +362,7 @@ def function_login_pengguna(nama_pengguna, pass_pengguna, data_akun, data_pass, 
             return True
         else :
             return False
+
 def function_harga_rental(pilihan_pengguna, lama_rental, array_harga_mobil) :
     harga = array_harga_mobil[pilihan_pengguna - 1]
     return harga * lama_rental
@@ -374,6 +375,13 @@ def procedure_sewa_mobil(pilihan_pengguna, array_plat_mobil, array_brand_mobil, 
     array_plat_mobil[pilihan_pengguna - 1] = 'Disewakan'
     array_nama_supir[pilihan_pengguna - 1] = 'Disewakan'
     array_nomor_supir[pilihan_pengguna - 1] = 'Disewakan'
+
+#subrutin validasi pilihan pengguna
+def function_validasi_sewa(pilihan_pengguna, array_brand_mobil) :
+    while array_brand_mobil[pilihan_pengguna - 1] == 'Disewakan' :
+        print('Pilihan tidak tersedia')
+        pilihan_pengguna = int(input('Masukkan Nomor Pilihan : '))
+    return pilihan_pengguna
 
 # program utama
 print('Pilihan Program Anda')
@@ -687,6 +695,7 @@ while status != 0 :
         if status_login :
             procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             pilihan_pengguna = int(input('Masukkan Nomor Pilihan : '))
+            pilihan_pengguna = function_validasi_sewa(pilihan_pengguna, array_brand_mobil)
             lama_rental = int(input('Lama Rental [Hari] : '))
             harga = function_harga_rental(pilihan_pengguna, lama_rental, array_harga_mobil)
             print(f'Harga yang harus dibayar : Rp {harga}')
