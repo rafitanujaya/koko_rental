@@ -32,7 +32,7 @@ nomor_supir = [""] * (MAKSBARIS + 1)
 # end variabel
 
 # start prosedur
-
+3
 def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
     for i in range(banyak_data):
         print('╔══════════════════════════════════════════════════════════════════════════╗')
@@ -43,16 +43,16 @@ def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_
         
         for j in range(i):
             if (j == 0):  
-                print('╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗')
+                print('╔════╦══════════════╦══════════════╦══════════════╦══════════════╦══════════════╦═══════════════════════╗')
                 print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
                 print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
-            print(f'║ {j+1:<2} ║ {plat_nomor[j]:<10}   ║  {brand[j]:<10}  ║  {model[j]:<10}  ║  {harga_sewa[j]:<10}  ║  {supir[j]:<10}  ║    {nomor_supir[j]:<14}     ║')
+            print(f'║ {j+1:<2} ║   {fungsi_ngukur_panjang_ui(plat_nomor[j],8):8}   ║  {fungsi_ngukur_panjang_ui(brand[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(model[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(harga_sewa[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(supir[j],10):<10}  ║    {fungsi_ngukur_panjang_ui(nomor_supir[j],14):<14}     ║')
             # print(f'{j} = {i}')
             if(j == i - 1):
                 print('╚════╩══════════════╩══════════════╩══════════════╩══════════════╩══════════════╩═══════════════════════╝')
             else:
                 print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
-        
+
         print(f'   Data kendaraan ke-{i+1:<2}')
         temp = input(f'   · Plat nomor    : ')
         duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
@@ -67,20 +67,20 @@ def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_
             print('╚══════════════════════════════════════════════════════════════════════════╝')
             input('Tekan [ENTER] untuk melanjutkan.')
             os.system(hapus)
-            
+
             print('╔══════════════════════════════════════════════════════════════════════════╗')
             print('║                M E M A S U K A N   D E T A I L   D A T A                 ║')
             print('║                         ───────────────────────                          ║')
             print(f'║  Jumlah data : {banyak_data:<2}                                                        ║')
             print('╚══════════════════════════════════════════════════════════════════════════╝')
-            
+
             for j in range(i):
-                if (j == 0):  
-                    print('╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗')
+                if (j == 0):
+                    print('╔════╦══════════════╦══════════════╦══════════════╦══════════════╦══════════════╦═══════════════════════╗')
                     print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
                     print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
-                print(f'║ {j+1:<2} ║ {plat_nomor[j]:<10}   ║  {brand[j]:<10}  ║  {model[j]:<10}  ║  {harga_sewa[j]:<10}  ║  {supir[j]:<10}  ║    {nomor_supir[j]:<14}     ║')
-                # print(f'{j} = {i}')
+                print(f'║ {j+1:<2} ║   {fungsi_ngukur_panjang_ui(plat_nomor[j],8):<8}   ║  {fungsi_ngukur_panjang_ui(brand[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(model[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(harga_sewa[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(supir[j],10):<10}  ║    {fungsi_ngukur_panjang_ui(nomor_supir[j],14):<14}     ║')
+# print(f'{j} = {i}')
                 if(j == i - 1):
                     print('╚════╩══════════════╩══════════════╩══════════════╩══════════════╩══════════════╩═══════════════════════╝')
                 else:
@@ -106,19 +106,19 @@ def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_
             print('╚══════════════════════════════════════════════════════════════════════════╝')
             input('Tekan [ENTER] untuk melanjutkan.')
             os.system(hapus)
-            
+
             print('╔══════════════════════════════════════════════════════════════════════════╗')
             print('║                M E M A S U K A N   D E T A I L   D A T A                 ║')
             print('║                         ───────────────────────                          ║')
             print(f'║  Jumlah data : {banyak_data:<2}                                                        ║')
             print('╚══════════════════════════════════════════════════════════════════════════╝')
             for j in range(i):
-                if (j == 0):  
-                    print('╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗')
+                if (j == 0):
+                    print('╔════╦══════════════╦══════════════╦══════════════╦══════════════╦══════════════╦═══════════════════════╗')
                     print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
                     print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
-                print(f'║ {j+1:<2} ║ {plat_nomor[j]:<10}   ║  {brand[j]:<10}  ║  {model[j]:<10}  ║  {harga_sewa[j]:<10}  ║  {supir[j]:<10}  ║    {nomor_supir[j]:<14}     ║')
-                # print(f'{j} = {i}')
+                    print(f'║ {j+1:<2} ║   {fungsi_ngukur_panjang_ui(plat_nomor[j],8):<8}   ║  {fungsi_ngukur_panjang_ui(brand[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(model[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(harga_sewa[j],10):<10}  ║  {fungsi_ngukur_panjang_ui(supir[j],10):<10}  ║    {fungsi_ngukur_panjang_ui(nomor_supir[j],14):<14}     ║')
+# print(f'{j} = {i}')
                 if(j == banyak_data - 1):
                     print('╚════╩══════════════╩══════════════╩══════════════╩══════════════╩══════════════╩═══════════════════════╝')
                 else:
@@ -133,16 +133,16 @@ def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_
             duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
         nomor_supir[i] = temp
         print('════════════════════════════════════════════════════════════════════════════')
-        
+
 def prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
     if(banyak_data == 0 ):
         print('data kosong')
     for j in range(banyak_data):
-        if (j == 0):  
-            print('╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗')
+        if (j == 0):
+            print('╔════╦══════════════╦══════════════╦══════════════╦══════════════╦══════════════╦═══════════════════════╗')
             print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
             print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
-        print(f'║ {j+1:<2} ║ {plat_nomor[j]:<10}   ║  {brand[j]:<10}  ║  {model[j]:<10}  ║  {harga_sewa[j]:<10}  ║  {supir[j]:<10}  ║    {nomor_supir[j]:<14}     ║')
+        print(f'║ {j + 1:<2} ║ {fungsi_ngukur_panjang_ui(plat_nomor[j], 10):<10}   ║  {fungsi_ngukur_panjang_ui(brand[j], 10):<10}  ║  {fungsi_ngukur_panjang_ui(model[j], 10):<10}  ║  {fungsi_ngukur_panjang_ui(harga_sewa[j], 10):<10}  ║  {fungsi_ngukur_panjang_ui(supir[j], 10):<10}  ║    {fungsi_ngukur_panjang_ui(nomor_supir[j], 14):<14}     ║')
         # print(f'{j} = {i}')
         if(j == banyak_data - 1):
             print('╚════╩══════════════╩══════════════╩══════════════╩══════════════╩══════════════╩═══════════════════════╝')
@@ -348,7 +348,7 @@ def prosedur_min_max_data_rental(plat_nomor, model, brand, harga_sewa, supir, no
     print(f'   · Harga         : {harga_sewa[min]}')
     print(f'   · Nama Supir    : {supir[min]}')
     print(f'   · Nomor telepon : {nomor_supir[min]}')
-    print('════════════════════════════════════════════════════════════════════════════')
+    print('═══════════════════════════════════════════════════════════════════════════')
     print('   Data Mobil Temahal ')
     print('════════════════════════════════════════════════════════════════════════════')
     print(f'   · Plat nomor    : {plat_nomor[max]}')
@@ -389,6 +389,13 @@ def fungsi_sequential_search_sentinel(array, dicari):
     else:
         return False
     
+def fungsi_ngukur_panjang_ui(teks, maks):
+    banyak = 0
+    for i in teks:
+        banyak += 1
+        if banyak > maks:
+            return teks[:maks - 2] + '..'
+    return teks
 
 # end fungsi
 
