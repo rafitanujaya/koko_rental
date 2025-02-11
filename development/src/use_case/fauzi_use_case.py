@@ -366,6 +366,7 @@ def function_harga_rental(pilihan_pengguna, lama_rental, array_harga_mobil) :
     harga = array_harga_mobil[pilihan_pengguna - 1]
     return harga * lama_rental
 
+#subrutin mengubah data array setelah disewakan
 def procedure_sewa_mobil(pilihan_pengguna, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir):
     array_brand_mobil[pilihan_pengguna - 1] = 'Disewakan'
     array_model_mobil[pilihan_pengguna - 1] = 'Disewakan'
