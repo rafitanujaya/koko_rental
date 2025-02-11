@@ -55,6 +55,20 @@ click_list_rafi = [
     "testcar4", "botcar4", "BK4444BT", "4567890123", "bangbang", "628574321",
     "testcar5", "botcar5", "BK1111BT", "1234567890", "emely", "628571234","2"
     ]
+click_list_main = [
+                    "1","admin","1","1","10",
+                    "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
+                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SURJADO","628394756218",
+                    "BK1234EF","RY-8","MANZA","75262100","Carl Johnson","628112233369",
+                    "BK9876GH","ZENTRA","QWERTY","12345678","John Doe","628123456789",
+                    "BK5432IJ","NEXUS-X","ASDFGH","87654321","Jane Smith","628987654321",
+                    "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Wonderland","628456789012",
+                    "BK2468MN","VORTEX","POIUYT","34567890","Bob Builder","628321654987",
+                    "BK3690OP","PHOENIX","LKJHGF","45678901","Charlie Brown","628654321098",
+                    "BK4821QR","AURORA","MNBVCX","56789012","Daisy Duck","628789012345",
+                    "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
+                    "3"
+                   ]
 
 #PLAT/MODEL/BRAND/HARGA/SUPIR/NOSUPIR
 def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
@@ -65,7 +79,7 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
     mouse.click()
     time.sleep(delay)
     keyboard.press_and_release('ctrl+f5')
-    time.sleep(delay+0.1)
+    time.sleep(delay+1.8)
     mouse.move(600, 200, absolute=False, duration=0.1)
     if isselectadmin:
         keyboard.write("1", delay=0.01)
@@ -113,7 +127,7 @@ def main():
             print("""
             1.automate pauji
             2.automate rafi
-            3.automate custom
+            3.automate main
             """)
             menu = int(input(">"))
             if menu == 1:
@@ -126,6 +140,11 @@ def main():
                     automate_mac(click_list_rafi, 0.01,False,False)
                 else:
                     automate(click_list_rafi, 0.01,False,False)
+            if menu == 3:
+                if platform.system() == "Darwin":
+                    automate_mac(click_list_main,0.05,False,False)
+                else:
+                    automate(click_list_main,0.05,False,False)
         except Exception as e:
             print("error:", e)
 
