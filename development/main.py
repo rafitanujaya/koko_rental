@@ -374,7 +374,7 @@ def prosedur_menghitung_rata_rata_data_rental(harga_sewa):
     print('║                      RATA-RATA HARGA SEWA MOBIL                          ║')
     print('║                ─────────────────────────────────────────                 ║')
     print('╚══════════════════════════════════════════════════════════════════════════╝')
-    print(f'   Rata-Rata Harga Sewa Mobil di KOKO RENTAL : {(temp / pembagi):2f}')
+    print(f'   Rata-Rata Harga Sewa Mobil di KOKO RENTAL : {(temp / pembagi):.2f}')
     print('════════════════════════════════════════════════════════════════════════════')
 
 # buble sort asc
@@ -409,7 +409,8 @@ def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supi
                 nomor_supir[j] = temp 
                 
     print('Proses Pengurutan Kelar')
-    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, banyak_data)
+    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+    print('[ENTER] untuk melanjutkan...')
 
 def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
@@ -445,7 +446,8 @@ def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_sup
         nomor_supir[max] = temp
     
     print('Proses Pengurutan Kelar')
-    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, banyak_data)
+    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+    print('[ENTER] untuk melanjutkan...')
         
 def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     dicari = input(' Masukkan data yang ingin dicari : ')
@@ -1037,7 +1039,7 @@ while menu_utama != 0:
                                             prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
                                         else:
                                             prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
-                                        posisi_penyisipan = int(input('Nomor Penyisipan Data'))
+                                        posisi_penyisipan = int(input('Nomor Penyisipan Data : '))
                                         banyak_data = prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_penyisipan)
                                     case 7:
                                         if (banyak_data > MAKSBARIS):
@@ -1045,21 +1047,23 @@ while menu_utama != 0:
                                         else:
                                             prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
                                             
-                                        posisi_hapus = int(input('Nomor yang ingin dihapus'))
+                                        posisi_hapus = int(input('Nomor yang ingin dihapus : '))
                                         banyak_data = prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus)
                                     case 8:
-                                        konfirmasi = input('Apakah Anda yakin hapus semua data? Y/N')
+                                        konfirmasi = input('Apakah Anda yakin hapus semua data? Y/N : ').upper()
                                         while konfirmasi != 'Y' and konfirmasi != 'N':
                                             print('Masukkan tidak valid, harus Y atau N ulangiii!!')
                                             input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
-                                            konfirmasi = input('Apakah Anda yakin hapus semua data? Y/N')
+                                            konfirmasi = input('Apakah Anda yakin hapus semua data? Y/N : ').upper()
                                         
                                         if konfirmasi == 'Y':
                                             prosedur_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
                                             banyak_data = 0
+                                            print('data berhasil dihapus semua')
                                         else:
                                             print('Tidak ada penghapusan data')
+                                        input()
                                     case 9:
                                         print(f'data: {plat_nomor}')
                                         input()
@@ -1079,14 +1083,18 @@ while menu_utama != 0:
                                                     prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, plat_nomor, banyak_data)
                                                 case 2:
                                                     prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, model, banyak_data)
+                                                    
                                                 case 3:
                                                     prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, brand, banyak_data)
                                                 case 4:
                                                     prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, harga_sewa, banyak_data)
+                                                    
                                                 case 5:
                                                     prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, supir, banyak_data)
+                                                    
                                                 case 6:
                                                     prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, nomor_supir, banyak_data)
+                                                    
                                                 case 7:
                                                     print('WIP Feature data instans')
                                             os.system(hapus)
