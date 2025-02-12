@@ -1185,7 +1185,8 @@ while menu_utama != 0:
                     os.system(hapus)
                     menu_admin = fungsi_menu_admin(menu_admin)
         case 2:
-            print('b')
+            while True:
+                os.system('cls')
     menu_utama = fungsi_menu_utama(menu_utama)
 
 # Keluar aplikasi
