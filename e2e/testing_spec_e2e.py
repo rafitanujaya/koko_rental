@@ -63,14 +63,14 @@ click_list_main1 = [
                    ]
 click_list_main = [
                     "1","admin","1","1","10",
-                    "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
-                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SURJADO","628394756218",
-                    "BK1234EF","RY-8","MANZA","75262100","Carl Johnson","628112233369",
+                    "BK1234AB","AWANJA","OYOTA","92162100","MACANATO","628126213369",
+                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SUR","628394756218",
+                    "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
                     "BK9876GH","ZENTRA","QWERTY","12345678","John Doe","628123456789",
                     "BK5432IJ","NEXUS-X","ASDFGH","87654321","Jane Smith","628987654321",
-                    "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Wonderland","628456789012",
-                    "BK2468MN","VORTEX","POIUYT","34567890","Bob Builder","628321654987",
-                    "BK3690OP","PHOENIX","LKJHGF","45678901","Charlie Brown","628654321098",
+                    "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Won","628456789012",
+                    "BK2468MN","VORTEX","POIUYT","34567890","Bob bay","628321654987",
+                    "BK3690OP","PHOENIX","LKJHGF","45678901","CharlieBro","628654321098",
                     "BK4821QR","AURORA","MNBVCX","56789012","Daisy Duck","628789012345",
                     "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
                     "3"
@@ -83,7 +83,7 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
     mouse.move(100, 630, absolute=False, duration=0.1)
     mouse.click()
     time.sleep(delay)
-    keyboard.press_and_release('ctrl+f5')
+    keyboard.press_and_release('ctrl+F5')
     time.sleep(delay+1.8)
     mouse.move(600, 200, absolute=False, duration=0.1)
     if isselectadmin:
