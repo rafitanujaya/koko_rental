@@ -908,9 +908,9 @@ while menu_utama != 0:
                                             
                                         posisi_hapus = int(input('Nomor yang ingin dihapus'))
                                         banyak_data = prosedur_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus)
-                                    case 8:
-                                        konfirmasi = input('Apakah Anda yakin hapus semua data? Y/N')
-                                        while konfirmasi.upper() != 'Y' and konfirmasi.upper() != 'N':
+                                    case 7:
+                                        konfirmasi = input('Apakah Anda yakin hapus semua data? Y/N').upper()
+                                        while konfirmasi != 'Y' and konfirmasi!= 'N':
                                             print('Masukkan tidak valid, harus Y atau N ulangiii!!')
                                             input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
@@ -921,8 +921,8 @@ while menu_utama != 0:
                                             banyak_data = 0
                                         else:
                                             print('Tidak ada penghapusan data')
-                                    case 9:
-                                        print('9')
+                                    case 8:
+                                        print('DATA_INSTAN')
                                 os.system(hapus)
                                 menu_admin_crud =  fungsi_menu_admin_crud(menu_admin_crud)
                         case 2:

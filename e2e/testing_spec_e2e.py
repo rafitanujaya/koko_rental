@@ -73,8 +73,14 @@ click_list_main = [
                     "BK3690OP","PHOENIX","LKJHGF","45678901","CharlieBro","628654321098",
                     "BK4821QR","AURORA","MNBVCX","56789012","Daisy Duck","628789012345",
                     "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
-                    "3"
-                   ]
+                    "","2","","3","","4","","5","","7","y","1","2",
+                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SUR","628394756218",
+                    "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
+                    "","5",
+                    "BK2468MN","VORTEX","POIUYT","34567890","Bob bay","628321654987",
+                    "","2","",
+    ]
+
 #PLAT/MODEL/BRAND/HARGA/SUPIR/NOSUPIR
 def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
     print("TEST IN PROGRESS. DO NOT TOUCH!")
