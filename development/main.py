@@ -509,7 +509,6 @@ def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor
     lb = banyak_data
     ketemu = False
     
-        
     
     if(mode == 1):
         while not ketemu and la <= lb:
@@ -1175,7 +1174,7 @@ while menu_utama != 0:
                                                 case 1:
                                                     prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, plat_nomor, banyak_data)
                                                 case 2:
-                                                    prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, supir, banyak_data)
+                                                    prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, nomor_supir, banyak_data)
                                                 case 3:
                                                     print('1')
                                             input('[ENTER] untuk melanjutkan...')
