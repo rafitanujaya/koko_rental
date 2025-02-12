@@ -413,35 +413,35 @@ def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supi
 
 def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+    print(f'data: {banyak_data}')
     input('data sebelum di sorting, [Enter] untuk melanjutkan penyortingan')
-    
     for i in range(banyak_data):
-        max = i
+        max = 0
         for j in range(banyak_data - i):
-            if array_sorting[j] > array_sorting[max]:
+            if array_sorting[j] < array_sorting[max]:
                 max = j
-        temp = plat_nomor[i]
-        plat_nomor[i] = plat_nomor[max]
+        temp = plat_nomor[j]
+        plat_nomor[j] = plat_nomor[max]
         plat_nomor[max] = temp
         
-        temp = model[i]
-        model[i] = model[max]
+        temp = model[j]
+        model[j] = model[max]
         model[max] = temp
         
-        temp = brand[i]
-        brand[i] = brand[max]
+        temp = brand[j]
+        brand[j] = brand[max]
         brand[max] = temp
         
-        temp = harga_sewa[i]
-        harga_sewa[i] = harga_sewa[max]
+        temp = harga_sewa[j]
+        harga_sewa[j] = harga_sewa[max]
         harga_sewa[max] = temp
         
-        temp = supir[i]
-        supir[i] = supir[max]
+        temp = supir[j]
+        supir[j] = supir[max]
         supir[max] = temp
         
-        temp = nomor_supir[i]
-        nomor_supir[i] = nomor_supir[max]
+        temp = nomor_supir[j]
+        nomor_supir[j] = nomor_supir[max]
         nomor_supir[max] = temp
     
     print('Proses Pengurutan Kelar')
@@ -998,6 +998,7 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary):
 
 # END FUNGSI MENU
 
+os.system(hapus)
 menu_utama = fungsi_menu_utama(menu_utama)
 while menu_utama != 0:
     os.system(hapus)
