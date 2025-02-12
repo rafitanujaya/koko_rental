@@ -1,3 +1,8 @@
+# PROGRAM RENTAL KENDARAAN
+
+# I.S :
+# F.S :
+
 # IMPORT 
 import os
 
@@ -8,7 +13,7 @@ password = ''
 banyak_data = 0
 
 # Menu
-hapus = 'cls'
+hapus = 'clear'
 menu_utama = 0
 menu_admin = 0
 menu_admin_crud = 0
@@ -177,76 +182,6 @@ def prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nom
         else:
             print(
                 '╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
-
-
-def prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data) -> int:
-    # I.S.: validasi apakah data sudah penuh atau belum
-    # F.S.: menambahkan elemen baru di indeks terakhir array plat, model, brand, harga sewa, supir, nomor supir
-    print(f'banyak data: {banyak_data}')
-    if banyak_data < MAKSBARIS:
-        print('╔══════════════════════════════════════════════════════════════════════════╗')
-        print('║                M E N A M B A H K A N   D A T A   B A R U                 ║')
-        print('║                ─────────────────────────────────────────                 ║')
-        print('╚══════════════════════════════════════════════════════════════════════════╝')
-        temp = input('   · Plat nomor    : ')
-        duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
-        while duplikat:
-            print('╔══════════════════════════════════════════════════════════════════════════╗')
-            print('║                                                                          ║')
-            print('║        //\\              DATA YANG ANDA MASUKKAN SUDAH ADA !!             ║')
-            print('║       // ║\\           ────────────────────────────────────────           ║')
-            print('║      //  0 \\              SILAHKAN MASUKAN PERINTAH KEMBALI              ║')
-            print('║     //______\\                 tekan enter untuk kembali <--              ║')
-            print('║                                                                          ║')
-            print('╚══════════════════════════════════════════════════════════════════════════╝')
-            input('Tekan [ENTER] untuk melanjutkan.')
-            os.system(hapus)
-
-            print('╔══════════════════════════════════════════════════════════════════════════╗')
-            print('║                M E N A M B A H K A N   D A T A   B A R U                 ║')
-            print('║                ─────────────────────────────────────────                 ║')
-            print('╚══════════════════════════════════════════════════════════════════════════╝')
-            temp = input('   · Plat nomor    : ')
-            duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
-
-        plat_nomor[banyak_data] = temp
-        model[banyak_data] = input('   · Model         : ')
-        brand[banyak_data] = input('   · Brand         : ')
-        harga_sewa[banyak_data] = int(input('   · Harga         : '))
-        supir[banyak_data] = input('   · Nama Supir    : ')
-        temp = input('   · Nomor telepon : ')
-        duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
-        while duplikat:
-            print('╔══════════════════════════════════════════════════════════════════════════╗')
-            print('║                                                                          ║')
-            print('║        //\\              DATA YANG ANDA MASUKKAN SUDAH ADA !!             ║')
-            print('║       // ║\\           ────────────────────────────────────────           ║')
-            print('║      //  0 \\              SILAHKAN MASUKAN PERINTAH KEMBALI              ║')
-            print('║     //______\\                 tekan enter untuk kembali <--              ║')
-            print('║                                                                          ║')
-            print('╚══════════════════════════════════════════════════════════════════════════╝')
-            input('Tekan [ENTER] untuk melanjutkan.')
-            os.system(hapus)
-
-            print('╔══════════════════════════════════════════════════════════════════════════╗')
-            print('║                M E N A M B A H K A N   D A T A   B A R U                 ║')
-            print('║                ─────────────────────────────────────────                 ║')
-            print('╚══════════════════════════════════════════════════════════════════════════╝')
-            print(f'   · Plat nomor    : {plat_nomor[banyak_data]}')
-            print(f'   · Model         : {model[banyak_data]}')
-            print(f'   · Brand         : {brand[banyak_data]}')
-            print(f'   · Harga         : {harga_sewa[banyak_data]}')
-            print(f'   · Nama Supir    : {supir[banyak_data]}')
-            temp = input('   · Nomor telepon : ')
-            duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
-
-        nomor_supir[banyak_data] = temp
-        print('════════════════════════════════════════════════════════════════════════════')
-        return banyak_data + 1
-    else:
-        print('data rental sudah pernuh')
-        return banyak_data
-
 
 def prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_penyisipan) :
     # I.S.: validasi apakah data sudah penuh atau belum
@@ -614,10 +549,77 @@ def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor
     else:
         print('data tidak ketemu')
 
-
 # end prosdure
 
 # start fungsi
+
+def fungsi_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data) -> int:
+    # I.S.: validasi apakah data sudah penuh atau belum
+    # F.S.: menambahkan elemen baru di indeks terakhir array plat, model, brand, harga sewa, supir, nomor supir
+    print(f'banyak data: {banyak_data}')
+    if banyak_data < MAKSBARIS:
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║                M E N A M B A H K A N   D A T A   B A R U                 ║')
+        print('║                ─────────────────────────────────────────                 ║')
+        print('╚══════════════════════════════════════════════════════════════════════════╝')
+        temp = input('   · Plat nomor    : ')
+        duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
+        while duplikat:
+            print('╔══════════════════════════════════════════════════════════════════════════╗')
+            print('║                                                                          ║')
+            print('║        //\\              DATA YANG ANDA MASUKKAN SUDAH ADA !!             ║')
+            print('║       // ║\\           ────────────────────────────────────────           ║')
+            print('║      //  0 \\              SILAHKAN MASUKAN PERINTAH KEMBALI              ║')
+            print('║     //______\\                 tekan enter untuk kembali <--              ║')
+            print('║                                                                          ║')
+            print('╚══════════════════════════════════════════════════════════════════════════╝')
+            input('Tekan [ENTER] untuk melanjutkan.')
+            os.system(hapus)
+
+            print('╔══════════════════════════════════════════════════════════════════════════╗')
+            print('║                M E N A M B A H K A N   D A T A   B A R U                 ║')
+            print('║                ─────────────────────────────────────────                 ║')
+            print('╚══════════════════════════════════════════════════════════════════════════╝')
+            temp = input('   · Plat nomor    : ')
+            duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
+
+        plat_nomor[banyak_data] = temp
+        model[banyak_data] = input('   · Model         : ')
+        brand[banyak_data] = input('   · Brand         : ')
+        harga_sewa[banyak_data] = int(input('   · Harga         : '))
+        supir[banyak_data] = input('   · Nama Supir    : ')
+        temp = input('   · Nomor telepon : ')
+        duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
+        while duplikat:
+            print('╔══════════════════════════════════════════════════════════════════════════╗')
+            print('║                                                                          ║')
+            print('║        //\\              DATA YANG ANDA MASUKKAN SUDAH ADA !!             ║')
+            print('║       // ║\\           ────────────────────────────────────────           ║')
+            print('║      //  0 \\              SILAHKAN MASUKAN PERINTAH KEMBALI              ║')
+            print('║     //______\\                 tekan enter untuk kembali <--              ║')
+            print('║                                                                          ║')
+            print('╚══════════════════════════════════════════════════════════════════════════╝')
+            input('Tekan [ENTER] untuk melanjutkan.')
+            os.system(hapus)
+
+            print('╔══════════════════════════════════════════════════════════════════════════╗')
+            print('║                M E N A M B A H K A N   D A T A   B A R U                 ║')
+            print('║                ─────────────────────────────────────────                 ║')
+            print('╚══════════════════════════════════════════════════════════════════════════╝')
+            print(f'   · Plat nomor    : {plat_nomor[banyak_data]}')
+            print(f'   · Model         : {model[banyak_data]}')
+            print(f'   · Brand         : {brand[banyak_data]}')
+            print(f'   · Harga         : {harga_sewa[banyak_data]}')
+            print(f'   · Nama Supir    : {supir[banyak_data]}')
+            temp = input('   · Nomor telepon : ')
+            duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
+
+        nomor_supir[banyak_data] = temp
+        print('════════════════════════════════════════════════════════════════════════════')
+        return banyak_data + 1
+    else:
+        print('data rental sudah pernuh')
+        return banyak_data
 
 def prosedur_data_instan(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, tipe) -> int:
     # I.S.: nilai matriks sudah terdefinisi
@@ -1167,7 +1169,7 @@ while menu_utama != 0:
                                     case 4:
                                         prosedur_menghitung_rata_rata_data_rental(harga_sewa)
                                     case 5:
-                                        banyak_data = prosedur_penambahan_data_rental(plat_nomor, model, brand,
+                                        banyak_data = fungsi_penambahan_data_rental(plat_nomor, model, brand,
                                                                                       harga_sewa, supir, nomor_supir,
                                                                                       banyak_data)
                                     case 6:
