@@ -491,10 +491,6 @@ def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomo
         
 
 def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
-    dicari = input(' Masukkan data yang ingin dicari : ')
-    la = 0
-    lb = banyak_data
-    ketemu = False
     print('╔════════════════════════════════════╗')
     print('║             BINARY MODE            ║')
     print('╠════════════════════════════════════╣')
@@ -503,10 +499,16 @@ def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor
     print('>>> Masukkan pilihan Anda dan tekan [ENTER] untuk melanjutkan.')
     mode = int(input(' Masukkan pilihan Anda : '))
     
-    while mode != 1 or mode != 2:
+    while mode != 1 and mode != 2:
         print('pilihan tersedia hanya 1 dan 2 ulangii!!!')
         input('Tekan [ENTER] untuk melanjutkan.')
         mode = int(input(' Masukkan pilihan Anda : '))
+    
+    dicari = input(' Masukkan data yang ingin dicari : ')
+    la = 0
+    lb = banyak_data
+    ketemu = False
+    
         
     
     if(mode == 1):
