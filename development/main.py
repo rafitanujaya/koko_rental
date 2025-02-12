@@ -378,7 +378,7 @@ def prosedur_menghitung_rata_rata_data_rental(harga_sewa):
 
 def fungsi_ambil_jam(waktu):
     waktu = 'powershell get-date -format "{dd-MMM-yyyy HH:mm}"'
-    os.system(waktu)
+    waktu = os.system(waktu)
     return waktu
 
 def fungsi_sequential_search_sentinel(array, dicari):
