@@ -457,7 +457,7 @@ def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_su
         print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
         print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
         print(f'║ {i+1:<2} ║ {plat_nomor[i]:<10}   ║  {brand[i]:<10}  ║  {model[i]:<10}  ║  {harga_sewa[i]:<10}  ║  {supir[i]:<10}  ║    {nomor_supir[i]:<14}     ║')
-        
+        i += 1
         while i < banyak_data - 1:
             if(array_searching[i] == dicari):
                 print(f'║ {i+1:<2} ║ {plat_nomor[i]:<10}   ║  {brand[i]:<10}  ║  {model[i]:<10}  ║  {harga_sewa[i]:<10}  ║  {supir[i]:<10}  ║    {nomor_supir[i]:<14}     ║')
@@ -479,7 +479,7 @@ def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomo
         print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
         print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
         print(f'║ {i+1:<2} ║ {plat_nomor[i]:<10}   ║  {brand[i]:<10}  ║  {model[i]:<10}  ║  {harga_sewa[i]:<10}  ║  {supir[i]:<10}  ║    {nomor_supir[i]:<14}     ║')
-        
+        i += 1
         while i < banyak_data - 1:
             if(array_searching[i] == dicari):
                 print(f'║ {i+1:<2} ║ {plat_nomor[i]:<10}   ║  {brand[i]:<10}  ║  {model[i]:<10}  ║  {harga_sewa[i]:<10}  ║  {supir[i]:<10}  ║    {nomor_supir[i]:<14}     ║')
