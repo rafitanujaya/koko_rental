@@ -90,7 +90,7 @@ def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_
         plat_nomor[i]  = temp
         model[i]       = input('   · Model         : ')
         brand[i]       = input('   · Brand         : ')
-        harga_sewa[i]  = input('   · Harga         : ')
+        harga_sewa[i]  = int(input('   · Harga         : '))
         supir[i]       = input('   · Nama Supir    : ')
         temp = input('   · Nomor telepon : ')
         duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
@@ -177,7 +177,7 @@ def prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir,
         plat_nomor[banyak_data - 1]  = temp
         model[banyak_data - 1]       = input('   · Model         : ')
         brand[banyak_data - 1]       = input('   · Brand         : ')
-        harga_sewa[banyak_data - 1]  = input('   · Harga         : ')
+        harga_sewa[banyak_data - 1]  = int(input('   · Harga         : '))
         supir[banyak_data - 1]       = input('   · Nama Supir    : ')
         temp                         = input('   · Nomor telepon : ') 
         duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
@@ -252,7 +252,7 @@ def prosedur_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir,
             plat_nomor[posisi_penyisipan - 1]  = temp
             model[posisi_penyisipan - 1]       = input('   · Model         : ')
             brand[posisi_penyisipan - 1]       = input('   · Brand         : ')
-            harga_sewa[posisi_penyisipan - 1]  = input('   · Harga         : ')
+            harga_sewa[posisi_penyisipan - 1]  = int(input('   · Harga         : '))
             supir[posisi_penyisipan - 1]       = input('   · Nama Supir    : ')
             temp                         = input('   · Nomor telepon : ') 
             duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
