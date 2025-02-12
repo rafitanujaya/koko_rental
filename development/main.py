@@ -149,6 +149,7 @@ def prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nom
             print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
 
 def prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
+    print(f'banyak data: {banyak_data}')
     if banyak_data < MAKSBARIS:
         print('╔══════════════════════════════════════════════════════════════════════════╗')
         print('║                M E N A M B A H K A N   D A T A   B A R U                 ║')
@@ -173,12 +174,14 @@ def prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir,
             print('║                ─────────────────────────────────────────                 ║')
             print('╚══════════════════════════════════════════════════════════════════════════╝')
             temp = input('   · Plat nomor    : ')
+            duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
             
-        plat_nomor[banyak_data - 1]  = temp
-        model[banyak_data - 1]       = input('   · Model         : ')
-        brand[banyak_data - 1]       = input('   · Brand         : ')
-        harga_sewa[banyak_data - 1]  = int(input('   · Harga         : '))
-        supir[banyak_data - 1]       = input('   · Nama Supir    : ')
+            
+        plat_nomor[banyak_data]  = temp
+        model[banyak_data]       = input('   · Model         : ')
+        brand[banyak_data]       = input('   · Brand         : ')
+        harga_sewa[banyak_data]  = int(input('   · Harga         : '))
+        supir[banyak_data]       = input('   · Nama Supir    : ')
         temp                         = input('   · Nomor telepon : ') 
         duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
         while duplikat:
@@ -197,14 +200,16 @@ def prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir,
             print('║                M E N A M B A H K A N   D A T A   B A R U                 ║')
             print('║                ─────────────────────────────────────────                 ║')
             print('╚══════════════════════════════════════════════════════════════════════════╝')
-            print(f'   · Plat nomor    : {plat_nomor[banyak_data -1]}')
-            print(f'   · Model         : {model[banyak_data -1]}')
-            print(f'   · Brand         : {brand[banyak_data -1]}')
-            print(f'   · Harga         : {harga_sewa[banyak_data -1]}')
-            print(f'   · Nama Supir    : {supir[banyak_data -1]}')
+            print(f'   · Plat nomor    : {plat_nomor[banyak_data]}')
+            print(f'   · Model         : {model[banyak_data]}')
+            print(f'   · Brand         : {brand[banyak_data]}')
+            print(f'   · Harga         : {harga_sewa[banyak_data]}')
+            print(f'   · Nama Supir    : {supir[banyak_data]}')
             temp = input('   · Nomor telepon : ')
+            duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
+            
         
-        nomor_supir[banyak_data - 1] = temp
+        nomor_supir[banyak_data] = temp
         print('════════════════════════════════════════════════════════════════════════════')
         return banyak_data + 1
     else:
@@ -1056,7 +1061,8 @@ while menu_utama != 0:
                                         else:
                                             print('Tidak ada penghapusan data')
                                     case 9:
-                                        print('9')
+                                        print(f'data: {plat_nomor}')
+                                        input()
                                 os.system(hapus)
                                 menu_admin_crud =  fungsi_menu_admin_crud(menu_admin_crud)
                         case 2:
