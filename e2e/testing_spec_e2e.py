@@ -55,30 +55,70 @@ click_list_rafi = [
     "testcar4", "botcar4", "BK4444BT", "4567890123", "bangbang", "628574321",
     "testcar5", "botcar5", "BK1111BT", "1234567890", "emely", "628571234","2"
     ]
-click_list_main = [
-                    "1","admin","1","1","10",
+click_list_main1 = [
+                    "1","admin","1","1","2",
                     "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
-                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SURJADO","628394756218",
-                    "BK1234EF","RY-8","MANZA","75262100","Carl Johnson","628112233369",
-                    "BK9876GH","ZENTRA","QWERTY","12345678","John Doe","628123456789",
-                    "BK5432IJ","NEXUS-X","ASDFGH","87654321","Jane Smith","628987654321",
-                    "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Wonderland","628456789012",
-                    "BK2468MN","VORTEX","POIUYT","34567890","Bob Builder","628321654987",
-                    "BK3690OP","PHOENIX","LKJHGF","45678901","Charlie Brown","628654321098",
-                    "BK4821QR","AURORA","MNBVCX","56789012","Daisy Duck","628789012345",
-                    "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
+                    "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
                     "3"
                    ]
+click_list_main = [
+                    "1","admin","1","1","10",
+                    "BK1234AB","AWANJA","OYOTA","92162100","MACANATO","628126213369",
+                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SUR","628394756218",
+                    "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
+                    "BK9876GH","ZENTRA","QWERTY","12345678","John Doe","628123456789",
+                    "BK5432IJ","NEXUS-X","ASDFGH","87654321","Jane Smith","628987654321",
+                    "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Won","628456789012",
+                    "BK2468MN","VORTEX","POIUYT","34567890","Bob bay","628321654987",
+                    "BK3690OP","PHOENIX","LKJHGF","45678901","CharlieBro","628654321098",
+                    "BK4821QR","AURORA","MNBVCX","56789012","Daisy Duck","628789012345",
+                    "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
+                    "","2","","3","","4","","5","","7","y","1","2",
+                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SUR","628394756218",
+                    "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
+                    "","5",
+                    "BK2468MN","VORTEX","POIUYT","34567890","Bob bay","628321654987",
+                    "","2","",
+    ]
+start = ["1","admin"]
+part1 = [
+                    "1","1","10",
+                    "BK1234AB","AWANJA","OYOTA","92162100","MACANATO","628126213369",
+                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SUR","628394756218",
+                    "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
+                    "BK9876GH","ZENTRA","QWERTY","12345678","John Doe","628123456789",
+                    "BK5432IJ","NEXUS-X","ASDFGH","87654321","Jane Smith","628987654321",
+                    "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Won","628456789012",
+                    "BK2468MN","VORTEX","POIUYT","34567890","Bob bay","628321654987",
+                    "BK3690OP","PHOENIX","LKJHGF","45678901","CharlieBro","628654321098",
+                    "BK4821QR","AURORA","MNBVCX","56789012","Daisy Duck","628789012345",
+                    "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
+                    "","2","","3","","4","","5","","7","4","1","2",
+                    "BK3333CD","MODEL-Y","TELZA","6952966950","TANTIN SUR","626494756218",
+                    "BK3003EF","RY-7X","MANZA","75262101","DERIEL","628112238469",
+                    "","0"]
+part2 = [           "1","5",
+                    "BK6696MN","LAUNCER","MITCUBICI","65437654","RAPI","62812321457",
+                    "","2","","4","3","8","y","","1","6",
+                    "BK1234AB","AWANJA","OYOTA","92162100","MACANATO","628126213369",
+                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SUR","628394756218",
+                    "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
+                    "BK9876GH","ZENTRA","QWERTY","12345678","John Doe","628123456789",
+                    "BK5432IJ","NEXUS-X","ASDFGH","87654321","Jane Smith","628987654321",
+                    "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Won","628456789012",
+                    "","2","","0","2","1","1","","1","","2","","4","","5","","3","","6","","0","0",
+    ]
 
+click_list_main_dev = start+part2
 #PLAT/MODEL/BRAND/HARGA/SUPIR/NOSUPIR
 def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
     print("TEST IN PROGRESS. DO NOT TOUCH!")
-    time.sleep(1)
+    time.sleep(2.5)
     mouse.move(-40000, -40000, absolute=True, duration=0.1)
     mouse.move(100, 630, absolute=False, duration=0.1)
     mouse.click()
     time.sleep(delay)
-    keyboard.press_and_release('ctrl+f5')
+    keyboard.press_and_release('ctrl+F5')
     time.sleep(delay+1.8)
     mouse.move(600, 200, absolute=False, duration=0.1)
     if isselectadmin:
@@ -128,6 +168,7 @@ def main():
             1.automate pauji
             2.automate rafi
             3.automate main
+            4.automate main dev
             """)
             menu = int(input(">"))
             if menu == 1:
@@ -145,6 +186,11 @@ def main():
                     automate_mac(click_list_main,0.05,False,False)
                 else:
                     automate(click_list_main,0.05,False,False)
+            if menu == 4:
+                if platform.system() == "Darwin":
+                    automate_mac(click_list_main,0.1,False,False)
+                else:
+                    automate(click_list_main_dev,0.1,False,False)
         except Exception as e:
             print("error:", e)
 
@@ -152,11 +198,3 @@ def main():
 if __name__ == "__main__":
 
     main()
-
-
-
-
-
-
-
-
