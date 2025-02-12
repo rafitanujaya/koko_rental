@@ -495,15 +495,40 @@ def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor
     la = 0
     lb = banyak_data
     ketemu = False
-    while not ketemu and la <= lb:
-        k = (la + lb) // 2
-        if(array_searching[k] == dicari):
-            ketemu = True
-        else:
-            if(array_searching[k] < dicari):
-                la = k + 1
+    print('╔════════════════════════════════════╗')
+    print('║             BINARY MODE            ║')
+    print('╠════════════════════════════════════╣')
+    print('║   1. ASC        ║   2.DESC         ║')
+    print('╚═════════════════╩══════════════════╝')
+    print('>>> Masukkan pilihan Anda dan tekan [ENTER] untuk melanjutkan.')
+    mode = int(input(' Masukkan pilihan Anda : '))
+    
+    while mode != 1 or mode != 2:
+        print('pilihan tersedia hanya 1 dan 2 ulangii!!!')
+        input('Tekan [ENTER] untuk melanjutkan.')
+        mode = int(input(' Masukkan pilihan Anda : '))
+        
+    
+    if(mode == 1):
+        while not ketemu and la <= lb:
+            k = (la + lb) // 2
+            if(array_searching[k] == dicari):
+                ketemu = True
             else:
-                lb = k - 1
+                if(array_searching[k] < dicari):
+                    la = k + 1
+                else:
+                    lb = k - 1
+    if (mode == 2):
+        while not ketemu and la <= lb:
+            k = (la + lb) // 2
+            if(array_searching[k] == dicari):
+                ketemu = True
+            else:
+                if(array_searching[k] > dicari):
+                    lb = k - 1
+                else:
+                    la = k + 1
     if ketemu:
         print('╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗')
         print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
@@ -1023,14 +1048,12 @@ while menu_utama != 0:
                                             prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
                                         else:
                                             prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
-                                        input()
                                     case 3:
                                         prosedur_min_max_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
                                     case 4:
                                         prosedur_menghitung_rata_rata_data_rental(harga_sewa)
                                     case 5:
                                         banyak_data = prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
-                                        input()
                                     case 6:
                                         if (banyak_data > MAKSBARIS):
                                             prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
