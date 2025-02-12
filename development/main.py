@@ -410,44 +410,42 @@ def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supi
                 
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
-    print('[ENTER] untuk melanjutkan...')
 
 def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+    print(f'data: {banyak_data}')
     input('data sebelum di sorting, [Enter] untuk melanjutkan penyortingan')
-    
     for i in range(banyak_data):
-        max = i
+        max = 0
         for j in range(banyak_data - i):
-            if array_sorting[j] > array_sorting[max]:
+            if array_sorting[j] < array_sorting[max]:
                 max = j
-        temp = plat_nomor[i]
-        plat_nomor[i] = plat_nomor[max]
+        temp = plat_nomor[j]
+        plat_nomor[j] = plat_nomor[max]
         plat_nomor[max] = temp
         
-        temp = model[i]
-        model[i] = model[max]
+        temp = model[j]
+        model[j] = model[max]
         model[max] = temp
         
-        temp = brand[i]
-        brand[i] = brand[max]
+        temp = brand[j]
+        brand[j] = brand[max]
         brand[max] = temp
         
-        temp = harga_sewa[i]
-        harga_sewa[i] = harga_sewa[max]
+        temp = harga_sewa[j]
+        harga_sewa[j] = harga_sewa[max]
         harga_sewa[max] = temp
         
-        temp = supir[i]
-        supir[i] = supir[max]
+        temp = supir[j]
+        supir[j] = supir[max]
         supir[max] = temp
         
-        temp = nomor_supir[i]
-        nomor_supir[i] = nomor_supir[max]
+        temp = nomor_supir[j]
+        nomor_supir[j] = nomor_supir[max]
         nomor_supir[max] = temp
     
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
-    print('[ENTER] untuk melanjutkan...')
         
 def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     dicari = input(' Masukkan data yang ingin dicari : ')
@@ -459,15 +457,17 @@ def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_su
         print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
         print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
         print(f'║ {i+1:<2} ║ {plat_nomor[i]:<10}   ║  {brand[i]:<10}  ║  {model[i]:<10}  ║  {harga_sewa[i]:<10}  ║  {supir[i]:<10}  ║    {nomor_supir[i]:<14}     ║')
-        
+        i += 1
         while i < banyak_data - 1:
             if(array_searching[i] == dicari):
                 print(f'║ {i+1:<2} ║ {plat_nomor[i]:<10}   ║  {brand[i]:<10}  ║  {model[i]:<10}  ║  {harga_sewa[i]:<10}  ║  {supir[i]:<10}  ║    {nomor_supir[i]:<14}     ║')
             i += 1
         
         print('╚════╩══════════════╩══════════════╩══════════════╩══════════════╩══════════════╩═══════════════════════╝')
+        input('[ENTER] untuk melanjutkan...')
     else:
         print('Data Tidak Ditemukan')
+        input('[ENTER] untuk melanjutkan...')
         
 def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     dicari = int(input(' Masukkan data yang ingin dicari : '))
@@ -479,7 +479,7 @@ def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomo
         print('║ No ║  Plat Nomor  ║    Brand     ║     Model    ║  Harga Sewa  ║  Nama Supir  ║  Nomor Telepon Supir  ║')
         print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
         print(f'║ {i+1:<2} ║ {plat_nomor[i]:<10}   ║  {brand[i]:<10}  ║  {model[i]:<10}  ║  {harga_sewa[i]:<10}  ║  {supir[i]:<10}  ║    {nomor_supir[i]:<14}     ║')
-        
+        i += 1
         while i < banyak_data - 1:
             if(array_searching[i] == dicari):
                 print(f'║ {i+1:<2} ║ {plat_nomor[i]:<10}   ║  {brand[i]:<10}  ║  {model[i]:<10}  ║  {harga_sewa[i]:<10}  ║  {supir[i]:<10}  ║    {nomor_supir[i]:<14}     ║')
@@ -510,7 +510,6 @@ def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor
         print('╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
         print(f'║ {0+1:<2} ║ {plat_nomor[k]:<10}   ║  {brand[k]:<10}  ║  {model[k]:<10}  ║  {harga_sewa[k]:<10}  ║  {supir[k]:<10}  ║    {nomor_supir[k]:<14}     ║')
         print('╚════╩══════════════╩══════════════╩══════════════╩══════════════╩══════════════╩═══════════════════════╝')
-        
     else:
         print('data tidak ketemu')
 
@@ -999,6 +998,7 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary):
 
 # END FUNGSI MENU
 
+os.system(hapus)
 menu_utama = fungsi_menu_utama(menu_utama)
 while menu_utama != 0:
     os.system(hapus)
@@ -1018,7 +1018,6 @@ while menu_utama != 0:
                                     case 1:
                                         banyak_data = int(input(' Banyak Data yang dimasukkan : '))
                                         prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
-                                        input('Memasukkan data telah selesai')
                                     case 2:
                                         if (banyak_data > MAKSBARIS):
                                             prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
@@ -1027,10 +1026,8 @@ while menu_utama != 0:
                                         input()
                                     case 3:
                                         prosedur_min_max_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir)
-                                        input('[Enter] Untuk melanjutkan')
                                     case 4:
                                         prosedur_menghitung_rata_rata_data_rental(harga_sewa)
-                                        input('[Enter] Untuk melanjutkan')
                                     case 5:
                                         banyak_data = prosedur_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
                                         input()
@@ -1063,10 +1060,9 @@ while menu_utama != 0:
                                             print('data berhasil dihapus semua')
                                         else:
                                             print('Tidak ada penghapusan data')
-                                        input()
                                     case 9:
                                         print(f'data: {plat_nomor}')
-                                        input()
+                                input('[ENTER] untuk melanjutkan...')
                                 os.system(hapus)
                                 menu_admin_crud =  fungsi_menu_admin_crud(menu_admin_crud)
                         case 2:
@@ -1097,6 +1093,7 @@ while menu_utama != 0:
                                                     
                                                 case 7:
                                                     print('WIP Feature data instans')
+                                            input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
                                             menu_admin_sorting_asc = fungsi_menu_admin_sorting_asc(menu_admin_sorting_asc)
                                     case 2:
@@ -1118,6 +1115,7 @@ while menu_utama != 0:
                                                     prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, nomor_supir, banyak_data)
                                                 case 7:
                                                     print('1')
+                                            input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
                                             menu_admin_sorting_desc = fungsi_menu_admin_sorting_desc(menu_admin_sorting_desc)
                                 os.system(hapus)
@@ -1141,6 +1139,7 @@ while menu_utama != 0:
                                                     prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, supir, banyak_data)
                                                 case 5:
                                                     print('2')
+                                            input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
                                             menu_admin_searching_sequential = fungsi_menu_admin_searching_sequential(menu_admin_searching_sequential)
                                     case 2:
@@ -1154,6 +1153,7 @@ while menu_utama != 0:
                                                     prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, supir, banyak_data)
                                                 case 3:
                                                     print('1')
+                                            input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
                                             menu_admin_searching_binary = fungsi_menu_admin_searching_binary(menu_admin_searching_binary)
                                 os.system(hapus)
