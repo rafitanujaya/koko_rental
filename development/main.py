@@ -247,7 +247,6 @@ def procedure_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir, nom
         supir[i] = ''
         nomor_supir[i] = ''
 
-# buble sort asc
 def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
     # F.S.: mengurutkan array plat, model, brand, harga, supir, nomor supir secara ascending
@@ -317,7 +316,6 @@ def prosedur_sorting_asc_int(plat_nomor, model, brand, harga_sewa, supir, nomor_
 
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
-
 
 def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
@@ -395,7 +393,6 @@ def prosedur_sorting_desc_int(plat_nomor, model, brand, harga_sewa, supir, nomor
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
 
-
 def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     # I.S.: pengguna memasukkan data yang ingin dicari
     # F.S.: menampilkan tabel data yang dicari jika ketemu
@@ -424,7 +421,6 @@ def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_su
     else:
         print('Data Tidak Ditemukan')
 
-
 def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     # I.S.: pengguna memasukkan data yang ingin dicari
     # F.S.: menampilkan tabel data yang dicari jika ketemu
@@ -452,7 +448,6 @@ def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomo
             '╚════╩══════════════╩══════════════╩══════════════╩══════════════╩══════════════╩═══════════════════════╝')
     else:
         print('Data Tidak Ditemukan')
-
 
 def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     # I.S.: menampilkan pilihan dan pengguna memilih salah satu metode binary search
@@ -509,9 +504,6 @@ def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor
     else:
         print('data tidak ketemu')
 
-# end prosdure
-
-# start fungsi
 
 def fungsi_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data) -> int:
     # I.S.: validasi apakah data sudah penuh atau belum
@@ -664,32 +656,6 @@ def fungsi_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, n
         print('Data sudah penuh')
         return banyak_data
 
-def prosedur_data_instan(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, tipe) -> int:
-    # I.S.: nilai matriks sudah terdefinisi
-    # F.S.: menghasilkan tipe data int untuk banyak data array
-    datas = []
-
-    if tipe == 'crud':
-        datas = [
-            ['1Toyota', '2Honda', '3Suzuki', '4Daihatsu', '5Nissan', '6Mitsubishi', '7Mazda', '8Kia', '9Hyundai', '10Ford'],
-            ['Avanza', 'Civic', 'Ertiga', 'Xenia', 'Livina', 'Pajero', 'CX-5', 'Seltos', 'Elantra', 'Focus'],
-            [200000000, 300000000, 150000000, 180000000, 250000000, 400000000, 350000000, 220000000, 270000000, 320000000],
-            ['B 1234 AB', 'B 5678 CD', 'B 9101 EF', 'B 1213 GH', 'B 1415 IJ', 'B 1617 KL', 'B 1819 MN', 'B 2021 OP', 'B 2223 QR', 'B 2425 ST'],
-            ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Davis', 'Eve White', 'Frank Black', 'Grace Green', 'Hank Blue', 'Ivy Yellow'],
-            [81234567891, 82345678902, 83456789013, 84567890124, 85678901235, 86789012346, 87890123457, 88901234568, 89012345679, 90123456789]
-        ]
-
-    for i in range(MAKSBARIS):
-        brand[i] = datas[0][i]
-        model[i] = datas[1][i]
-        harga_sewa[i] = datas[2][i]
-        plat_nomor[i] = datas[3][i]
-        supir[i] = datas[4][i]
-        nomor_supir[i] = datas[5][i]
-
-    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, MAKSBARIS)
-    return 10
-
 def fungsi_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus) -> int:
     # I.S.: validasi apakah data kosong atau tidak
     # F.S.: menghapus data di indeks yang ditentukan user
@@ -731,8 +697,6 @@ def fungsi_sequential_search_sentinel(array, dicari) -> bool:
     else:
         return False
 
-
-# end fungsi
 
 
 # START FUNGSI MENU
@@ -887,7 +851,7 @@ def fungsi_menu_admin_crud(menu_admin_crud) -> int:
     print('║  1. MEMBUAT / MEMASUKAN DATA      ║  5. MENAMBAHKAN DATA BARU            ║')
     print('║  2. MENAMPILKAN DATA              ║  6. MENYISIPKAN SEBUAH DATA          ║')
     print('║  3. HARGA TERMAHAL DAN TERMURAH   ║  7. MENGHAPUS SEBUAH DATA            ║')
-    print('║  4. RATA-RATA HARGA RENTAL        ║  8. DATA INSTAN                      ║')
+    print('║  4. RATA-RATA HARGA RENTAL        ║  8. HAPUS SEMUA DATA                 ║')
     print('╠═══════════════════════════════════╩══════════════════════════════════════╣')
     print('║                               0. KEMBALI                                 ║')
     print('╚══════════════════════════════════════════════════════════════════════════╝')
@@ -908,7 +872,7 @@ def fungsi_menu_admin_crud(menu_admin_crud) -> int:
         print('║  1. MEMBUAT / MEMASUKAN DATA      ║  5. MENAMBAHKAN DATA BARU            ║')
         print('║  2. MENAMPILKAN DATA              ║  6. MENYISIPKAN SEBUAH DATA          ║')
         print('║  3. HARGA TERMAHAL DAN TERMURAH   ║  7. MENGHAPUS SEBUAH DATA            ║')
-        print('║  4. RATA-RATA HARGA RENTAL        ║  8. DATA INSTAN                      ║')
+        print('║  4. RATA-RATA HARGA RENTAL        ║  8. HAPUS SEMUA DATA                 ║')
         print('╠═══════════════════════════════════╩══════════════════════════════════════╣')
         print('║                               0. KEMBALI                                 ║')
         print('╚══════════════════════════════════════════════════════════════════════════╝')
@@ -921,7 +885,7 @@ def fungsi_menu_admin_crud(menu_admin_crud) -> int:
         print('║  1. MEMBUAT / MEMASUKAN DATA      ║  5. MENAMBAHKAN DATA BARU            ║')
         print('║  2. MENAMPILKAN DATA              ║  6. MENYISIPKAN SEBUAH DATA          ║')
         print('║  3. HARGA TERMAHAL DAN TERMURAH   ║  7. MENGHAPUS SEBUAH DATA            ║')
-        print('║  4. RATA-RATA HARGA RENTAL        ║  8. DATA INSTAN                      ║')
+        print('║  4. RATA-RATA HARGA RENTAL        ║  8. HAPUS SEMUA DATA                 ║')
         print('╠═══════════════════════════════════╩══════════════════════════════════════╣')
         print('║                               0. KEMBALI                                 ║')
         print('╚══════════════════════════════════════════════════════════════════════════╝')
@@ -982,7 +946,7 @@ def fungsi_menu_admin_sorting_asc(menu_admin_sorting_asc) -> int:
     print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
     print('║  1. BERDASARKAN PLAT NOMOR        ║  5. BERDASARKAN NAMA SUPIR           ║')
     print('║  2. BERDASARKAN MODEL             ║  6. BERDASARKAN NOMOR TELEPON SUPIR  ║')
-    print('║  3. BERDASARKAN BRAND             ║  7. DATA INSTAN                      ║')
+    print('║  3. BERDASARKAN BRAND             ║                                      ║')
     print('║  4. BERDASARKAN HARGA             ║                                      ║')
     print('╠═══════════════════════════════════╩══════════════════════════════════════╣')
     print('║                               0. KEMBALI                                 ║')
@@ -1004,7 +968,7 @@ def fungsi_menu_admin_sorting_asc(menu_admin_sorting_asc) -> int:
         print('║  1. BERDASARKAN PLAT NOMOR        ║  4. BERDASARKAN HARGA                ║')
         print('║  2. BERDASARKAN MODEL             ║  5. BERDASARKAN NAMA SUPIR           ║')
         print('║  3. BERDASARKAN BRAND             ║  6. BERDASARKAN NOMOR TELEPON SUPIR  ║')
-        print('║  0. KEMBALI                       ║  7. DATA INSTAN                      ║')
+        print('║  0. KEMBALI                       ║                                      ║')
         print('╚═══════════════════════════════════╩══════════════════════════════════════╝')
         input('Tekan [ENTER] untuk melanjutkan.')
         os.system(hapus)
@@ -1028,11 +992,11 @@ def fungsi_menu_admin_sorting_desc(menu_admin_sorting_desc) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
     print('╔══════════════════════════════════════════════════════════════════════════╗')
-    print('║      -  +  -  M E N U   P E N G U R U T A N   M E N U R U N  -  +  -       ║')
+    print('║      -  +  -  M E N U   P E N G U R U T A N   M E N U R U N  -  +  -     ║')
     print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
     print('║  1. BERDASARKAN PLAT NOMOR        ║  5. BERDASARKAN NAMA SUPIR           ║')
     print('║  2. BERDASARKAN MODEL             ║  6. BERDASARKAN NOMOR TELEPON SUPIR  ║')
-    print('║  3. BERDASARKAN BRAND             ║  7. DATA INSTAN                      ║')
+    print('║  3. BERDASARKAN BRAND             ║                                      ║')
     print('║  4. BERDASARKAN HARGA             ║                                      ║')
     print('╠═══════════════════════════════════╩══════════════════════════════════════╣')
     print('║                               0. KEMBALI                                 ║')
@@ -1054,13 +1018,13 @@ def fungsi_menu_admin_sorting_desc(menu_admin_sorting_desc) -> int:
         print('║  1. BERDASARKAN PLAT NOMOR        ║  4. BERDASARKAN HARGA                ║')
         print('║  2. BERDASARKAN MODEL             ║  5. BERDASARKAN NAMA SUPIR           ║')
         print('║  3. BERDASARKAN BRAND             ║  6. BERDASARKAN NOMOR TELEPON SUPIR  ║')
-        print('║  0. KEMBALI                       ║  7. DATA INSTAN                      ║')
+        print('║  0. KEMBALI                       ║                                      ║')
         print('╚═══════════════════════════════════╩══════════════════════════════════════╝')
         input('Tekan [ENTER] untuk melanjutkan.')
         os.system(hapus)
 
         print('╔══════════════════════════════════════════════════════════════════════════╗')
-        print('║      -  +  -  M E N U   P E N G U R U T A N   M E N U R U N  -  +  -       ║')
+        print('║      -  +  -  M E N U   P E N G U R U T A N   M E N U R U N  -  +  -     ║')
         print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
         print('║  1. BERDASARKAN PLAT NOMOR        ║  4. BERDASARKAN HARGA                ║')
         print('║  2. BERDASARKAN MODEL             ║  5. BERDASARKAN NAMA SUPIR           ║')
@@ -1123,7 +1087,7 @@ def fungsi_menu_admin_searching_sequential(menu_admin_searching_sequential) -> i
     print('║     -  +  -  M E N U   P E N C A R I A N   B E R U N T U N  -  +  -      ║')
     print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
     print('║  1. BERDASARKAN MODEL             ║  4. BERDASARKAN NAMA SUPIR           ║')
-    print('║  2. BERDASARKAN BRAND             ║  5. DATA INSTAN                      ║')
+    print('║  2. BERDASARKAN BRAND             ║                                      ║')
     print('║  3. BERDASARKAN HARGA             ║                                      ║')
     print('╠═══════════════════════════════════╩══════════════════════════════════════╣')
     print('║                               0. KEMBALI                                 ║')
@@ -1144,7 +1108,7 @@ def fungsi_menu_admin_searching_sequential(menu_admin_searching_sequential) -> i
         print('║═══════════════════════════════════╦══════════════════════════════════════║')
         print('║  1. BERDASARKAN MODEL             ║  3. BERDASARKAN HARGA                ║')
         print('║  2. BERDASARKAN BRAND             ║  4. BERDASARKAN NAMA SUPIR           ║')
-        print('║  0. KELUAR                        ║  5. DATA INSTAN                      ║')
+        print('║  0. KELUAR                        ║                                      ║')
         print('╚═══════════════════════════════════╩══════════════════════════════════════╝')
         input('Tekan [ENTER] untuk melanjutkan.')
         os.system(hapus)
@@ -1152,7 +1116,7 @@ def fungsi_menu_admin_searching_sequential(menu_admin_searching_sequential) -> i
         print('║     -  +  -  M E N U   P E N C A R I A N   B E R U N T U N  -  +  -      ║')
         print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
         print('║  1. BERDASARKAN MODEL             ║  4. BERDASARKAN NAMA SUPIR           ║')
-        print('║  2. BERDASARKAN BRAND             ║  5. DATA INSTAN                      ║')
+        print('║  2. BERDASARKAN BRAND             ║                                      ║')
         print('║  3. BERDASARKAN HARGA             ║                                      ║')
         print('╠═══════════════════════════════════╩══════════════════════════════════════╣')
         print('║                               0. KEMBALI                                 ║')
@@ -1170,12 +1134,12 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary) -> int:
     print('║       -  +  -  M E N U   P E N C A R I A N   B I N A R Y  -  +  -        ║')
     print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
     print('║  1. BERDASARKAN PLAT NOMOR        ║  2. BERDASARKAN NOMOR TELEPON SUPIR  ║')
-    print('║  0. KEMBALI                       ║  3. DATA INSTAN                      ║')
+    print('║  0. KEMBALI                       ║                                      ║')
     print('╚═══════════════════════════════════╩══════════════════════════════════════╝')
     print('>>> Masukkan pilihan Anda dan tekan [ENTER] untuk melanjutkan.')
     menu_admin_searching_binary = int(input(' Masukan pilihan anda : '))
 
-    while (menu_admin_searching_binary < 0) and (menu_admin_searching_binary > 3):
+    while (menu_admin_searching_binary < 0) and (menu_admin_searching_binary > 2):
         print('╔══════════════════════════════════════════════════════════════════════════╗')
         print('║                                                                          ║')
         print('║        //\\            PERINTAH YANG ANDA MASUKAN TIDAK VALID!!           ║')
@@ -1187,7 +1151,7 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary) -> int:
         print('║                       PILIHAN YANG TERSEDIA:                             ║')
         print('║═══════════════════════════════════╦══════════════════════════════════════║')
         print('║  1. BERDASARKAN PLAT NOMOR        ║  2. BERDASARKAN NOMOR TELEPON SUPIR  ║')
-        print('║  0. KEMBALI                       ║  3. DATA INSTAN                      ║')
+        print('║  0. KEMBALI                       ║                                      ║')
         print('╚═══════════════════════════════════╩══════════════════════════════════════╝')
         input('Tekan [ENTER] untuk melanjutkan.')
         os.system(hapus)
@@ -1196,7 +1160,7 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary) -> int:
         print('║       -  +  -  M E N U   P E N C A R I A N   B I N A R Y  -  +  -        ║')
         print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
         print('║  1. BERDASARKAN PLAT NOMOR        ║  2. BERDASARKAN NOMOR TELEPON SUPIR  ║')
-        print('║  0. KEMBALI                       ║  3. DATA INSTAN                      ║')
+        print('║  0. KEMBALI                       ║                                      ║')
         print('╚═══════════════════════════════════╩══════════════════════════════════════╝')
         print('>>> Masukkan pilihan Anda dan tekan [ENTER] untuk melanjutkan.')
         menu_admin_searching_binary = int(input(' Masukan pilihan anda : '))
@@ -1322,8 +1286,6 @@ while menu_utama != 0:
                                             print('data berhasil dihapus semua')
                                         else:
                                             print('Tidak ada penghapusan data')
-                                    case 9:
-                                        print(f'data: {plat_nomor}')
                                 input('[ENTER] untuk melanjutkan...')
                                 os.system(hapus)
                                 menu_admin_crud = fungsi_menu_admin_crud(menu_admin_crud)
@@ -1358,9 +1320,6 @@ while menu_utama != 0:
                                                 case 6:
                                                     prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir,
                                                                          nomor_supir, nomor_supir, banyak_data)
-
-                                                case 7:
-                                                    print('WIP Feature data instans')
                                             input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
                                             menu_admin_sorting_asc = fungsi_menu_admin_sorting_asc(
@@ -1389,8 +1348,6 @@ while menu_utama != 0:
                                                 case 6:
                                                     prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir,
                                                                           nomor_supir, nomor_supir, banyak_data)
-                                                case 7:
-                                                    print('1')
                                             input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
                                             menu_admin_sorting_desc = fungsi_menu_admin_sorting_desc(
@@ -1420,8 +1377,6 @@ while menu_utama != 0:
                                                 case 4:
                                                     prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir,
                                                                            nomor_supir, supir, banyak_data)
-                                                case 5:
-                                                    print('2')
                                             input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
                                             menu_admin_searching_sequential = fungsi_menu_admin_searching_sequential(
@@ -1440,8 +1395,6 @@ while menu_utama != 0:
                                                     prosedur_searching_binary(plat_nomor, model, brand, harga_sewa,
                                                                               supir, nomor_supir, nomor_supir,
                                                                               banyak_data)
-                                                case 3:
-                                                    print('1')
                                             input('[ENTER] untuk melanjutkan...')
                                             os.system(hapus)
                                             menu_admin_searching_binary = fungsi_menu_admin_searching_binary(
