@@ -459,10 +459,8 @@ def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_su
 
         print(
             '╚════╩══════════════╩══════════════╩══════════════╩══════════════╩══════════════╩═══════════════════════╝')
-        input('[ENTER] untuk melanjutkan...')
     else:
         print('Data Tidak Ditemukan')
-        input('[ENTER] untuk melanjutkan...')
 
 
 def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
