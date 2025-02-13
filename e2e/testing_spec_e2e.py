@@ -109,6 +109,23 @@ part2 = [           "1","5",
                     "","2","","0","2","1","1","","","1","","","2","","","4","","","5","","","3","","","6","","","0","0",
     ]
 
+pas1 =["1","1","10",
+        "BK6696MN","MITCUBICI","LAUNCER","65437654","RAPI","62812321457",
+        "BK5678CD","MODEL-U","TELZA","69529669","TANTIN SUR","628394756218",
+        "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
+        "BK9876GH","ZENTRA","QWERTY","12345678","John Doe","628123456789",
+        "BK5432IJ","NEXUS-X","ASDFGH","87654321","Jane Smith","628987654321",
+        "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Won","628456789012",
+        "BK2468MN","VORTEX","POIUYT","34567890","Bob bay","628321654987",
+        "BK3690OP","PHOENIX","LKJHGF","45678901","CharlieBro","628654321098",
+        "BK4821QR","AURORA","MNBVCX","56789012","Daisy Duck","628789012345",
+        "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
+        "2","","0","2","1",
+
+
+
+       ]
+click_list_pascal = start+pas1
 click_list_main_dev = start+part2
 #PLAT/MODEL/BRAND/HARGA/SUPIR/NOSUPIR
 def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
@@ -129,7 +146,7 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
         keyboard.write(password, delay=0.01)
         keyboard.press_and_release('enter')
         time.sleep(delay)
-    time.sleep(0.01)
+    time.sleep(delay)
     for text_to_insert in click_list:
         if keyboard.is_pressed('backspace'):
             exit("Emergency triggered!")
@@ -169,6 +186,7 @@ def main():
             2.automate rafi
             3.automate main
             4.automate main dev
+            5.automate pascal
             """)
             menu = int(input(">"))
             if menu == 1:
@@ -191,6 +209,8 @@ def main():
                     automate_mac(click_list_main,0.1,False,False)
                 else:
                     automate(click_list_main_dev,0.1,False,False)
+            if menu == 5:
+                automate(click_list_pascal,0.1,False,False)
         except Exception as e:
             print("error:", e)
 
