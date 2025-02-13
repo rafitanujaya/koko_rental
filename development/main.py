@@ -155,9 +155,10 @@ def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_
             print(f'   · Brand         : {brand[i]}')
             print(f'   · Harga         : {harga_sewa[i]}')
             print(f'   · Nama Supir    : {supir[i]}')
-            temp = input(f'   · Plat nomor    : ')
-            duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
+            temp = input(f'   · Nomor Supir    : ')
+            duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
         nomor_supir[i] = temp
+        os.system(hapus)
         print('════════════════════════════════════════════════════════════════════════════')
 
 def prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
@@ -182,7 +183,6 @@ def prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nom
         else:
             print(
                 '╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
-
 
 def prosedur_min_max_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
     # I.S.: validasi apakah nilai di indeks harga_sewa tidak 0
@@ -220,7 +220,6 @@ def prosedur_min_max_data_rental(plat_nomor, model, brand, harga_sewa, supir, no
     print(f'   · Nomor telepon : {nomor_supir[max]}')
     print('════════════════════════════════════════════════════════════════════════════')
 
-
 def prosedur_menghitung_rata_rata_data_rental(harga_sewa):
     # I.S.: validasi harga nol atau tidak
     # F.S.: menampilkan rata-rata harga seluruh kendaraan
@@ -237,9 +236,54 @@ def prosedur_menghitung_rata_rata_data_rental(harga_sewa):
     print(f'   Rata-Rata Harga Sewa Mobil di KOKO RENTAL : {(temp / pembagi):.2f}')
     print('════════════════════════════════════════════════════════════════════════════')
 
+def procedure_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
+    # I.S.: harga MAKSBARIS sudah terdefinisi
+    # F.S.: mengganti seluruh nilai data di array dengan nilai awal
+    for i in range(MAKSBARIS):
+        plat_nomor[i] = ''
+        model[i] = ''
+        brand[i] = ''
+        harga_sewa[i] = 0
+        supir[i] = ''
+        nomor_supir[i] = ''
 
 # buble sort asc
 def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
+    # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
+    # F.S.: mengurutkan array plat, model, brand, harga, supir, nomor supir secara ascending
+    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+    input('data sebelum di sorting, [Enter] untuk melanjutkan penyortingan')
+    for i in range(banyak_data):
+        for j in range(banyak_data - 1, i, -1):
+            if array_sorting[j] < array_sorting[j - 1]:
+                temp = plat_nomor[j - 1]
+                plat_nomor[j - 1] = plat_nomor[j]
+                plat_nomor[j] = temp
+
+                temp = model[j - 1]
+                model[j - 1] = model[j]
+                model[j] = temp
+
+                temp = brand[j - 1]
+                brand[j - 1] = brand[j]
+                brand[j] = temp
+
+                temp = harga_sewa[j - 1]
+                harga_sewa[j - 1] = harga_sewa[j]
+                harga_sewa[j] = temp
+
+                temp = supir[j - 1]
+                supir[j - 1] = supir[j]
+                supir[j] = temp
+
+                temp = nomor_supir[j - 1]
+                nomor_supir[j - 1] = nomor_supir[j]
+                nomor_supir[j] = temp
+
+    print('Proses Pengurutan Kelar')
+    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+
+def prosedur_sorting_asc_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
     # F.S.: mengurutkan array plat, model, brand, harga, supir, nomor supir secara ascending
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
@@ -313,11 +357,49 @@ def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_sup
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
 
+def prosedur_sorting_desc_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
+    # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
+    # F.S.: mengurutkan array plat, model, brand, harga, supir, nomor supir secara descending
+    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+    print(f'data: {banyak_data}')
+    input('data sebelum di sorting, [Enter] untuk melanjutkan penyortingan')
+    for i in range(banyak_data):
+        max = 0
+        for j in range(banyak_data - i):
+            if array_sorting[j] < array_sorting[max]:
+                max = j
+        temp = plat_nomor[j]
+        plat_nomor[j] = plat_nomor[max]
+        plat_nomor[max] = temp
+
+        temp = model[j]
+        model[j] = model[max]
+        model[max] = temp
+
+        temp = brand[j]
+        brand[j] = brand[max]
+        brand[max] = temp
+
+        temp = harga_sewa[j]
+        harga_sewa[j] = harga_sewa[max]
+        harga_sewa[max] = temp
+
+        temp = supir[j]
+        supir[j] = supir[max]
+        supir[max] = temp
+
+        temp = nomor_supir[j]
+        nomor_supir[j] = nomor_supir[max]
+        nomor_supir[max] = temp
+
+    print('Proses Pengurutan Kelar')
+    prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
+
 
 def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     # I.S.: pengguna memasukkan data yang ingin dicari
     # F.S.: menampilkan tabel data yang dicari jika ketemu
-    dicari = input(' Masukkan data yang ingin dicari : ')
+    dicari = input(' Masukkan data yang ingin dicari : ') 
     i = 0
     while array_searching[i] != dicari and i < banyak_data - 1:
         i += 1
@@ -538,6 +620,8 @@ def fungsi_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, n
                 print(f'   Urutan data yang ingin disisip : {posisi_penyisipan}')
                 print('════════════════════════════════════════════════════════════════════════════')
                 temp = input('   · Plat nomor    : ')
+                duplikat = fungsi_sequential_search_sentinel(plat_nomor, temp)
+                
 
             plat_nomor[posisi_penyisipan - 1] = temp
             model[posisi_penyisipan - 1] = input('   · Model         : ')
@@ -570,6 +654,8 @@ def fungsi_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, n
                 print(f'   · Harga         : {harga_sewa[posisi_penyisipan - 1]}')
                 print(f'   · Nama Supir    : {supir[posisi_penyisipan - 1]}')
                 temp = input('   · Nomor telepon : ')
+                duplikat = fungsi_sequential_search_sentinel(nomor_supir, temp)
+                
 
             nomor_supir[posisi_penyisipan - 1] = temp
             print('════════════════════════════════════════════════════════════════════════════')
@@ -623,7 +709,7 @@ def fungsi_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, 
             harga_sewa[banyak_data - 1] = 0
             supir[banyak_data - 1] = ''
             nomor_supir[banyak_data - 1] = ''
-            # 12 14 15
+            print('Data Berhasil Dihapus')
             return banyak_data - 1
         else:
             print('Posisi Tidak Valid')
@@ -645,16 +731,7 @@ def fungsi_sequential_search_sentinel(array, dicari) -> bool:
     else:
         return False
 
-def fungsi_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
-    # I.S.: harga MAKSBARIS sudah terdefinisi
-    # F.S.: mengganti seluruh nilai data di array dengan nilai awal
-    for i in range(MAKSBARIS):
-        plat_nomor[i] = ''
-        model[i] = ''
-        brand[i] = ''
-        harga_sewa[i] = 0
-        supir[i] = ''
-        nomor_supir[i] = ''
+
 # end fungsi
 
 
@@ -1170,12 +1247,14 @@ while menu_utama != 0:
         case 1:
             login = fungsi_validasi_admin(password)
             if (login):
+                os.system(hapus)
                 menu_admin = fungsi_menu_admin(menu_admin)
                 while (menu_admin != 0):
-                    os.system(hapus)
                     match menu_admin:
                         case 1:
+                            os.system(hapus)
                             menu_admin_crud = fungsi_menu_admin_crud(menu_admin_crud)
+                            os.system(hapus)
                             while (menu_admin_crud != 0):
                                 os.system(hapus)
                                 match menu_admin_crud:
@@ -1196,6 +1275,12 @@ while menu_utama != 0:
                                     case 4:
                                         prosedur_menghitung_rata_rata_data_rental(harga_sewa)
                                     case 5:
+                                        if (banyak_data > MAKSBARIS):
+                                            prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir,
+                                                                        nomor_supir, MAKSBARIS)
+                                        else:
+                                            prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir,
+                                                                        nomor_supir, banyak_data)
                                         banyak_data = fungsi_penambahan_data_rental(plat_nomor, model, brand,
                                                                                       harga_sewa, supir, nomor_supir,
                                                                                       banyak_data)
@@ -1231,7 +1316,7 @@ while menu_utama != 0:
                                             konfirmasi = input('Apakah Anda yakin hapus semua data? Y/N : ').upper()
 
                                         if konfirmasi == 'Y':
-                                            fungsi_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir,
+                                            procedure_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir,
                                                                        nomor_supir)
                                             banyak_data = 0
                                             print('data berhasil dihapus semua')
@@ -1263,7 +1348,7 @@ while menu_utama != 0:
                                                     prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir,
                                                                          nomor_supir, brand, banyak_data)
                                                 case 4:
-                                                    prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir,
+                                                    prosedur_sorting_asc_int(plat_nomor, model, brand, harga_sewa, supir,
                                                                          nomor_supir, harga_sewa, banyak_data)
 
                                                 case 5:
@@ -1296,7 +1381,7 @@ while menu_utama != 0:
                                                     prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir,
                                                                           nomor_supir, brand, banyak_data)
                                                 case 4:
-                                                    prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir,
+                                                    prosedur_sorting_desc_int(plat_nomor, model, brand, harga_sewa, supir,
                                                                           nomor_supir, harga_sewa, banyak_data)
                                                 case 5:
                                                     prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir,
@@ -1380,10 +1465,11 @@ while menu_utama != 0:
                 input('[ENTER] untuk melanjutkan...')
                 os.system(hapus)
                 menu_user = fungsi_menu_user(menu_user)
-                
+    os.system(hapus)
     menu_utama = fungsi_menu_utama(menu_utama)
 
 # Keluar aplikasi
+os.system(hapus)
 print('╔══════════════════════════════════════════════════════════════════════════╗')
 print('║                                                                          ║')
 print('║   +  T E R I M A   K A S I H   T E L A H   M E N G G U N A K A N   +     ║')
