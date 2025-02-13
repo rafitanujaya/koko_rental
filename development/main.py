@@ -1,18 +1,19 @@
 # PROGRAM RENTAL KENDARAAN
 
-# I.S :
-# F.S :
+# I.S : pengguna memilih salah satu nomor menu
+# F.S : menampilkan hasil sesuai nomor menu yang dipilih
 
 # IMPORT 
 import os
 
 # DEKLARASI VARIABEL
+
+# KONSTANTA
 PASSWORD = 'admin'
 MAKSBARIS = 10
+# VARIABEL
 password = ''
 banyak_data = 0
-
-# Menu
 hapus = 'clear'
 menu_utama = 0
 menu_admin = 0
@@ -25,7 +26,7 @@ menu_admin_searching_sequential = 0
 menu_admin_searching_binary = 0
 menu_user = 0
 
-# ARRAY
+# PENCIPTAAN ARRAY platnomor, model, brand, harga_sewa, supir, nomor_supir
 plat_nomor = [""] * (MAKSBARIS + 1)
 model = [""] * MAKSBARIS
 brand = [""] * MAKSBARIS
@@ -34,11 +35,9 @@ supir = [""] * MAKSBARIS
 nomor_supir = [""] * (MAKSBARIS + 1)
 
 
-# start variabel
+# START SUB SUBRUTIN
 
-# end variabel
-
-# start prosedur
+# SUBRUTIN UNTUK MENGISI DATA RENRAL
 def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
     # I.S.: pengguna memasukkan data plat, brand, model, harga, nama supir, dan nomor telepon supir
     # F.S.: menambahkan data ke dalam array
@@ -161,6 +160,7 @@ def prosedur_isi_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_
         os.system(hapus)
         print('════════════════════════════════════════════════════════════════════════════')
 
+# SUBRUTIN UNTUK MENAMBAH DATA RENTAL
 def prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data):
     # I.S.: plat, model, brand, harga, nama supir, nomor supir, dan banyak data sudah terdefinisi
     # F.S.: menampilkan tabel berisi array plat, brand, model, harga, nama supir, nomor telepon supir
@@ -184,6 +184,7 @@ def prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nom
             print(
                 '╠════╬══════════════╬══════════════╬══════════════╬══════════════╬══════════════╬═══════════════════════╣')
 
+# SUBRUTIN UNTUK MENCARI DATA MIN DAN MAX
 def prosedur_min_max_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
     # I.S.: validasi apakah nilai di indeks harga_sewa tidak 0
     # F.S.: menampilkan data termurah dan termahal
@@ -220,6 +221,7 @@ def prosedur_min_max_data_rental(plat_nomor, model, brand, harga_sewa, supir, no
     print(f'   · Nomor telepon : {nomor_supir[max]}')
     print('════════════════════════════════════════════════════════════════════════════')
 
+# SUBRUTIN MENGHITUNG RATA-RATA HARGA RENTAL
 def prosedur_menghitung_rata_rata_data_rental(harga_sewa):
     # I.S.: validasi harga nol atau tidak
     # F.S.: menampilkan rata-rata harga seluruh kendaraan
@@ -236,6 +238,7 @@ def prosedur_menghitung_rata_rata_data_rental(harga_sewa):
     print(f'   Rata-Rata Harga Sewa Mobil di KOKO RENTAL : {(temp / pembagi):.2f}')
     print('════════════════════════════════════════════════════════════════════════════')
 
+# SUBRUTIN UNTUK MERESET DATA RENTAL
 def procedure_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir):
     # I.S.: harga MAKSBARIS sudah terdefinisi
     # F.S.: mengganti seluruh nilai data di array dengan nilai awal
@@ -247,6 +250,7 @@ def procedure_reset_data_rental(plat_nomor, model, brand, harga_sewa, supir, nom
         supir[i] = ''
         nomor_supir[i] = ''
 
+# SUBRUTIN UNTUK MENSORTING DATA, PLAT NOMOR, MODEL, BRAND, SUPIR, NOMOR SUPIR SECARA ASC MENGGUNAKAN BUBBLE SORT
 def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
     # F.S.: mengurutkan array plat, model, brand, harga, supir, nomor supir secara ascending
@@ -282,6 +286,7 @@ def prosedur_sorting_asc(plat_nomor, model, brand, harga_sewa, supir, nomor_supi
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
 
+# SUBRUTIN UNTUK MENSORTING DATA, HARGA SEWA SECARA ASC MENGGUNAKAN BUBBLE SORT
 def prosedur_sorting_asc_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
     # F.S.: mengurutkan array plat, model, brand, harga, supir, nomor supir secara ascending
@@ -317,6 +322,7 @@ def prosedur_sorting_asc_int(plat_nomor, model, brand, harga_sewa, supir, nomor_
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
 
+# SUBRUTIN UNTUK MENSORTING DATA, PLAT NOMOR, MODEL, BRAND, SUPIR, NOMOR SUPIR SECARA DESC MENGGUNAKAN SELECTION SORT MAX
 def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
     # F.S.: mengurutkan array plat, model, brand, harga, supir, nomor supir secara descending
@@ -355,6 +361,7 @@ def prosedur_sorting_desc(plat_nomor, model, brand, harga_sewa, supir, nomor_sup
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
 
+# SUBRUTIN UNTUK MENSORTING DATA, HARGA SEWA SECARA DESC MENGGUNAKAN SELECTION SORT MAX
 def prosedur_sorting_desc_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_sorting, banyak_data):
     # I.S.: array plat, model, brand, harga, supir, nomor supir sudah terdefinisi
     # F.S.: mengurutkan array plat, model, brand, harga, supir, nomor supir secara descending
@@ -393,6 +400,7 @@ def prosedur_sorting_desc_int(plat_nomor, model, brand, harga_sewa, supir, nomor
     print('Proses Pengurutan Kelar')
     prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data)
 
+# SUBRUTIN UNTUK MELAKUKAN SEARCHING SECARA SEQUENTIAL STRING
 def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     # I.S.: pengguna memasukkan data yang ingin dicari
     # F.S.: menampilkan tabel data yang dicari jika ketemu
@@ -421,6 +429,7 @@ def prosedur_searching_seq(plat_nomor, model, brand, harga_sewa, supir, nomor_su
     else:
         print('Data Tidak Ditemukan')
 
+# SUBRUTIN UNTUK MELAKUKAN SEARCHING SECARA SEQUENTIAL INTEGER
 def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     # I.S.: pengguna memasukkan data yang ingin dicari
     # F.S.: menampilkan tabel data yang dicari jika ketemu
@@ -449,6 +458,7 @@ def prosedur_searching_seq_int(plat_nomor, model, brand, harga_sewa, supir, nomo
     else:
         print('Data Tidak Ditemukan')
 
+# SUBRUTIN UNTUK MELAKUKAN SEARCHING USECARA BINARY DIMANA DATA WAJIB TERURUT
 def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, array_searching, banyak_data):
     # I.S.: menampilkan pilihan dan pengguna memilih salah satu metode binary search
     # F.S.: menampilkan tabel data yang dicari jika ketemu
@@ -504,7 +514,7 @@ def prosedur_searching_binary(plat_nomor, model, brand, harga_sewa, supir, nomor
     else:
         print('data tidak ketemu')
 
-
+# SUBRUTIN UNTUK MENAMBAHKAN DATA RENTAL
 def fungsi_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data) -> int:
     # I.S.: validasi apakah data sudah penuh atau belum
     # F.S.: menambahkan elemen baru di indeks terakhir array plat, model, brand, harga sewa, supir, nomor supir
@@ -573,6 +583,7 @@ def fungsi_penambahan_data_rental(plat_nomor, model, brand, harga_sewa, supir, n
         print('data rental sudah pernuh')
         return banyak_data
 
+# SUBRUTIN UNTUK MENYISIPKAN DATA RENTAL
 def fungsi_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_penyisipan) :
     # I.S.: validasi apakah data sudah penuh atau belum
     # F.S.: menambahkan data di indeks yang ditentukan pengguna
@@ -656,6 +667,7 @@ def fungsi_penyisipan_data_rental(plat_nomor, model, brand, harga_sewa, supir, n
         print('Data sudah penuh')
         return banyak_data
 
+# SUBRUTIN MENGHAPUS DATA RENTAL BEDASARKAN URUTAN
 def fungsi_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, nomor_supir, banyak_data, posisi_hapus) -> int:
     # I.S.: validasi apakah data kosong atau tidak
     # F.S.: menghapus data di indeks yang ditentukan user
@@ -684,6 +696,7 @@ def fungsi_penghapusan_data_rental(plat_nomor, model, brand, harga_sewa, supir, 
         print('Data Kosong')
         return banyak_data
 
+# SABRUTIN SEARCHING SECARA SEQUENTIAL SEARCH UNTUK PENGECEKAN VALIDASI UNIQ
 def fungsi_sequential_search_sentinel(array, dicari) -> bool:
     # I.S.: menambahkan data yang dicari pada indeks terakhir array
     # F.S.: menghasilkan tipe data boolean jika data ketemu atau tidak ketemu
@@ -697,10 +710,7 @@ def fungsi_sequential_search_sentinel(array, dicari) -> bool:
     else:
         return False
 
-
-
-# START FUNGSI MENU
-
+# SABRUTIN MENAMPILKAN MENU UTAMA
 def fungsi_menu_utama(menu_utama) -> int:
     # I.S.: menampilkan pilihan menu yang pengguna bisa pilih
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -752,7 +762,7 @@ def fungsi_menu_utama(menu_utama) -> int:
 
     return menu_utama
 
-
+# SUBRUTIN UNTUK MEMVALIDASI LOGIN ADMIN
 def fungsi_validasi_admin(password) -> bool:
     # I.S.: pengguna memasukkan password khusus admin
     # F.S.: menghasilkan data boolean jika pengguna berhasil atau tidak berhasil
@@ -794,7 +804,7 @@ def fungsi_validasi_admin(password) -> bool:
     else:
         return True
 
-
+# SUBRUTIN UNTUK MENAMPILKAN MENU ADMIN
 def fungsi_menu_admin(menu_admin) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -841,7 +851,7 @@ def fungsi_menu_admin(menu_admin) -> int:
         menu_admin = int(input(' Masukkan pilihan anda : '))
     return menu_admin
 
-
+# SUBRUTIN UNTUK MENAMPILKAN MENU ADMIN CRUD
 def fungsi_menu_admin_crud(menu_admin_crud) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -894,7 +904,7 @@ def fungsi_menu_admin_crud(menu_admin_crud) -> int:
 
     return menu_admin_crud
 
-
+# SUBRUTIN UNTUK MENAMPILKAN MENU ADMIN SORTING
 def fungsi_menu_admin_sorting(menu_admin_sorting) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -937,7 +947,7 @@ def fungsi_menu_admin_sorting(menu_admin_sorting) -> int:
 
     return menu_admin_sorting
 
-
+# SUBRUTIN UNTUK MENAMPILKAN MENU ADMIN SORTING SECARA ASC
 def fungsi_menu_admin_sorting_asc(menu_admin_sorting_asc) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -987,7 +997,7 @@ def fungsi_menu_admin_sorting_asc(menu_admin_sorting_asc) -> int:
 
     return menu_admin_sorting_asc
 
-
+# SUBRUTIN UNTUK MENAMPILKAN MENU ADMIN SORTING SECARA DESC
 def fungsi_menu_admin_sorting_desc(menu_admin_sorting_desc) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -1037,7 +1047,7 @@ def fungsi_menu_admin_sorting_desc(menu_admin_sorting_desc) -> int:
 
     return menu_admin_sorting_desc
 
-
+# SUBRUTIN UNTUK MENAMPILKAN MENU ADMIN SEARCHING DATA
 def fungsi_menu_admin_searching(menu_admin_searching) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -1079,7 +1089,7 @@ def fungsi_menu_admin_searching(menu_admin_searching) -> int:
         menu_admin_searching = int(input(' Masukan pilihan anda : '))
     return menu_admin_searching
 
-
+# SUBRUTIN UNTUK MENAMPILKAN MENU ADMIN SEARCHING SECARA SEQUENTIAL
 def fungsi_menu_admin_searching_sequential(menu_admin_searching_sequential) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -1126,7 +1136,7 @@ def fungsi_menu_admin_searching_sequential(menu_admin_searching_sequential) -> i
 
     return menu_admin_searching_sequential
 
-
+# SUBRUTIN UNTUK MENAMPILKAN MENU ADMIN SEARCHING SECARA BINARY
 def fungsi_menu_admin_searching_binary(menu_admin_searching_binary) -> int:
     # I.S.: pengguna memilih menu yang tersedia
     # F.S.: menghasilkan nilai sesuai pilihan pengguna
@@ -1166,7 +1176,10 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary) -> int:
         menu_admin_searching_binary = int(input(' Masukan pilihan anda : '))
     return menu_admin_searching_binary
 
+# SUBRUTIN UNTUK MENAMPILKAN MENU USER
 def fungsi_menu_user(menu_user):
+    # I.S.: pengguna memilih menu yang tersedia
+    # F.S.: menghasilkan nilai sesuai pilihan pengguna
     print('╔══════════════════════════════════════════════════════════════════════════╗')
     print('║             -  +  -  M E N U   P E L A N G G A N  -  +  -                ║')
     print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
@@ -1201,7 +1214,8 @@ def fungsi_menu_user(menu_user):
         
     return menu_user
         
-# END FUNGSI MENU
+
+# BADAN PROGRAM 
 
 os.system(hapus)
 menu_utama = fungsi_menu_utama(menu_utama)
