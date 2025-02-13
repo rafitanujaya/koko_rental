@@ -23,6 +23,7 @@ menu_admin_sorting_desc = 0
 menu_admin_searching = 0
 menu_admin_searching_sequential = 0
 menu_admin_searching_binary = 0
+menu_user = 0
 
 # ARRAY
 plat_nomor = [""] * (MAKSBARIS + 1)
@@ -1132,7 +1133,41 @@ def fungsi_menu_admin_searching_binary(menu_admin_searching_binary) -> int:
         menu_admin_searching_binary = int(input(' Masukan pilihan anda : '))
     return menu_admin_searching_binary
 
+def fungsi_menu_user(menu_user):
+    print('╔══════════════════════════════════════════════════════════════════════════╗')
+    print('║             -  +  -  M E N U   P E L A N G G A N  -  +  -                ║')
+    print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
+    print('║  1. MENAMPILKAN DATA KENDARAAN    ║  0. KEMBALI                          ║')
+    print('╚═══════════════════════════════════╩══════════════════════════════════════╝')
+    print('>>> Masukkan pilihan Anda dan tekan [ENTER] untuk melanjutkan.')
+    menu_user = int(input(' Masukkan pilihan anda : '))
 
+    while menu_user < 0 and menu_user > 1:
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║                                                                          ║')
+        print('║        //\\            PERINTAH YANG ANDA MASUKAN TIDAK VALID!!           ║')
+        print('║       // ║\\           ────────────────────────────────────────           ║')
+        print('║      //  0 \\              SILAHKAN MASUKKAN PERINTAH KEMBALI             ║')
+        print('║     //______\\                 tekan enter untuk kembali <--              ║')
+        print('║                                                                          ║')
+        print('╠══════════════════════════════════════════════════════════════════════════╣')
+        print('║                       PILIHAN YANG TERSEDIA:                             ║')
+        print('║                       [1] MENAMPILKAN DATA KENDARAAN                             ║')
+        print('║                       [0] KELUAR                                         ║')
+        print('╚══════════════════════════════════════════════════════════════════════════╝')
+        input('Tekan [ENTER] untuk melanjutkan.')
+        os.system(hapus)
+        
+        print('╔══════════════════════════════════════════════════════════════════════════╗')
+        print('║             -  +  -  M E N U   P E L A N G G A N  -  +  -                ║')
+        print('╠═══════════════════════════════════╦══════════════════════════════════════╣')
+        print('║  1. MENAMPILKAN DATA KENDARAAN    ║  0. KEMBALI                          ║')
+        print('╚═══════════════════════════════════╩══════════════════════════════════════╝')
+        print('>>> Masukkan pilihan Anda dan tekan [ENTER] untuk melanjutkan.')
+        menu_user = int(input(' Masukkan pilihan anda : '))
+        
+    return menu_user
+        
 # END FUNGSI MENU
 
 os.system(hapus)
@@ -1339,8 +1374,21 @@ while menu_utama != 0:
                     os.system(hapus)
                     menu_admin = fungsi_menu_admin(menu_admin)
         case 2:
-            while True:
-                os.system('cls')
+            menu_user = fungsi_menu_user(menu_user)
+            while menu_user != 0:
+                match menu_user:
+                    case 1:
+                        if (banyak_data > MAKSBARIS):
+                            prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir,
+                                                        nomor_supir, MAKSBARIS)
+                        else:
+                            prosedur_tampil_data_rental(plat_nomor, model, brand, harga_sewa, supir,
+                                                        nomor_supir, banyak_data)
+                
+                input('[ENTER] untuk melanjutkan...')
+                os.system(hapus)
+                menu_user = fungsi_menu_user(menu_user)
+                
     menu_utama = fungsi_menu_utama(menu_utama)
 
 # Keluar aplikasi
