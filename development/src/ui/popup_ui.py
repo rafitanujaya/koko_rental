@@ -24,3 +24,28 @@ print('║    +        TERIMA KASIH KARENA SUDAH MENGGUNAKAN FITUR INI          
 print('║             +  ─────────────────────────────────────────  +              ║')
 print('║               tekan enter untuk kembali ke menu sebelumnya           +   ║')
 print('╚══════════════════════════════════════════════════════════════════════════╝')
+
+#Menu W.I.P.
+
+print('╔══════════════════════════════════════════════════════════════════════════╗')
+print('║                 :(                                                       ║')
+print('║      0      0        FITUR INI SEDANG DALAM PROSES PENGEMBANGAN     :[   ║')
+print('║     __________        ────────────────────────────────────────           ║')
+print('║    /          \         SILAHKAN GUNAKAN FITUR INI LAIN KALI             ║')
+print('║                                                                :"(       ║')
+print('╚══════════════════════════════════════════════════════════════════════════╝')
+
+# Keluar aplikasi
+print('╔══════════════════════════════════════════════════════════════════════════╗')
+print('║                                                                          ║')
+print('║   +  T E R I M A   K A S I H   T E L A H   M E N G G U N A K A N   +     ║')
+print('║                     +   K O K O   R E N T A L   +                        ║')
+print('║                                                                          ║')
+print('║      Semoga perjalanan Anda menyenangkan dan penuh pengalaman seru!      ║')
+print('║      Jangan ragu untuk kembali menggunakan layanan kami kapan saja.      ║')
+print('║                                                                          ║')
+print('║             +  ─────────────────────────────────────────  +              ║')
+print('║                                                                          ║')
+print('║     Follow kami di @KokoRental untuk promo menarik dan info terbaru!     ║')
+print('║                                                                          ║')
+print('╚══════════════════════════════════════════════════════════════════════════╝')

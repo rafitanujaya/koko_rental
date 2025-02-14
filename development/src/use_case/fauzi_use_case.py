@@ -362,9 +362,26 @@ def function_login_pengguna(nama_pengguna, pass_pengguna, data_akun, data_pass, 
             return True
         else :
             return False
-def function_harga_rental(pilihan_pengguna, lama_rental) :
+
+def function_harga_rental(pilihan_pengguna, lama_rental, array_harga_mobil) :
     harga = array_harga_mobil[pilihan_pengguna - 1]
     return harga * lama_rental
+
+#subrutin mengubah data array setelah disewakan
+def procedure_sewa_mobil(pilihan_pengguna, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir):
+    array_brand_mobil[pilihan_pengguna - 1] = 'Disewakan'
+    array_model_mobil[pilihan_pengguna - 1] = 'Disewakan'
+    array_harga_mobil[pilihan_pengguna - 1] = 0
+    array_plat_mobil[pilihan_pengguna - 1] = 'Disewakan'
+    array_nama_supir[pilihan_pengguna - 1] = 'Disewakan'
+    array_nomor_supir[pilihan_pengguna - 1] = 'Disewakan'
+
+#subrutin validasi pilihan pengguna
+def function_validasi_sewa(pilihan_pengguna, array_brand_mobil, banyak_data) :
+    while pilihan_pengguna >= banyak_data or array_brand_mobil[pilihan_pengguna - 1] == 'Disewakan' :
+        print('Pilihan tidak valid')
+        pilihan_pengguna = int(input('Masukkan Nomor Pilihan : '))
+    return pilihan_pengguna
 
 # program utama
 print('Pilihan Program Anda')
@@ -664,11 +681,12 @@ while status != 0 :
                     login = False
         else:
             print('Maaf, Login anda gagal')
+
     if status == 2 :
         # main program user
         akun_user = str(input('Sudah Punya Akun? [y/n]: '))
         status_akun = function_akun_user(akun_user)
-        if not status_akun:
+        if not status_akun :
             procedure_buat_akun(data_akun, data_pass)
         print('Silahkan Login Dahulu')
         nama_pengguna = str(input('Masukkan username : '))
@@ -677,8 +695,9 @@ while status != 0 :
         if status_login :
             procedure_traversal_tampilan(banyak_data, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nama_supir, array_nomor_supir)
             pilihan_pengguna = int(input('Masukkan Nomor Pilihan : '))
+            pilihan_pengguna = function_validasi_sewa(pilihan_pengguna, array_brand_mobil, banyak_data)
             lama_rental = int(input('Lama Rental [Hari] : '))
-            harga = function_harga_rental(pilihan_pengguna, lama_rental)
+            harga = function_harga_rental(pilihan_pengguna, lama_rental, array_harga_mobil)
             print(f'Harga yang harus dibayar : Rp {harga}')
             pembayaran = int(input('Masukkan Total Pembayaran : '))
             while pembayaran < harga :
@@ -690,6 +709,7 @@ while status != 0 :
                 print('Selamat Menikmati Rental Anda')
             else :
                 print('Selamat Menikmati Rental Anda')
+            procedure_sewa_mobil(pilihan_pengguna, array_plat_mobil, array_brand_mobil, array_model_mobil, array_harga_mobil, array_nomor_supir, array_nama_supir)
         elif not status_login:
             print('Password atau Username salah!')
     os.system('pause')
