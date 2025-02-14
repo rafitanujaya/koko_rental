@@ -1,16 +1,7 @@
+import mouse
 import keyboard
-import platform
-if not platform.system() == "Darwin":
-    print("WIN MODE")
-    import mouse
-    import time
+import time
 
-
-
-
-
-
-#pip install mouse,keyboard
 password="admin123"
 #LIST PAUJI
 #flow unit>menu1>input+>enter>data>show>delete-1>show>
@@ -55,31 +46,6 @@ click_list_rafi = [
     "testcar4", "botcar4", "BK4444BT", "4567890123", "bangbang", "628574321",
     "testcar5", "botcar5", "BK1111BT", "1234567890", "emely", "628571234","2"
     ]
-click_list_main1 = [
-                    "1","admin","1","1","2",
-                    "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
-                    "BK1234AB","AWANJA","OYOTA","92162100","Sdr MACANATO","628126213369",
-                    "3"
-                   ]
-click_list_main = [
-                    "1","admin","1","1","10",
-                    "BK1234AB","AWANJA","OYOTA","92162100","MACANATO","628126213369",
-                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SUR","628394756218",
-                    "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
-                    "BK9876GH","ZENTRA","QWERTY","12345678","John Doe","628123456789",
-                    "BK5432IJ","NEXUS-X","ASDFGH","87654321","Jane Smith","628987654321",
-                    "BK1357KL","OPTIMA","ZXCVBN","23456789","Alice Won","628456789012",
-                    "BK2468MN","VORTEX","POIUYT","34567890","Bob bay","628321654987",
-                    "BK3690OP","PHOENIX","LKJHGF","45678901","CharlieBro","628654321098",
-                    "BK4821QR","AURORA","MNBVCX","56789012","Daisy Duck","628789012345",
-                    "BK5793ST", "ECLIPSE", "QWERTY", "67890123", "Eve Adams", "628890123456",
-                    "","2","","3","","4","","5","","7","y","1","2",
-                    "BK5678CD","MODEL-U","TELZA","6952966900","TANTIN SUR","628394756218",
-                    "BK1234EF","RY-8","MANZA","75262100","CJ","628112233369",
-                    "","5",
-                    "BK2468MN","VORTEX","POIUYT","34567890","Bob bay","628321654987",
-                    "","2","",
-    ]
 
 #PLAT/MODEL/BRAND/HARGA/SUPIR/NOSUPIR
 def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
@@ -89,8 +55,8 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
     mouse.move(100, 630, absolute=False, duration=0.1)
     mouse.click()
     time.sleep(delay)
-    keyboard.press_and_release('ctrl+F5')
-    time.sleep(delay+1.8)
+    keyboard.press_and_release('ctrl+f5')
+    time.sleep(delay+0.1)
     mouse.move(600, 200, absolute=False, duration=0.1)
     if isselectadmin:
         keyboard.write("1", delay=0.01)
@@ -109,28 +75,6 @@ def automate(click_list,delay=0.1,islocked=True,isselectadmin=True):
         time.sleep(delay)
     print("TEST PASSED")
 
-def automate_mac(click_list,delay=0.1,islocked=True,isselectadmin=True):
-    print("PRESS ESC TO START")
-    while True:
-        if keyboard.is_pressed('escape'):
-            break
-    print("TEST IN PROGRESS. DO NOT TOUCH!")
-    if isselectadmin:
-        keyboard.write("1", delay=0.01)
-        keyboard.press_and_release('enter')
-        time.sleep(delay)
-    if islocked:
-        keyboard.write(password, delay=0.01)
-        keyboard.press_and_release('enter')
-        time.sleep(delay)
-    time.sleep(0.01)
-    for text_to_insert in click_list:
-        if keyboard.is_pressed('escape'):
-            exit("Emergency triggered!")
-        keyboard.write(text_to_insert, delay=0.01)
-        keyboard.press_and_release('enter')
-        time.sleep(delay)
-    print("TEST PASSED")
 
 def main():
     while True:
@@ -138,36 +82,17 @@ def main():
             print("""
             1.automate pauji
             2.automate rafi
-            3.automate main
+            3.automate custom
             """)
             menu = int(input(">"))
             if menu == 1:
-                if platform.system() == "Darwin":
-                    automate_mac(click_list_pauji,0.01,True,False)
-                else:
-                    automate(click_list_pauji,0.01,True,False)
+                automate(click_list_pauji,0.01,True,False)
             elif menu == 2:
-                if platform.system() == "Darwin":
-                    automate_mac(click_list_rafi, 0.01,False,False)
-                else:
-                    automate(click_list_rafi, 0.01,False,False)
-            if menu == 3:
-                if platform.system() == "Darwin":
-                    automate_mac(click_list_main,0.05,False,False)
-                else:
-                    automate(click_list_main,0.05,False,False)
+                print("NOTE:HAPUS PP DARI INPUT")
+                automate(click_list_rafi, 0.01,False,False)
         except Exception as e:
             print("error:", e)
 
 
 if __name__ == "__main__":
-
     main()
-
-
-
-
-
-
-
-
